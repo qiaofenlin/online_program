@@ -50,6 +50,10 @@
 >  
 
 
+# study 20181209
+spring data jpa 直接访问数据库
+
+
 
 
 
