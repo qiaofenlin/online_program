@@ -24,6 +24,7 @@ public class OnlineProgramApplicationTests {
     @Test
     public void test(){
         Userinfo userinfo = userRepository.findAllById(1L).get();
+        System.out.println("test start");
         System.out.println(userinfo);
     }
 
