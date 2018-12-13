@@ -28,6 +28,8 @@ public class UserController {
         return "redirect:/list";
     }
 
+
+
     @RequestMapping("/list")
     public String list(Model model, @RequestParam(value="page",defaultValue = "0") Integer page, @RequestParam(value="size",defaultValue = "5") Integer size) {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
