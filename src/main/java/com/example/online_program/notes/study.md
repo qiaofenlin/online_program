@@ -50,7 +50,7 @@
 >  
 
 
-# study 20181209 jpa orm 关系
+# study 20181209 jpa
 
 spring data jpa 直接访问数据库
 
