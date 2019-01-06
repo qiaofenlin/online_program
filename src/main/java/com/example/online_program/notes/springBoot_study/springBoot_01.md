@@ -20,4 +20,63 @@ mybaits ：
 
 ```
 
-# config
+# config 自动配置原理
+
+# 日志
+
+```text
+日志门面(抽象)  日志实现(实现)
+jcl             log4j()
+[slf4j (***)](https://www.slf4j.org/manual.html)     logback(***)
+jboos-logging   
+```
+> 开发中，日志记录方法的调用，应该调用日志抽象层里的方法，不应该直接调用实现类。
+
+```java
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class HelloWorld {
+  public static void main(String[] args) {
+    Logger logger = LoggerFactory.getLogger(HelloWorld.class);
+    logger.info("Hello World");
+  }
+}
+```
+#遗留问题：
+统一到slf4j,1.将系统气体日志框架排除出去
+2.用中间包来替换原有日志框架3.用slf4j实现。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
