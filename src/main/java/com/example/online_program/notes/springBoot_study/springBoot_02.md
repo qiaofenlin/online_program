@@ -18,3 +18,4 @@ resource boundle  ‘login’
 
 区域信息解析器
 ```
+![tu](cruid_config.png)
