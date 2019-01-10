@@ -15,9 +15,7 @@ druid 数据源 1.1.8 alibaba
 ```
 
 ```text
-mybaits ： 
-
-
+mybaits ：
 ```
 
 # config 自动配置原理
