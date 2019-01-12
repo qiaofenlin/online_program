@@ -4,6 +4,7 @@ import com.example.online_program.entity.Userinfo;
 import com.example.online_program.pojo_fake.DemoJSONResult;
 import com.example.online_program.pojo_fake.User;
 import com.example.online_program.repository.UserRepository;
+import org.hibernate.annotations.Table;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.Calendar;
 import java.util.Date;
 
 @RunWith(SpringRunner.class)
@@ -47,6 +49,15 @@ public class OnlineProgramApplicationTests {
 //        System.out.println("******************************result| "+result);
     }
 
+    /**
+     * 获取当前时间
+     */
+    @Test
+    public void Data() {
+        System.out.println(System.currentTimeMillis());
+        System.out.println(Calendar.getInstance().getTimeInMillis());
+        System.out.println(new Date().getTime());
+    }
 
 
 }

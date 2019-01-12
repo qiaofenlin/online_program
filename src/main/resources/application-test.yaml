@@ -12,4 +12,6 @@ spring:
     hibernate:
       ddl-auto: update #自动创建和更新数据表
     show-sql: true     # 控制台显示sql语句
-
+  jackson:
+    date-format: java.text.SimpleDateFormat
+    time-zone: GMT+8

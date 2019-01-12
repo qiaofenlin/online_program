@@ -7,6 +7,7 @@ package com.example.online_program.entity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 
 
@@ -15,7 +16,7 @@ import java.util.Date;
 public class Userinfo {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)
     private String pwd;
@@ -26,13 +27,36 @@ public class Userinfo {
     @Column(nullable = false)
     private int age;
 
-    @Column(nullable = false)
-    private Date regTime;
+    @Column(nullable = false,columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp regTime = new Timestamp(System.currentTimeMillis()) ;//默认为当前时间
 
     @Column(nullable = false)
-    public long getId() {
+    private Timestamp birthday;// =new Timestamp(System.currentTimeMillis());;
+
+    @Column(nullable = false)
+    private String description;
+
+    public Timestamp getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Timestamp birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getId() {
         return id;
     }
+
+
 
     public void setId(Integer id) {
         this.id = id;
@@ -62,17 +86,24 @@ public class Userinfo {
         this.age = age;
     }
 
-    public Date getRegTime() {
+    public Timestamp getRegTime() {
         return regTime;
     }
 
-    public void setRegTime(Date regTime) {
+    public void setRegTime(Timestamp regTime) {
         this.regTime = regTime;
     }
 
     @Override
-
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        return "Userinfo{" +
+                "id=" + id +
+                ", pwd='" + pwd + '\'' +
+                ", userName='" + userName + '\'' +
+                ", age=" + age +
+                ", regTime=" + regTime +
+                ", birthday=" + birthday +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

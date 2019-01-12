@@ -1,5 +1,7 @@
 package com.example.online_program.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.example.online_program.entity.Userinfo;
 import com.example.online_program.repository.UserRepository;
 import com.example.online_program.utils.result_utils.Result;
@@ -40,17 +42,6 @@ public class UserController {
         }
     }
 
-//    @RequestMapping("/list")
-//    public Page<Userinfo> list(Model model, @RequestParam(value="page",defaultValue = "0") Integer page, @RequestParam(value="size",defaultValue = "5") Integer size) {
-//        Sort sort = new Sort(Sort.Direction.DESC, "id");
-//        Pageable pageable = new PageRequest(page, size, sort);
-//        Page<Userinfo> userList = userRepository.findList(pageable);
-////        model.addAttribute("users",userList);
-////        return "user/list";
-//        return userList;
-//
-//    }
-
 
     @GetMapping("/user/{id}")
     public Result getUser(@PathVariable("id") Integer id) {
@@ -59,10 +50,14 @@ public class UserController {
         return result;
     }
 
-    @GetMapping("/user/")
-    public Userinfo insertUser(Userinfo userinfo) {
-
+    @PostMapping("/user/")
+    public Result insertUser(@RequestBody JSONObject jsonParam) {
+        System.out.println("**********************************************" + jsonParam.toJSONString());
+        // TODO todo pojo
+        Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam), Userinfo.class);
+        System.out.println("***********************************************toString()"+userinfo.toString());
         Userinfo user = userRepository.save(userinfo);
-        return user;
+        Result result = ResultGenerator.genSuccessResult(user.toString());
+        return result;
     }
 }
