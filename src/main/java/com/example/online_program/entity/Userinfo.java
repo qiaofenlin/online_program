@@ -4,11 +4,9 @@ package com.example.online_program.entity;
  * @Created by  qiao
  * @date 18-12-9 下午1:46
  */
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 
 @Entity // tell jpa is entity
@@ -16,19 +14,19 @@ import java.util.Date;
 public class Userinfo {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)
     private String pwd;
 
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private String userName;
 
     @Column(nullable = false)
     private int age;
 
-    @Column(nullable = false,columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp regTime = new Timestamp(System.currentTimeMillis()) ;//默认为当前时间
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Timestamp regTime = new Timestamp(System.currentTimeMillis());//默认为当前时间
 
     @Column(nullable = false)
     private Timestamp birthday;// =new Timestamp(System.currentTimeMillis());;
@@ -55,7 +53,6 @@ public class Userinfo {
     public Integer getId() {
         return id;
     }
-
 
 
     public void setId(Integer id) {

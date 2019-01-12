@@ -5,7 +5,7 @@ spring:
     static-path-pattern: /static/**
 logging:
   level:
-    com.example: trace
+    com.example: ++
 #  file:
   path: ./logger/
 #server:
