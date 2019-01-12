@@ -46,4 +46,11 @@ public class User {
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
+    public User(String name, Integer age, Date birthday, String desc) {
+        this.name = name;
+        this.age = age;
+        this.birthday = birthday;
+        this.desc = desc;
+    }
 }
