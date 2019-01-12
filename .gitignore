@@ -27,3 +27,6 @@
 ### mvn
 .mvnw
 .mvnw.cmd
+
+### log files
+*.log
