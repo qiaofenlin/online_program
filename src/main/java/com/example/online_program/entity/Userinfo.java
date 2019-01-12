@@ -6,19 +6,17 @@ package com.example.online_program.entity;
  */
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 
-@Entity
+@Entity // tell jpa is entity
+//@Table(name="tble")  //可以省略
 public class Userinfo {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Integer id;
     @Column(nullable = false)
     private String pwd;
 
@@ -36,7 +34,7 @@ public class Userinfo {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

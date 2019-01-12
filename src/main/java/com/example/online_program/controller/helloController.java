@@ -1,5 +1,6 @@
 package com.example.online_program.controller;
 
+import com.example.online_program.entity.Userinfo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,4 +15,11 @@ public class helloController {
     public Object hello() {
         return "hello springboot~~~";
     }
+
+    public Userinfo getUser() {
+        Userinfo userinfo = new Userinfo();
+        System.out.println();
+        return userinfo;
+    }
 }
+

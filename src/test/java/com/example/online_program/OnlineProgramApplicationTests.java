@@ -1,8 +1,8 @@
 package com.example.online_program;
 
 import com.example.online_program.entity.Userinfo;
-import com.example.online_program.pojo.DemoJSONResult;
-import com.example.online_program.pojo.User;
+import com.example.online_program.pojo_fake.DemoJSONResult;
+import com.example.online_program.pojo_fake.User;
 import com.example.online_program.repository.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,15 +36,15 @@ public class OnlineProgramApplicationTests {
 
     @Test
     public void test(){
-//        Userinfo userinfo = userRepository.findAllById(1L).get();
+//        Userinfo userinfo = userRepository.findAllById(1).get();
 //        System.out.println("test start");
 //        System.out.println(userinfo);
-        Date date = new Date();
-        System.out.println("*****************"+ date);
-        User user = new User("a", 1, date, "b");
-//        DemoJSONResult demoJSONResult = new DemoJSONResult();
-        DemoJSONResult result = DemoJSONResult.format("{'a':'123'}");
-        System.out.println("******************************result| "+result);
+//        Date date = new Date();
+//        System.out.println("*****************"+ date);
+//        User user = new User("a", 1, date, "b");
+////        DemoJSONResult demoJSONResult = new DemoJSONResult();
+//        DemoJSONResult result = DemoJSONResult.format("{'a':'123'}");
+//        System.out.println("******************************result| "+result);
     }
 
 

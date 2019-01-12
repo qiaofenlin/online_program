@@ -8,5 +8,8 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
-
+  jpa:
+    hibernate:
+      ddl-auto: update #自动创建和更新数据表
+    show-sql: true     # 控制台显示sql语句
 
