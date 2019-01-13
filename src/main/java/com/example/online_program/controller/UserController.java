@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.example.online_program.entity.Userinfo;
 import com.example.online_program.repository.UserRepository;
+import com.example.online_program.service.UserService;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,5 +60,13 @@ public class UserController {
         Userinfo user = userRepository.save(userinfo);
         Result result = ResultGenerator.genSuccessResult(user.toString());
         return result;
+    }
+
+    @Autowired
+    UserService userService;
+
+    @GetMapping("/user/one/{id}")
+    public Userinfo getUserOne(@PathVariable("id") Integer id) {
+        return userService.getUserInfobyId(id);
     }
 }

@@ -6,12 +6,13 @@ package com.example.online_program.entity;
  */
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 
 @Entity // tell jpa is entity
 //@Table(name="tble")  //可以省略
-public class Userinfo {
+public class Userinfo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

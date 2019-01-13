@@ -31,6 +31,8 @@ mybitis 如果获取的数据不存在时，可以通过设置开启陀峰命名
 
 
 ## 整合redis
-`https://www.docker-cn.com/registry-mirror`
+* [仓库加速](https://www.docker-cn.com/registry-mirror)
 
-` docker run -d -p 6379:6379 --name=myredis registry.docker-cn.com/library/redis `
+* ` docker run -d -p 6379:6379 --name=myredis registry.docker-cn.com/library/redis `
+
+* 是在application.properites的redis配置中的spring.redis.timeout中连接超时时间（毫秒）中时间设置不能为0
