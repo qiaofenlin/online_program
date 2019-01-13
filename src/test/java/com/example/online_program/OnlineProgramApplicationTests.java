@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import com.example.online_program.config.RedisConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;

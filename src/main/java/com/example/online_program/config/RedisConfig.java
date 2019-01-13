@@ -26,7 +26,7 @@ import java.time.Duration;
 public class RedisConfig {
 
     @Bean
-    public CacheManager cacheManager(RedisConnectionFactory factory) {
+    public CacheManager mycacheManager(RedisConnectionFactory factory) {
         //设置缓存过期时间
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
                 .entryTtl(Duration.ofHours(1)); // 设置缓存有效期一小时

@@ -8,6 +8,7 @@ import com.example.online_program.service.UserService;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,9 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    UserService userService;
 
     @RequestMapping("/")
     public String index() {
@@ -43,7 +47,7 @@ public class UserController {
         }
     }
 
-
+    @Cacheable(cacheNames = "user_info")
     @GetMapping("/user/{id}")
     public Result getUser(@PathVariable("id") Integer id) {
         Optional<Userinfo> userinfo = userRepository.findById(id);
@@ -62,11 +66,13 @@ public class UserController {
         return result;
     }
 
-    @Autowired
-    UserService userService;
+
 
     @GetMapping("/user/one/{id}")
-    public Userinfo getUserOne(@PathVariable("id") Integer id) {
-        return userService.getUserInfobyId(id);
+    public Result getUserOne(@PathVariable("id") Integer id) {
+//        String userinfo1 = userService.getUserInfobyId(id);
+        Userinfo userinfo1 = userService.getUserInfobyId(id);
+        Result result = ResultGenerator.genSuccessResult(userinfo1);
+        return result;
     }
 }
