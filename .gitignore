@@ -34,3 +34,6 @@
 ### yaml conf
 *.yaml
 *.yml
+
+
+pom.xml
