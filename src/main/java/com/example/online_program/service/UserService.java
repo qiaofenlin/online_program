@@ -24,11 +24,12 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    @Cacheable(cacheNames = "user_info" ,key = "#id",condition = "#result != null",cacheManager = "mycacheManager")
-    public Userinfo  getUserInfobyId(Integer id) {
+    @Cacheable(cacheNames = "user_info" ,key = "#id",unless = "#result eq null")
+    public Optional  getUserInfobyId(Integer id) {
         System.out.println("*********************************** execute  ");
         Optional<Userinfo> userinfo = userRepository.findById(id);
-        Userinfo userinfo1 = (Userinfo) userinfo.get();
-        return userinfo1;
+        return userinfo;
     }
+
+//    public
 }

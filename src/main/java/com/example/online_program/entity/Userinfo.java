@@ -94,7 +94,7 @@ public class Userinfo implements Serializable {
 
     @Override
     public String toString() {
-        return "Userinfo{" +
+        return "{" +
                 "id=" + id +
                 ", pwd='" + pwd + '\'' +
                 ", userName='" + userName + '\'' +

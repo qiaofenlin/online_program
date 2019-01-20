@@ -71,8 +71,8 @@ public class UserController {
     @GetMapping("/user/one/{id}")
     public Result getUserOne(@PathVariable("id") Integer id) {
 //        String userinfo1 = userService.getUserInfobyId(id);
-        Userinfo userinfo1 = userService.getUserInfobyId(id);
-        Result result = ResultGenerator.genSuccessResult(userinfo1);
+        Optional<Userinfo> userinfo1 = userService.getUserInfobyId(id);
+        Result result = ResultGenerator.genSuccessResult(userinfo1.get());
         return result;
     }
 }

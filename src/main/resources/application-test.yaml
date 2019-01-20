@@ -15,7 +15,8 @@ spring:
   jackson:
     date-format: java.text.SimpleDateFormat
     time-zone: GMT+8
-
+  cache:
+    type: redis
   redis:
     host: 47.93.221.91
     port: 6379

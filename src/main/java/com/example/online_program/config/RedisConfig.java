@@ -11,7 +11,6 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.time.Duration;
@@ -60,8 +59,26 @@ public class RedisConfig {
 
 
         return template;
-
-
     }
+//    @Bean
+//    public RedisTemplate<String, Object> UserInforedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+//
+//
+//        RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
+//
+//
+//        template.setConnectionFactory(redisConnectionFactory);
+//    //        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+//        template.setValueSerializer(new FastJsonRedisSerializer<>(Object.class));
+//        template.setHashValueSerializer(new FastJsonRedisSerializer<>(Object.class));
+//
+//        template.setKeySerializer(new StringRedisSerializer());
+//        template.setHashKeySerializer(new StringRedisSerializer());
+//
+//        template.afterPropertiesSet();
+//
+//
+//        return template;
+//    }
 
 }

@@ -3,6 +3,7 @@ spring:
     active: test
   mvc:
     static-path-pattern: /static/**
+
 logging:
   level:
     com.example: ++

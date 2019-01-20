@@ -8,7 +8,9 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -36,6 +38,7 @@ public class OnlineProgramApplicationTests {
     @Autowired
     RedisTemplate<String,Object> redisTemplateObj; // 自定义 object
 
+//    @Qualifier("UserInforedisTemplate")
 //    @Autowired
 //    RedisTemplate<Object,Userinfo> UserInforedisTemplate;
 
@@ -71,6 +74,8 @@ public class OnlineProgramApplicationTests {
     }
 
 
+
+
     /**
      * TODO test redisTemplateObj
      */
@@ -83,6 +88,10 @@ public class OnlineProgramApplicationTests {
         redisTemplateObj.opsForValue().set("123", userinfo1);
         Userinfo userinfo2 = JSON.parseObject(String.valueOf(redisTemplateObj.opsForValue().get("123")), Userinfo.class);
         System.out.println("#########################################"+userinfo2.toString());
+
+//        UserInforedisTemplate.opsForValue().set("123", userinfo1);
+//        Userinfo userinfo2 = JSON.parseObject(String.valueOf(UserInforedisTemplate.opsForValue().get("123")), Userinfo.class);
+//        System.out.println("#########################################"+userinfo2.toString());
     }
 
     /**
@@ -95,5 +104,28 @@ public class OnlineProgramApplicationTests {
         System.out.println(new Date().getTime());
     }
 
+
+//    public class CacheTest {
+//        /**
+//         * 缓存测试方法延时两秒
+//         * @param i
+//         * @return
+//         */
+//
+//    }
+
+    @Cacheable(value = "cache_test")
+    public String cacheFunction(int i){
+        try {
+            long time = 2000L;
+            System.out.println("11111111111111");
+            Thread.sleep(time);
+            System.out.println("222222222222222");
+        } catch (InterruptedException e) {
+            throw new IllegalStateException(e);
+        }
+
+        return "success"+ i;
+    }
 
 }

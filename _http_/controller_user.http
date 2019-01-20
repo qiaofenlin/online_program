@@ -20,19 +20,19 @@ POST http://127.0.0.1:8080/user/
 Content-Type: application/json
 
 {
-  "user_name":"1234567",
+  "user_name":"123456799",
   "age":18,
-  "desc": "123",
+  "desc": "1239",
   "birthday": "2018-12-09 16:00:00.0",
-  "pwd": "123456",
-  "description": "123565555"
+  "pwd": "1234569",
+  "description": "1235655559"
 }
 
 ###
 GET http://127.0.0.1:8080/user/2
 
 ###
-GET http://127.0.0.1:8080/user/one/1
+GET http://127.0.0.1:8080/user/one/2
 
 ###
 
