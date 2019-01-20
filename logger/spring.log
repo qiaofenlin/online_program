@@ -863,3 +863,379 @@ java.lang.ClassCastException: com.example.online_program.entity.Userinfo cannot 
 2019-01-20 13:36:54.596  INFO 13852 --- [Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2019-01-20 13:36:54.607  INFO 13852 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2019-01-20 13:36:54.620  INFO 13852 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-01-20 14:49:34.576 ERROR 16940 --- [main] o.s.b.c.l.LoggingApplicationListener     : Cannot set level '++' for 'com.example'
+2019-01-20 14:49:34.944  INFO 16940 --- [main] c.e.o.OnlineProgramApplicationTests      : Starting OnlineProgramApplicationTests on qiao-Lenovo-Y50c with PID 16940 (started by qiao in /home/qiao/IdeaProjects/online_program)
+2019-01-20 14:49:34.947  INFO 16940 --- [main] c.e.o.OnlineProgramApplicationTests      : The following profiles are active: test
+2019-01-20 14:49:36.290  INFO 16940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 14:49:36.293  INFO 16940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 14:49:36.550  INFO 16940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 244ms. Found 1 repository interfaces.
+2019-01-20 14:49:36.575  INFO 16940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 14:49:36.577  INFO 16940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 14:49:36.598  INFO 16940 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-01-20 14:49:36.598  INFO 16940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-01-20 14:49:37.330  INFO 16940 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$8a8e8373] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 14:49:37.421  INFO 16940 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c422c545] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 14:49:37.937  INFO 16940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-01-20 14:49:37.940  WARN 16940 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-01-20 14:49:38.534  INFO 16940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-01-20 14:49:38.634  INFO 16940 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-01-20 14:49:38.726  INFO 16940 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-01-20 14:49:38.728  INFO 16940 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-01-20 14:49:38.975  INFO 16940 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-01-20 14:49:39.287  INFO 16940 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-01-20 14:49:40.245  INFO 16940 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 14:49:42.332  INFO 16940 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-20 14:49:42.419  WARN 16940 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-01-20 14:49:42.745  INFO 16940 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-01-20 14:49:42.875 ERROR 16940 --- [main] com.rabbitmq.client.Address              : Address http://47.93.221.91:5672 seems to contain an unquoted IPv6 address. Make sure you quote IPv6 addresses like so: [2001:db8:85a3:8d3:1319:8a2e:370:7348]
+2019-01-20 14:49:42.876  WARN 16940 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'rabbitConnectionFactory' defined in class path resource [org/springframework/boot/autoconfigure/amqp/RabbitAutoConfiguration$RabbitConnectionFactoryCreator.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.amqp.rabbit.connection.CachingConnectionFactory]: Factory method 'rabbitConnectionFactory' threw exception; nested exception is java.lang.IllegalArgumentException: Address http://47.93.221.91:5672 seems to contain an unquoted IPv6 address. Make sure you quote IPv6 addresses like so: [2001:db8:85a3:8d3:1319:8a2e:370:7348]
+2019-01-20 14:49:42.877  INFO 16940 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-01-20 14:49:42.904  INFO 16940 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 14:49:42.909  INFO 16940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-01-20 14:49:42.964  INFO 16940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-01-20 14:49:42.984  INFO 16940 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-01-20 14:49:42.997 ERROR 16940 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'rabbitConnectionFactory' defined in class path resource [org/springframework/boot/autoconfigure/amqp/RabbitAutoConfiguration$RabbitConnectionFactoryCreator.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.amqp.rabbit.connection.CachingConnectionFactory]: Factory method 'rabbitConnectionFactory' threw exception; nested exception is java.lang.IllegalArgumentException: Address http://47.93.221.91:5672 seems to contain an unquoted IPv6 address. Make sure you quote IPv6 addresses like so: [2001:db8:85a3:8d3:1319:8a2e:370:7348]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) [spring-boot-test-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.12.jar:4.12]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70) [junit-rt.jar:na]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.amqp.rabbit.connection.CachingConnectionFactory]: Factory method 'rabbitConnectionFactory' threw exception; nested exception is java.lang.IllegalArgumentException: Address http://47.93.221.91:5672 seems to contain an unquoted IPv6 address. Make sure you quote IPv6 addresses like so: [2001:db8:85a3:8d3:1319:8a2e:370:7348]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	... 42 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Address http://47.93.221.91:5672 seems to contain an unquoted IPv6 address. Make sure you quote IPv6 addresses like so: [2001:db8:85a3:8d3:1319:8a2e:370:7348]
+	at com.rabbitmq.client.Address.parseHost(Address.java:96) ~[amqp-client-5.4.3.jar:5.4.3]
+	at com.rabbitmq.client.Address.parseAddress(Address.java:158) ~[amqp-client-5.4.3.jar:5.4.3]
+	at com.rabbitmq.client.Address.parseAddresses(Address.java:173) ~[amqp-client-5.4.3.jar:5.4.3]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.setAddresses(AbstractConnectionFactory.java:282) ~[spring-rabbit-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.boot.context.properties.PropertyMapper$Source.to(PropertyMapper.java:316) ~[spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration$RabbitConnectionFactoryCreator.rabbitConnectionFactory(RabbitAutoConfiguration.java:102) ~[spring-boot-autoconfigure-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration$RabbitConnectionFactoryCreator$$EnhancerBySpringCGLIB$$4d0d3b52.CGLIB$rabbitConnectionFactory$0(<generated>) ~[spring-boot-autoconfigure-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration$RabbitConnectionFactoryCreator$$EnhancerBySpringCGLIB$$4d0d3b52$$FastClassBySpringCGLIB$$70a1dfe1.invoke(<generated>) ~[spring-boot-autoconfigure-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration$RabbitConnectionFactoryCreator$$EnhancerBySpringCGLIB$$4d0d3b52.rabbitConnectionFactory(<generated>) ~[spring-boot-autoconfigure-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	... 43 common frames omitted
+
+2019-01-20 14:49:43.003 ERROR 16940 --- [main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@2d3379b4] to prepare test instance [com.example.online_program.OnlineProgramApplicationTests@41f90b10]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125) ~[spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) ~[spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) ~[spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.12.jar:4.12]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70) [junit-rt.jar:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'rabbitConnectionFactory' defined in class path resource [org/springframework/boot/autoconfigure/amqp/RabbitAutoConfiguration$RabbitConnectionFactoryCreator.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.amqp.rabbit.connection.CachingConnectionFactory]: Factory method 'rabbitConnectionFactory' threw exception; nested exception is java.lang.IllegalArgumentException: Address http://47.93.221.91:5672 seems to contain an unquoted IPv6 address. Make sure you quote IPv6 addresses like so: [2001:db8:85a3:8d3:1319:8a2e:370:7348]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1288) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1127) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:846) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:863) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) ~[spring-boot-test-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	... 24 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.amqp.rabbit.connection.CachingConnectionFactory]: Factory method 'rabbitConnectionFactory' threw exception; nested exception is java.lang.IllegalArgumentException: Address http://47.93.221.91:5672 seems to contain an unquoted IPv6 address. Make sure you quote IPv6 addresses like so: [2001:db8:85a3:8d3:1319:8a2e:370:7348]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	... 42 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Address http://47.93.221.91:5672 seems to contain an unquoted IPv6 address. Make sure you quote IPv6 addresses like so: [2001:db8:85a3:8d3:1319:8a2e:370:7348]
+	at com.rabbitmq.client.Address.parseHost(Address.java:96) ~[amqp-client-5.4.3.jar:5.4.3]
+	at com.rabbitmq.client.Address.parseAddress(Address.java:158) ~[amqp-client-5.4.3.jar:5.4.3]
+	at com.rabbitmq.client.Address.parseAddresses(Address.java:173) ~[amqp-client-5.4.3.jar:5.4.3]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.setAddresses(AbstractConnectionFactory.java:282) ~[spring-rabbit-2.1.2.RELEASE.jar:2.1.2.RELEASE]
+	at org.springframework.boot.context.properties.PropertyMapper$Source.to(PropertyMapper.java:316) ~[spring-boot-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration$RabbitConnectionFactoryCreator.rabbitConnectionFactory(RabbitAutoConfiguration.java:102) ~[spring-boot-autoconfigure-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration$RabbitConnectionFactoryCreator$$EnhancerBySpringCGLIB$$4d0d3b52.CGLIB$rabbitConnectionFactory$0(<generated>) ~[spring-boot-autoconfigure-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration$RabbitConnectionFactoryCreator$$EnhancerBySpringCGLIB$$4d0d3b52$$FastClassBySpringCGLIB$$70a1dfe1.invoke(<generated>) ~[spring-boot-autoconfigure-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration$RabbitConnectionFactoryCreator$$EnhancerBySpringCGLIB$$4d0d3b52.rabbitConnectionFactory(<generated>) ~[spring-boot-autoconfigure-2.1.1.RELEASE.jar:2.1.1.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_191]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_191]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_191]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_191]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	... 43 common frames omitted
+
+2019-01-20 14:50:28.916 ERROR 17010 --- [main] o.s.b.c.l.LoggingApplicationListener     : Cannot set level '++' for 'com.example'
+2019-01-20 14:50:29.061  INFO 17010 --- [main] c.e.o.OnlineProgramApplicationTests      : Starting OnlineProgramApplicationTests on qiao-Lenovo-Y50c with PID 17010 (started by qiao in /home/qiao/IdeaProjects/online_program)
+2019-01-20 14:50:29.064  INFO 17010 --- [main] c.e.o.OnlineProgramApplicationTests      : The following profiles are active: test
+2019-01-20 14:50:30.800  INFO 17010 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 14:50:30.803  INFO 17010 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 14:50:30.986  INFO 17010 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172ms. Found 1 repository interfaces.
+2019-01-20 14:50:31.004  INFO 17010 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 14:50:31.007  INFO 17010 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 14:50:31.028  INFO 17010 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-01-20 14:50:31.029  INFO 17010 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-01-20 14:50:31.665  INFO 17010 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$8a8e8373] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 14:50:31.780  INFO 17010 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c422c545] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 14:50:32.311  INFO 17010 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-01-20 14:50:32.320  WARN 17010 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-01-20 14:50:32.942  INFO 17010 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-01-20 14:50:33.043  INFO 17010 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-01-20 14:50:33.185  INFO 17010 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-01-20 14:50:33.193  INFO 17010 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-01-20 14:50:33.517  INFO 17010 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-01-20 14:50:33.825  INFO 17010 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-01-20 14:50:34.988  INFO 17010 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 14:50:37.493  INFO 17010 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-20 14:50:37.584  WARN 17010 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-01-20 14:50:37.891  INFO 17010 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-01-20 14:50:38.768  INFO 17010 --- [main] c.e.o.OnlineProgramApplicationTests      : Started OnlineProgramApplicationTests in 10.993 seconds (JVM running for 13.337)
+2019-01-20 14:50:38.900  INFO 17010 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [47.93.221.91:5672]
+2019-01-20 14:50:39.023  INFO 17010 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#4a41caed:0/SimpleConnection@3f87780b [delegate=amqp://guest@47.93.221.91:5672/, localPort= 40796]
+2019-01-20 14:50:39.097 ERROR 17010 --- [AMQP Connection 47.93.221.91:5672] o.s.a.r.c.CachingConnectionFactory       : Channel shutdown: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no exchange 'online.direct' in vhost '/', class-id=60, method-id=40)
+2019-01-20 14:50:39.136  INFO 17010 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-01-20 14:50:39.164  INFO 17010 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 14:50:39.171  INFO 17010 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-01-20 14:50:39.187  INFO 17010 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-01-20 14:51:38.118 ERROR 17097 --- [main] o.s.b.c.l.LoggingApplicationListener     : Cannot set level '++' for 'com.example'
+2019-01-20 14:51:38.413  INFO 17097 --- [main] c.e.o.OnlineProgramApplicationTests      : Starting OnlineProgramApplicationTests on qiao-Lenovo-Y50c with PID 17097 (started by qiao in /home/qiao/IdeaProjects/online_program)
+2019-01-20 14:51:38.414  INFO 17097 --- [main] c.e.o.OnlineProgramApplicationTests      : The following profiles are active: test
+2019-01-20 14:51:39.927  INFO 17097 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 14:51:39.930  INFO 17097 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 14:51:40.118  INFO 17097 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 175ms. Found 1 repository interfaces.
+2019-01-20 14:51:40.141  INFO 17097 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 14:51:40.143  INFO 17097 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 14:51:40.159  INFO 17097 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-01-20 14:51:40.159  INFO 17097 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-01-20 14:51:40.747  INFO 17097 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$61af904e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 14:51:40.828  INFO 17097 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9b43d220] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 14:51:41.308  INFO 17097 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-01-20 14:51:41.316  WARN 17097 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-01-20 14:51:41.889  INFO 17097 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-01-20 14:51:41.983  INFO 17097 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-01-20 14:51:42.095  INFO 17097 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-01-20 14:51:42.098  INFO 17097 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-01-20 14:51:42.371  INFO 17097 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-01-20 14:51:42.620  INFO 17097 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-01-20 14:51:43.561  INFO 17097 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 14:51:45.703  INFO 17097 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-20 14:51:45.803  WARN 17097 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-01-20 14:51:46.146  INFO 17097 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-01-20 14:51:46.951  INFO 17097 --- [main] c.e.o.OnlineProgramApplicationTests      : Started OnlineProgramApplicationTests in 9.724 seconds (JVM running for 11.808)
+2019-01-20 14:51:47.038  INFO 17097 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [47.93.221.91:5672]
+2019-01-20 14:51:47.136  INFO 17097 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#74bfdd66:0/SimpleConnection@10fc1a22 [delegate=amqp://guest@47.93.221.91:5672/, localPort= 40856]
+2019-01-20 14:51:47.196 ERROR 17097 --- [AMQP Connection 47.93.221.91:5672] o.s.a.r.c.CachingConnectionFactory       : Channel shutdown: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no exchange 'online.direct' in vhost '/', class-id=60, method-id=40)
+2019-01-20 14:51:47.226  INFO 17097 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-01-20 14:51:47.259  INFO 17097 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 14:51:47.264  INFO 17097 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-01-20 14:51:47.282  INFO 17097 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-01-20 14:53:02.959 ERROR 17192 --- [main] o.s.b.c.l.LoggingApplicationListener     : Cannot set level '++' for 'com.example'
+2019-01-20 14:53:03.272  INFO 17192 --- [main] c.e.o.OnlineProgramApplicationTests      : Starting OnlineProgramApplicationTests on qiao-Lenovo-Y50c with PID 17192 (started by qiao in /home/qiao/IdeaProjects/online_program)
+2019-01-20 14:53:03.273  INFO 17192 --- [main] c.e.o.OnlineProgramApplicationTests      : The following profiles are active: test
+2019-01-20 14:53:05.040  INFO 17192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 14:53:05.043  INFO 17192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 14:53:05.243  INFO 17192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 190ms. Found 1 repository interfaces.
+2019-01-20 14:53:05.269  INFO 17192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 14:53:05.271  INFO 17192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 14:53:05.292  INFO 17192 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-01-20 14:53:05.292  INFO 17192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 repository interfaces.
+2019-01-20 14:53:05.983  INFO 17192 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$61af904e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 14:53:06.065  INFO 17192 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9b43d220] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 14:53:06.587  INFO 17192 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-01-20 14:53:06.591  WARN 17192 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-01-20 14:53:07.170  INFO 17192 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-01-20 14:53:07.262  INFO 17192 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-01-20 14:53:07.355  INFO 17192 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-01-20 14:53:07.357  INFO 17192 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-01-20 14:53:07.624  INFO 17192 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-01-20 14:53:07.898  INFO 17192 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-01-20 14:53:09.159  INFO 17192 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 14:53:11.490  INFO 17192 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-20 14:53:11.591  WARN 17192 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-01-20 14:53:12.045  INFO 17192 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-01-20 14:53:12.972  INFO 17192 --- [main] c.e.o.OnlineProgramApplicationTests      : Started OnlineProgramApplicationTests in 10.891 seconds (JVM running for 13.088)
+2019-01-20 14:53:13.061  INFO 17192 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [47.93.221.91:5672]
+2019-01-20 14:53:13.172  INFO 17192 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#74bfdd66:0/SimpleConnection@10fc1a22 [delegate=amqp://guest@47.93.221.91:5672/, localPort= 40914]
+2019-01-20 14:53:13.348  INFO 17192 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-01-20 14:53:13.391  INFO 17192 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 14:53:13.396  INFO 17192 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-01-20 14:53:13.411  INFO 17192 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-01-20 14:56:22.684 ERROR 17322 --- [main] o.s.b.c.l.LoggingApplicationListener     : Cannot set level '++' for 'com.example'
+2019-01-20 14:56:22.834  INFO 17322 --- [main] c.e.o.OnlineProgramApplicationTests      : Starting OnlineProgramApplicationTests on qiao-Lenovo-Y50c with PID 17322 (started by qiao in /home/qiao/IdeaProjects/online_program)
+2019-01-20 14:56:22.835  INFO 17322 --- [main] c.e.o.OnlineProgramApplicationTests      : The following profiles are active: test
+2019-01-20 14:56:24.292  INFO 17322 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 14:56:24.295  INFO 17322 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 14:56:24.486  INFO 17322 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 178ms. Found 1 repository interfaces.
+2019-01-20 14:56:24.507  INFO 17322 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 14:56:24.509  INFO 17322 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 14:56:24.529  INFO 17322 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-01-20 14:56:24.529  INFO 17322 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-01-20 14:56:25.414  INFO 17322 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$444f1b84] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 14:56:25.535  INFO 17322 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7de35d56] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 14:56:26.270  INFO 17322 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-01-20 14:56:26.280  WARN 17322 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-01-20 14:56:26.903  INFO 17322 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-01-20 14:56:27.006  INFO 17322 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-01-20 14:56:27.107  INFO 17322 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-01-20 14:56:27.109  INFO 17322 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-01-20 14:56:27.370  INFO 17322 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-01-20 14:56:27.642  INFO 17322 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-01-20 14:56:28.770  INFO 17322 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 14:56:30.902  INFO 17322 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-20 14:56:31.023  WARN 17322 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-01-20 14:56:31.336  INFO 17322 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-01-20 14:56:32.192  INFO 17322 --- [main] c.e.o.OnlineProgramApplicationTests      : Started OnlineProgramApplicationTests in 10.449 seconds (JVM running for 12.821)
+2019-01-20 14:56:32.290  INFO 17322 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [47.93.221.91:5672]
+2019-01-20 14:56:32.421  INFO 17322 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#1e9d7366:0/SimpleConnection@2ba318c2 [delegate=amqp://guest@47.93.221.91:5672/, localPort= 41078]
+2019-01-20 14:56:32.552  INFO 17322 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-01-20 14:56:32.585  INFO 17322 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 14:56:32.591  INFO 17322 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-01-20 14:56:32.606  INFO 17322 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-01-20 15:03:55.492 ERROR 17794 --- [main] o.s.b.c.l.LoggingApplicationListener     : Cannot set level '++' for 'com.example'
+2019-01-20 15:03:55.993  INFO 17794 --- [main] c.e.o.OnlineProgramApplicationTests      : Starting OnlineProgramApplicationTests on qiao-Lenovo-Y50c with PID 17794 (started by qiao in /home/qiao/IdeaProjects/online_program)
+2019-01-20 15:03:56.002  INFO 17794 --- [main] c.e.o.OnlineProgramApplicationTests      : The following profiles are active: test
+2019-01-20 15:03:57.550  INFO 17794 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 15:03:57.554  INFO 17794 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 15:03:57.768  INFO 17794 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 199ms. Found 1 repository interfaces.
+2019-01-20 15:03:57.790  INFO 17794 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 15:03:57.792  INFO 17794 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 15:03:57.811  INFO 17794 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-01-20 15:03:57.811  INFO 17794 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 repository interfaces.
+2019-01-20 15:03:58.440  INFO 17794 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$6563b7cc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 15:03:58.546  INFO 17794 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9ef7f99e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 15:03:59.020  INFO 17794 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-01-20 15:03:59.025  WARN 17794 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-01-20 15:03:59.630  INFO 17794 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-01-20 15:03:59.729  INFO 17794 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-01-20 15:03:59.835  INFO 17794 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-01-20 15:03:59.842  INFO 17794 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-01-20 15:04:00.072  INFO 17794 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-01-20 15:04:00.337  INFO 17794 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-01-20 15:04:01.400  INFO 17794 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 15:04:03.407  INFO 17794 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-20 15:04:03.494  WARN 17794 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-01-20 15:04:03.797  INFO 17794 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-01-20 15:04:04.731  INFO 17794 --- [main] c.e.o.OnlineProgramApplicationTests      : Started OnlineProgramApplicationTests in 10.359 seconds (JVM running for 12.769)
+2019-01-20 15:04:04.874  INFO 17794 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [47.93.221.91:5672]
+2019-01-20 15:04:04.996  INFO 17794 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#540212be:0/SimpleConnection@47d81427 [delegate=amqp://guest@47.93.221.91:5672/, localPort= 41234]
+2019-01-20 15:04:05.132  INFO 17794 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-01-20 15:04:05.156  INFO 17794 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 15:04:05.161  INFO 17794 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-01-20 15:04:05.185  INFO 17794 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-01-20 15:04:24.853 ERROR 17872 --- [main] o.s.b.c.l.LoggingApplicationListener     : Cannot set level '++' for 'com.example'
+2019-01-20 15:04:25.197  INFO 17872 --- [main] c.e.o.OnlineProgramApplicationTests      : Starting OnlineProgramApplicationTests on qiao-Lenovo-Y50c with PID 17872 (started by qiao in /home/qiao/IdeaProjects/online_program)
+2019-01-20 15:04:25.201  INFO 17872 --- [main] c.e.o.OnlineProgramApplicationTests      : The following profiles are active: test
+2019-01-20 15:04:27.160  INFO 17872 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 15:04:27.162  INFO 17872 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 15:04:27.355  INFO 17872 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 183ms. Found 1 repository interfaces.
+2019-01-20 15:04:27.390  INFO 17872 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-01-20 15:04:27.392  INFO 17872 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-01-20 15:04:27.413  INFO 17872 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-01-20 15:04:27.413  INFO 17872 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-01-20 15:04:28.578  INFO 17872 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$329d8e2e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 15:04:28.665  INFO 17872 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6c31d000] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-01-20 15:04:29.173  INFO 17872 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-01-20 15:04:29.178  WARN 17872 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-01-20 15:04:29.765  INFO 17872 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-01-20 15:04:29.864  INFO 17872 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-01-20 15:04:29.969  INFO 17872 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-01-20 15:04:29.972  INFO 17872 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-01-20 15:04:30.249  INFO 17872 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-01-20 15:04:30.506  INFO 17872 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-01-20 15:04:31.557  INFO 17872 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 15:04:34.166  INFO 17872 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-01-20 15:04:34.466  WARN 17872 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-01-20 15:04:35.000  INFO 17872 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-01-20 15:04:35.722  INFO 17872 --- [main] c.e.o.OnlineProgramApplicationTests      : Started OnlineProgramApplicationTests in 11.966 seconds (JVM running for 14.403)
+2019-01-20 15:04:35.802  INFO 17872 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [47.93.221.91:5672]
+2019-01-20 15:04:35.903  INFO 17872 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#7e20f4e3:0/SimpleConnection@10f397d0 [delegate=amqp://guest@47.93.221.91:5672/, localPort= 41270]
+2019-01-20 15:04:36.102  INFO 17872 --- [Thread-3] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-01-20 15:04:36.146  INFO 17872 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-01-20 15:04:36.153  INFO 17872 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-01-20 15:04:36.177  INFO 17872 --- [Thread-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

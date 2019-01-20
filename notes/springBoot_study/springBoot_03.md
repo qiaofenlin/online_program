@@ -36,3 +36,7 @@ mybitis 如果获取的数据不存在时，可以通过设置开启陀峰命名
 * ` docker run -d -p 6379:6379 --name=myredis registry.docker-cn.com/library/redis `
 
 * 是在application.properites的redis配置中的spring.redis.timeout中连接超时时间（毫秒）中时间设置不能为0
+
+## ES
+
+* docker run -e ES_JAVA_OPTS="-Xms256m -Xmx256m" -d -p 9200:9200 -p 9300:9300 --name ES01 5acf0e8da90b

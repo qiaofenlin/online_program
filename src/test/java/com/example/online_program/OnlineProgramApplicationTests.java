@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.core.AmqpAdmin;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,9 +18,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -38,9 +38,20 @@ public class OnlineProgramApplicationTests {
     @Autowired
     RedisTemplate<String,Object> redisTemplateObj; // 自定义 object
 
+    @Autowired
+    RabbitTemplate rabbitTemplate;
+
 //    @Qualifier("UserInforedisTemplate")
 //    @Autowired
 //    RedisTemplate<Object,Userinfo> UserInforedisTemplate;
+
+    @Autowired
+    AmqpAdmin amqpAdmin;
+    @Test
+    public void contextLoads1() {
+//        amqpAdmin.declareBinding();
+    }
+
 
     @Test
     public void contextLoads() {
@@ -128,4 +139,26 @@ public class OnlineProgramApplicationTests {
         return "success"+ i;
     }
 
-}
+    @Test
+    public void Rabbitqm_direct() {
+        //Message 需要自己构建，定义消息内容和消息头
+//        rabbitTemplate.send(exchange,routekey,msg);
+
+        // object 作为消息体 只需要传入要发送的对象，会自动序列不阿发送给rabbitmq
+//        rabbitTemplate.convertAndSend(exchange,routekey,Object);
+        Map<String, Object> map = new HashMap<>();
+        map.put("msg", "aaaaaaaaaaaaaa");
+        //对象回自动序列化
+        rabbitTemplate.convertAndSend("online.dicect","online",map);
+    }
+
+    //接受数据
+    @Test
+    public void Rabbitqm_direct_rec() {
+
+        Object o = rabbitTemplate.receiveAndConvert("online");
+        System.out.println(o.getClass());
+        System.out.println(o);
+    }
+    }
+
