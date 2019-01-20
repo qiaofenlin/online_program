@@ -30,7 +30,7 @@
 
 ### log files
 *.log
-
+*.gz
 ### yaml conf
 *.yaml
 *.yml
