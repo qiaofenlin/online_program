@@ -95,13 +95,13 @@ public class Userinfo implements Serializable {
     @Override
     public String toString() {
         return "{" +
-                "id=" + id +
-                ", pwd='" + pwd + '\'' +
-                ", userName='" + userName + '\'' +
-                ", age=" + age +
-                ", regTime=" + regTime +
-                ", birthday=" + birthday +
-                ", description='" + description + '\'' +
+                "id:" + id +
+                ", pwd:'" + pwd + '\'' +
+                ", userName:'" + userName + '\'' +
+                ", age:" + age +
+                ", regTime:" + regTime +
+                ", birthday:" + birthday +
+                ", description:'" + description + '\'' +
                 '}';
     }
 }
