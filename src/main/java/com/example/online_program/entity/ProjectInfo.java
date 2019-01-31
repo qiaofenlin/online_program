@@ -19,12 +19,15 @@ public class ProjectInfo implements Serializable {
     private Integer proj_id;
 
     @Column(nullable = false)
+    private Integer user_id;
+
+    @Column(nullable = false)
     private String proj_path;
 
     @Column(nullable = false)
     private String proj_name;
 
-    @Column(nullable = false,columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp proj_create_time;
 
     @Column(nullable = false)
@@ -81,10 +84,19 @@ public class ProjectInfo implements Serializable {
         this.proj_member = proj_member;
     }
 
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
     @Override
     public String toString() {
-        return "{" +
+        return "ProjectInfo{" +
                 "proj_id:" + proj_id +
+                ", user_id:" + user_id +
                 ", proj_path:'" + proj_path + '\'' +
                 ", proj_name:'" + proj_name + '\'' +
                 ", proj_create_time:" + proj_create_time +
