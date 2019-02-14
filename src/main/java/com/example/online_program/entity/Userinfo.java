@@ -35,6 +35,28 @@ public class Userinfo implements Serializable {
     @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
+    private String tel;
+
+    @Column(nullable = false)
+    private String email;
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public Timestamp getBirthday() {
         return birthday;
     }
@@ -95,13 +117,15 @@ public class Userinfo implements Serializable {
     @Override
     public String toString() {
         return "{" +
-                "id:" + id +
-                ", pwd:'" + pwd + '\'' +
-                ", userName:'" + userName + '\'' +
-                ", age:" + age +
-                ", regTime:" + regTime +
-                ", birthday:" + birthday +
-                ", description:'" + description + '\'' +
+                "id :" + id +
+                ", pwd :'" + pwd + '\'' +
+                ", userName :'" + userName + '\'' +
+                ", age :" + age +
+                ", regTime :" + regTime +
+                ", birthday :" + birthday +
+                ", description :'" + description + '\'' +
+                ", tel :'" + tel + '\'' +
+                ", email :'" + email + '\'' +
                 '}';
     }
 }
