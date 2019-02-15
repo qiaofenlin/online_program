@@ -1370,3 +1370,150 @@ Caused by: java.lang.IllegalArgumentException: Address http://47.93.221.91:5672 
 2019-01-31 17:05:45.906  INFO 28820 --- [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2019-01-31 17:05:45.910  INFO 28820 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2019-01-31 17:05:45.917  INFO 28820 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-02-12 10:41:02.788 ERROR 8422 --- [restartedMain] o.s.b.c.l.LoggingApplicationListener     : Cannot set level '++' for 'com.example'
+2019-02-12 10:41:03.171  INFO 8422 --- [restartedMain] c.e.o.OnlineProgramApplication           : Starting OnlineProgramApplication on qiao-Lenovo-Y50c with PID 8422 (/home/qiao/javaproject/online_program/target/classes started by qiao in /home/qiao/javaproject/online_program)
+2019-02-12 10:41:03.173  INFO 8422 --- [restartedMain] c.e.o.OnlineProgramApplication           : The following profiles are active: test
+2019-02-12 10:41:03.532  INFO 8422 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-02-12 10:41:03.551  INFO 8422 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-02-12 10:41:05.527  INFO 8422 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-02-12 10:41:05.530  INFO 8422 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-12 10:41:05.588  INFO 8422 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.ProjectRepository.
+2019-02-12 10:41:05.591  INFO 8422 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.TerminalRepository.
+2019-02-12 10:41:05.594  INFO 8422 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-02-12 10:41:05.595  INFO 8422 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57ms. Found 0 repository interfaces.
+2019-02-12 10:41:05.608  INFO 8422 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-02-12 10:41:05.608  INFO 8422 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-12 10:41:05.685  INFO 8422 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72ms. Found 3 repository interfaces.
+2019-02-12 10:41:05.731  INFO 8422 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-02-12 10:41:05.733  INFO 8422 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-12 10:41:05.781  INFO 8422 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.ProjectRepository.
+2019-02-12 10:41:05.783  INFO 8422 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.TerminalRepository.
+2019-02-12 10:41:05.784  INFO 8422 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-02-12 10:41:05.785  INFO 8422 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24ms. Found 0 repository interfaces.
+2019-02-12 10:41:06.762  INFO 8422 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$1d77410b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-12 10:41:06.870  INFO 8422 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$570b82dd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-12 10:41:07.865  INFO 8422 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-02-12 10:41:08.134  INFO 8422 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-02-12 10:41:08.138  INFO 8422 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-02-12 10:41:08.160  INFO 8422 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-02-12 10:41:08.344  INFO 8422 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-02-12 10:41:08.345  INFO 8422 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4791 ms
+2019-02-12 10:41:08.658  INFO 8422 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-02-12 10:41:08.660  WARN 8422 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-02-12 10:41:09.210  INFO 8422 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-02-12 10:41:09.276  INFO 8422 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-02-12 10:41:09.355  INFO 8422 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-02-12 10:41:09.357  INFO 8422 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-02-12 10:41:09.568  INFO 8422 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-02-12 10:41:09.783  INFO 8422 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-02-12 10:41:10.816  INFO 8422 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-02-12 10:41:10.891  INFO 8422 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-02-12 10:41:12.988  INFO 8422 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-12 10:41:13.047  WARN 8422 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-02-12 10:41:13.245  INFO 8422 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-02-12 10:41:14.063  INFO 8422 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-12 10:41:14.068  INFO 8422 --- [restartedMain] c.e.o.OnlineProgramApplication           : Started OnlineProgramApplication in 12.92 seconds (JVM running for 14.588)
+2019-02-12 10:41:22.674  INFO 8422 --- [Thread-27] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-02-12 10:41:22.685  INFO 8422 --- [Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-02-12 10:41:22.690  INFO 8422 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-02-12 10:41:22.703  INFO 8422 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-02-12 13:25:07.734 ERROR 22143 --- [restartedMain] o.s.b.c.l.LoggingApplicationListener     : Cannot set level '++' for 'com.example'
+2019-02-12 13:25:08.218  INFO 22143 --- [restartedMain] c.e.o.OnlineProgramApplication           : Starting OnlineProgramApplication on qiao-Lenovo-Y50c with PID 22143 (/home/qiao/javaproject/online_program/target/classes started by qiao in /home/qiao/javaproject/online_program)
+2019-02-12 13:25:08.219  INFO 22143 --- [restartedMain] c.e.o.OnlineProgramApplication           : The following profiles are active: test
+2019-02-12 13:25:08.483  INFO 22143 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-02-12 13:25:08.486  INFO 22143 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-02-12 13:25:10.525  INFO 22143 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-02-12 13:25:10.528  INFO 22143 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-12 13:25:10.689  INFO 22143 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.ProjectRepository.
+2019-02-12 13:25:10.692  INFO 22143 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.TerminalRepository.
+2019-02-12 13:25:10.698  INFO 22143 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-02-12 13:25:10.699  INFO 22143 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 163ms. Found 0 repository interfaces.
+2019-02-12 13:25:10.716  INFO 22143 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-02-12 13:25:10.717  INFO 22143 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-12 13:25:10.828  INFO 22143 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 105ms. Found 3 repository interfaces.
+2019-02-12 13:25:10.862  INFO 22143 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-02-12 13:25:10.877  INFO 22143 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-12 13:25:10.899  INFO 22143 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.ProjectRepository.
+2019-02-12 13:25:10.901  INFO 22143 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.TerminalRepository.
+2019-02-12 13:25:10.902  INFO 22143 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-02-12 13:25:10.903  INFO 22143 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces.
+2019-02-12 13:25:11.437  INFO 22143 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$be482d12] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-12 13:25:11.486  INFO 22143 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f7dc6ee4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-12 13:25:11.990  INFO 22143 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-02-12 13:25:12.010  INFO 22143 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-02-12 13:25:12.011  INFO 22143 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-02-12 13:25:12.017  INFO 22143 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-02-12 13:25:12.102  INFO 22143 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-02-12 13:25:12.103  INFO 22143 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3616 ms
+2019-02-12 13:25:12.283  INFO 22143 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-02-12 13:25:12.284  WARN 22143 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-02-12 13:25:12.677  INFO 22143 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-02-12 13:25:12.729  INFO 22143 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-02-12 13:25:12.780  INFO 22143 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-02-12 13:25:12.781  INFO 22143 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-02-12 13:25:12.892  INFO 22143 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-02-12 13:25:13.081  INFO 22143 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-02-12 13:25:13.868  INFO 22143 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-02-12 13:25:13.934  INFO 22143 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-02-12 13:25:15.219  INFO 22143 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-12 13:25:15.268  WARN 22143 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-02-12 13:25:15.525  INFO 22143 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-02-12 13:25:16.161  INFO 22143 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-12 13:25:16.165  INFO 22143 --- [restartedMain] c.e.o.OnlineProgramApplication           : Started OnlineProgramApplication in 10.157 seconds (JVM running for 12.059)
+2019-02-12 13:46:12.225  INFO 22143 --- [Thread-28] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-02-12 13:46:12.248  INFO 22143 --- [Thread-28] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-02-12 13:46:12.251  INFO 22143 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-02-12 13:46:12.266  INFO 22143 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-02-12 23:11:43.958 ERROR 10568 --- [restartedMain] o.s.b.c.l.LoggingApplicationListener     : Cannot set level '++' for 'com.example'
+2019-02-12 23:11:44.227  INFO 10568 --- [restartedMain] c.e.o.OnlineProgramApplication           : Starting OnlineProgramApplication on qiao-Lenovo-Y50c with PID 10568 (/home/qiao/javaproject/online_program/target/classes started by qiao in /home/qiao/javaproject/online_program)
+2019-02-12 23:11:44.227  INFO 10568 --- [restartedMain] c.e.o.OnlineProgramApplication           : The following profiles are active: test
+2019-02-12 23:11:44.485  INFO 10568 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-02-12 23:11:44.487  INFO 10568 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-02-12 23:11:46.096  INFO 10568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-02-12 23:11:46.100  INFO 10568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-12 23:11:46.157  INFO 10568 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.ProjectRepository.
+2019-02-12 23:11:46.160  INFO 10568 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.TerminalRepository.
+2019-02-12 23:11:46.162  INFO 10568 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-02-12 23:11:46.163  INFO 10568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58ms. Found 0 repository interfaces.
+2019-02-12 23:11:46.192  INFO 10568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-02-12 23:11:46.193  INFO 10568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-12 23:11:46.248  INFO 10568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51ms. Found 3 repository interfaces.
+2019-02-12 23:11:46.272  INFO 10568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-02-12 23:11:46.273  INFO 10568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-02-12 23:11:46.293  INFO 10568 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.ProjectRepository.
+2019-02-12 23:11:46.294  INFO 10568 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.TerminalRepository.
+2019-02-12 23:11:46.295  INFO 10568 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.online_program.repository.UserRepository.
+2019-02-12 23:11:46.296  INFO 10568 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2019-02-12 23:11:46.945  INFO 10568 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$a9e4d2a4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-12 23:11:47.017  INFO 10568 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e3791476] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-02-12 23:11:47.974  INFO 10568 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-02-12 23:11:48.002  INFO 10568 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-02-12 23:11:48.003  INFO 10568 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-02-12 23:11:48.012  INFO 10568 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-02-12 23:11:48.116  INFO 10568 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-02-12 23:11:48.116  INFO 10568 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3628 ms
+2019-02-12 23:11:48.473  INFO 10568 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-02-12 23:11:48.475  WARN 10568 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-02-12 23:11:49.158  INFO 10568 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-02-12 23:11:49.275  INFO 10568 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-02-12 23:11:49.427  INFO 10568 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-02-12 23:11:49.429  INFO 10568 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-02-12 23:11:49.756  INFO 10568 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-02-12 23:11:49.983  INFO 10568 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-02-12 23:11:51.246  INFO 10568 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-02-12 23:11:51.295  INFO 10568 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-02-12 23:11:52.640  INFO 10568 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-02-12 23:11:52.703  WARN 10568 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-02-12 23:11:52.885  INFO 10568 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-02-12 23:11:53.613  INFO 10568 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-02-12 23:11:53.616  INFO 10568 --- [restartedMain] c.e.o.OnlineProgramApplication           : Started OnlineProgramApplication in 11.32 seconds (JVM running for 14.252)
+2019-02-12 23:14:05.555  INFO 10568 --- [Thread-32] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-02-12 23:14:05.596  INFO 10568 --- [Thread-32] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-02-12 23:14:05.603  INFO 10568 --- [Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-02-12 23:14:05.611  INFO 10568 --- [Thread-32] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
