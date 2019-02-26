@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div class="rctj-box ${(detailflg=='detailflg')?'':'layui-hide'} ">
+    <div style="margin-top: 25px">人才推荐</div>
+    <div class="rctj"  style="margin-top: 10px;padding: 20px;background-color: #F2F2F2;" >
+        <table class="layui-table">
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr id="rckth">
+                <th style="text-align:center">姓名</th>
+                <th style="text-align:center">学历</th>
+                <th style="text-align:center">技能</th>
+                <th style="text-align:center">经验</th>
+                <th style="text-align:center">住址</th>
+                <th style="text-align:center">联系方式</th>
+            </tr>
+            </thead>
+            <tbody id="rcktb">
+            <%--  <tr>
+                <td> </td>
+                <td>${res}</td>
+                <td>${data}</td>
+                <td>于千万年之中</td>
+                <td>时间的无涯的荒野里…</td>
+                <td>时间的无涯的荒野里…</td>
+            </tr> --%>
+            </tbody>
+        </table>
+    </div>
+    <div id="pagefenye" class="fenye" style="text-align:center;"></div>
+</div>
+
+<input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+<script>
+    //加载完成
+    $(function(){
+        var sherchkey='${positioninfo.name}';
+        savePosition();//保存修改方法
+        getPeopleList(1,5,sherchkey);//获取人才列表
+        // getPageList(); //分页方法
+    });
+
+
+    //自己封装获取数据方法
+    function getPeopleList(crr,lmt,searchKey){
+        //获取人才列表
+        $.ajax({
+            url:'http://callintest.aimango.net/callin/account/host/list/',
+            type:'post',
+            data:{
+                data: {
+                    user_id: "n_ut_2019_02_19_92"
+                },
+                token: "Y2FsbGluMTIzNDU2OjAzMTQ1NjJkNDA2YmRiNmFhNDlhZGNlZjAwY2U2NzUxYTM5NmFmMDU="
+            },
+            dataType:'json',
+            success:function(res){
+                if(res.success=="success"){
+                    console.log(res);
+                    count=res.data.totalElements;//总记录
+                    curr=res.data.number; //当前页
+                    limit=res.data.size; //每页几个
+                    var rclist=res.data.content;
+                    var html='';
+                    var len=rclist.length;
+
+                    for (var i=0; i<len; i++){
+                        var htmlbuf='<tr>'+
+                            '<td style="text-align:center">'+rclist[i].name+'</td>'+
+                            '<td style="text-align:center">'+rclist[i].edu+'</td>'+
+                            '<td style="text-align:center">'+rclist[i].skill+'</td>'+
+                            '<td style="text-align:center">'+rclist[i].exp+'</td>'+
+                            '<td style="text-align:center">'+rclist[i].add+'</td>'+
+                            '<td style="text-align:center">'+rclist[i].tel+'</td>'+
+                            '</tr>';
+                        html=html+htmlbuf;
+                    }
+                    $("#rcktb").html(html);
+                    //调用分页方法
+                    getPageList(count,curr,limit,searchKey);
+
+                }else {
+                    layer.alert(res.message);
+                }
+            },
+            error:function(){
+                layer.msg("网络故障");
+            }
+        })
+    }
+
+
+    //自己封装分页方法
+    function getPageList(count,curr,limit,searchKey){
+        //分页方法
+        layui.use(['laypage', 'layer'], function(){
+            var laypage = layui.laypage
+                ,layer = layui.layer;
+            //完整功能
+            laypage.render({
+                elem: 'pagefenye',
+                count: count||0,
+                theme: '#009587',
+                limit : limit||3,
+                limits:[5, 10, 20, 30, 40],
+                curr : curr||1,
+                layout: ['count', 'prev', 'page', 'next',  'refresh', 'skip'],
+                jump: function(obj,first){
+                    //debugger;
+                    if(!first){
+                        //window.location.href = "?curr="+obj.curr+"&pageSize="+obj.limit+"&enterId="+'${enterId}';
+                        getPeopleList (obj.curr,obj.limit,searchKey);
+                    }
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>
