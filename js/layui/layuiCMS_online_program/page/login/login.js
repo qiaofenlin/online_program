@@ -1,3 +1,23 @@
+var post = function (newD){
+	console.log(newD)
+	$.ajax({
+		type: 'POST',
+		url: 'http://callintest.aimango.net/callin/account/admin/anon/login/',
+		data: JSON.stringify({data:newD}),
+		// data: {data:newD},
+		// contentType: 'application/json',
+		dataType: "json",
+		processData:false,
+		async:false,
+		success: function(r){
+			window.location.href = "../../index.html";
+			console.log(r)
+		},
+		error:function (e) {
+			console.log(e)
+		}
+	});
+};
 layui.config({
 	base : "js/"
 }).use(['form','layer'],function(){
@@ -15,7 +35,11 @@ layui.config({
 	
 	//登录按钮事件
 	form.on("submit(login)",function(data){
-		window.location.href = "../../index.html";
+		console.log(data)
+		// var newD = {data:data.field};
+		var newD = data.field;
+		post(newD)
+		// window.location.href = "../../index.html";
 		return false;
 	})
 })
