@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>edit code</title>
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <!--自定义js,css文件-->
+    <script type="application/javascript" src="js/edit.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/edit.css">
+</head>
+<body class="easyui-layout">
+
+        <div id="north" data-options="region:'north'" title="在线代码编辑运行平台" style="height: 70px">
+            <a href="#" class="easyui-menubutton" data-options="menu:'#mm1'">File</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="Run" id="runbtn">&nbsp;&nbsp;
+            <input type="button" value="Save" id="savebtn">&nbsp;&nbsp;
+            <input type="button" value="MyCode" id="codebtn">&nbsp;&nbsp;
+        </div>
+        <div data-options="region:'south',split:true" title="Console" id="south">
+            <textarea title="run result" id="consoleText">
+
+            </textarea>
+        </div>
+        <div id="west" data-options="region:'west',split:true" title="Project" style="width:150px;">
+            <ul id="tt" class="easyui-tree">
+            </ul>
+        </div>
+        <div data-options="region:'center',title:'Edit Your Code',iconCls:'icon-ok'" id="center">
+            <textarea title="code edit" autofocus="autofocus" required="required" id="runText">print("hello world !")</textarea>
+        </div>
+        <!--以下为菜单按钮密码mm1-->
+        <div id="mm1" style="width:150px;">
+            <div>
+                <span>New</span>
+                <div>
+                    <div onclick="createProj()">Project</div>
+                    <div onclick="createDir()">Directory</div>
+                    <div onclick="createFile()">File</div>
+                </div>
+            </div>
+            <div data-options="iconCls:'icon-remove',name:'delete'" onclick="deleteNode()">Delete</div>
+            <div onclick="importProj()">Import Project</div>
+        </div>
+
+</body>
+</html>

@@ -1,8 +1,13 @@
 spring:
   profiles:
     active: test
-  mvc:
-    static-path-pattern: /static/**
+#  mvc:
+#    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/,classpath:/templates/
+
+server:
+  port: 8082
 
 logging:
   level:
