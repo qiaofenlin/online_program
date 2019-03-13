@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var oStr = "#!/usr/bin/env python\n" +
+        "# -*- coding: utf-8 -*-\n" +
+        "# @Time    : 18-11-14 下午4:40\n" +
+        "# @Author  : qfl\n" +
+        "# @Site    : \n" +
+        "# @File    : set_demo.py\n" +
+        "# @Software: PyCharm\n" +
+        "import time\n" +
+        "\n" +
+        "import numpy\n" +
+        "\n" +
+        "# set = {b'a', b'b', b'c',b'10768215925'}\n" +
+        "# print(set)\n" +
+        "#\n" +
+        "# print(','.join(set))\n" +
+        "#\n" +
+        "# bbb = ['2','3','4']\n" +
+        "# print('\\n'.join(bbb))\n" +
+        "\n" +
+        "# numpy.savetxt(\"/home/qiao/PycharmProjects/WorkNotes/code/a.txt\",bbb)\n" +
+        "\n" +
+        "\n" +
+        "import os\n" +
+        "### todo redis dump\n" +
+        "# start_time = time.time()\n" +
+        "\n" +
+        "# print os.system('redis-dump -u 127.0.0.1:6379 -a MyAicyber201415926!  -d 0 |grep _TEL_HISTORY > aaa4.json')\n" +
+        "# print os.system(\"< aaa.json  redis-load -d 0  -u 127.0.0.1:6379 -a MyAicyber201415926!\")\n" +
+        "# end_time = time.time()\n" +
+        "\n" +
+        "# print('e-s = {} - {} = {}'.format( end_time,start_time, (end_time -start_time )))\n" +
+        "# timeA = time.strftime('%Y%m%d%H%M%S',time.localtime(start_time))\n" +
+        "# print(int(timeA))\n" +
+        "\n" +
+        "\n" +
+        "### todo\n" +
+        "# str = \"141=!=60=!==!=测试标签1\"\n" +
+        "# array = str.split('=!=')\n" +
+        "# print(len(array))\n" +
+        "# print(array[len(array)-1])\n" +
+        "# ppp = \"11111q11\"\n" +
+        "# str2 = \"=!=\"\n" +
+        "# print(ppp.count(str2))\n" +
+        "#\n" +
+        "# # str3 = \"测试标签=!=\"\n" +
+        "# # print(str3.find(str2))\n" +
+        "\n" +
+        "print(os.path.exists(\"/home/qiao/PycharmProjects/WorkNotes/code/yaml_opt.py\"))";
+    var obj = compileStr(oStr);
+    console.log(obj);
+    var objStr = uncompileStr(obj);
+    console.log(objStr);
+    //对字符串进行加密
+    function compileStr(code){
+        var c=String.fromCharCode(code.charCodeAt(0)+code.length);
+        for(var i=1;i<code.length;i++){
+            c+=String.fromCharCode(code.charCodeAt(i)+code.charCodeAt(i-1));
+        }
+        return escape(c);
+    }
+    //字符串进行解密
+    function uncompileStr(code){
+        code = unescape(code);
+        var c=String.fromCharCode(code.charCodeAt(0)-code.length);
+        for(var i=1;i<code.length;i++){
+            c+=String.fromCharCode(code.charCodeAt(i)-c.charCodeAt(i-1));
+        }
+        return c;
+    }
+</script>
+</body>
+</html>

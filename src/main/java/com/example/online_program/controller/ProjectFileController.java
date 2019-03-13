@@ -59,4 +59,19 @@ public class ProjectFileController {
         Result result = ResultGenerator.genSuccessResult();
         return result;
     }
+
+
+    /**
+     * @Author qfl
+     * @Description //TODO 上传json字段写入文件中
+     * @Date 上午11:41 19-3-8
+     * @Param [jsonParam]
+     * @return com.example.online_program.utils.result_utils.Result
+     **/
+    @GetMapping("/api/projectFile/upload/")
+    public Result ProjectFileUpload(@RequestBody JSONObject jsonParam) {
+        Result result = ResultGenerator.genSuccessResult();
+        return result;
+    }
+
 }
