@@ -1,0 +1,169 @@
+<!doctype html>
+
+<title>CodeMirror: Python mode</title>
+<meta charset="utf-8"/>
+<link rel=stylesheet href="python/docs.css">
+
+<link rel="stylesheet" href="python/lib/codemirror.css">
+<script src="python/lib/codemirror.js"></script>
+<script src="python/edit/matchbrackets.js"></script>
+<script src="python/python.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<style>.CodeMirror {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}</style>
+<!--<div id=nav>-->
+    <!--&lt;!&ndash;<a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png"></a>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li><a href="../../index.html">Home</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li><a href="../../doc/manual.html">Manual</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li><a href="https://github.com/codemirror/codemirror">Code</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+    <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li><a href="../index.html">Language modes</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li><a class=active href="#">Python</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+<!--</div>-->
+
+<!--<article>-->
+    <h2>Python test</h2>
+
+    <div><textarea id="code_test" name="code_test" content="code_content">
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 18-10-27 下午1:54
+# @Author  : qfl
+# @Site    :
+# @File    : tts_xf.py
+# @Software: PyCharm
+
+#-*- coding: utf-8 -*-
+import tornado.escape
+
+data = {'appid': [b'1400098645'], 'text': [b'test_sign'], 'sign_type': [b'1'], 'remark': [b'test_sing_reamrk'], 'user_id': [b'n_ut_2019_02_19_92']}
+args={}
+
+# data = tornado.escape.native_str(data)
+print("data {}".format(data))
+for r in data:
+    args[r] = tornado.escape.native_str(data[r][0])
+
+for r in data:
+    args[r] = tornado.escape.native_str(data[r][0])
+
+print(args)
+</textarea></div>
+
+    <script>
+        CodeMirror.fromTextArea(document.getElementById("code_test"), {
+            mode: {name: "text/x-cython",
+                version: 2,
+                singleLineStringErrors: false},
+            lineNumbers: true,
+            indentUnit: 4,
+            matchBrackets: true
+        });
+        var textArea = document.getElementById("code_test");
+        console.log("**************************textArea");
+        console.log(textArea.innerHTML);
+        console.log(typeof(textArea.innerHTML));
+        console.log("**************************textArea");
+
+
+        // $(function(){
+            // $('#send').click(function(){
+        // var jqxhr =$.ajax({
+        //     type: "POST",
+        //     url: "http://127.0.0.1:8080/api/projectFile/files/upload/",
+        //     data: {data:textArea.innerHTML},
+        //     dataType: "json",
+        //     success: function(data){
+        //
+        //         console.log(data)
+        //         // $('#resText').empty();   //清空resText里面的所有内容
+        //         // var html = '';
+        //         // $.each(data, function(commentIndex, comment){
+        //         //     html += '<div class="comment"><h6>' + comment['username']
+        //         //         + ':</h6><p class="para"' + comment['content']
+        //         //         + '</p></div>';
+        //         // });
+        //         // $('#resText').html(html);
+        //     }
+        // });
+            // });
+        // });
+//         a = findUserName();
+//         function findUserName(v) {
+//             var username=v;
+// //        alert(username);
+//             $.ajax({
+//                 type: "POST",
+//                 url: "http://127.0.0.1:8080/api/projectFile/files/upload/",
+//                 data: {data:},
+//                 dataType: "json",
+//                 success: function(data){
+//
+//                     console.log(data)
+//                     // $('#resText').empty();   //清空resText里面的所有内容
+//                     // var html = '';
+//                     // $.each(data, function(commentIndex, comment){
+//                     //     html += '<div class="comment"><h6>' + comment['username']
+//                     //         + ':</h6><p class="para"' + comment['content']
+//                     //         + '</p></div>';
+//                     // });
+//                     // $('#resText').html(html);
+//                 }
+//             })
+//         }
+
+        var post = function (newD){
+            console.log(newD)
+            $.ajax({
+                type: 'POST',
+                url: 'http://127.0.0.1:8080/api/projectFile/files/upload/',
+                data: JSON.stringify({data:newD}),
+                // data: {data:newD},
+                contentType: 'application/json',
+                dataType: "json",
+                processData:false,
+                async:false,
+                success: function(r){
+                    // window.location.href = "../../index.html";
+                    console.log(r)
+                },
+                error:function (e) {
+                    console.log(e)
+                }
+            });
+        };
+
+        post(textArea.innerHTML)
+        // post("123")
+
+
+        // var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        //     mode: {
+        //         name: "python",
+        //         version: 3,
+        //         singleLineStringErrors: false
+        //     },
+        //     lineNumbers: true,
+        //     indentUnit: 4,
+        //     matchBrackets: true
+        // });
+        //
+        // CodeMirror.fromTextArea(document.getElementById("code-cython"), {
+        //     mode: {
+        //         name: "text/x-cython",
+        //         version: 2,
+        //         singleLineStringErrors: false
+        //     },
+        //     lineNumbers: true,
+        //     indentUnit: 4,
+        //     matchBrackets: true
+        // });
+    </script>
+
+<!--</article>-->
