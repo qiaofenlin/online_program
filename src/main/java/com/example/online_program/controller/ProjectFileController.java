@@ -79,21 +79,16 @@ public class ProjectFileController {
         logger.debug("[ request args ]: " + jsonParam.toJSONString());
         FileOutputStream outSTr = null;
         BufferedOutputStream Buff = null;
-        int count = 1;//写文件行数
-        String File_path = "/home/qiao/javaproject/online_program/notes/test.py";
+        String File_path = "/home/qiao/online_program/notes/test.py";
         // TODO 获取文件路径
         outSTr = new FileOutputStream(new File(File_path));
         Buff = new BufferedOutputStream(outSTr);
-
         long begin0 = System.currentTimeMillis();
-        for (int i = 0; i < count; i++) {
-            Buff.write(jsonParam.get("data").toString().getBytes());
-        }
+        Buff.write(jsonParam.get("data").toString().getBytes());
         Buff.flush();
         Buff.close();
         long end0 = System.currentTimeMillis();
         System.out.println("BufferedOutputStream执行耗时:" + (end0 - begin0) + " 毫秒");
-
         Result result = ResultGenerator.genSuccessResult(jsonParam);
         return result;
     }
