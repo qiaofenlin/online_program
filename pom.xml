@@ -121,6 +121,36 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.opendaylight.controller.thirdparty/ganymed -->
+        <!--<dependency>-->
+            <!--<groupId>org.opendaylight.controller.thirdparty</groupId>-->
+            <!--<artifactId>ganymed</artifactId>-->
+            <!--<version>1.1.4-Helium-SR4</version>-->
+        <!--</dependency>-->
+
+
+        <!-- https://mvnrepository.com/artifact/ch.ethz.ganymed/ganymed-ssh2 -->
+        <dependency>
+            <groupId>ch.ethz.ganymed</groupId>
+            <artifactId>ganymed-ssh2</artifactId>
+            <version>262</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 
