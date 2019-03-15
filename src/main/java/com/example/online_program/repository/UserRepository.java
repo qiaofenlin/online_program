@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.Optional;
 
@@ -20,16 +21,16 @@ public interface UserRepository extends JpaRepository<Userinfo, Integer> {
 //    Page<Userinfo> findList(Pageable pageable);
 //
 //
-//    Optional<Userinfo> findAllById(Long id);
+    Optional<Userinfo> findAllById(int id);
 //
 //    //简单自定义查询
 //    Userinfo findAllByUserName(String userName);
 //
 //    void deleteById(Long id);
+    @Query("select u.pwd from Userinfo u where u.userName=:username and u.pwd=:pwd")
+    Optional<String > getByUserNameExistsAndPwdExists(@Param("username") String username, @Param("pwd") String password);
+
+    Optional<Userinfo> findByUserName(String username);
+
 }
 
-/**
- * JPA
- *
- *
- */

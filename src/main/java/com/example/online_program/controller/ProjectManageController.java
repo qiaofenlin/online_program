@@ -1,8 +1,6 @@
 package com.example.online_program.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.example.online_program.entity.Userinfo;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
 import org.springframework.web.bind.annotation.*;
@@ -16,14 +14,11 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 public class ProjectManageController {
-    /**
-     * TODO start
-     */
+
     @PostMapping("/api/projectManage/create/")
     public Result ProjectCreate(@RequestBody JSONObject jsonParam) {
 //        System.out.println("**********************************************" + jsonParam.toJSONString());
 //
-//        // TODO todo pojo
 //        Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam), Userinfo.class);
 //        System.out.println("***********************************************toString()"+userinfo.toString());
 //        Userinfo user = userRepository.save(userinfo); user.toString()

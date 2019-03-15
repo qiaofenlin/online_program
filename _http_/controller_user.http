@@ -25,14 +25,44 @@ Content-Type: application/json
   "desc": "1239",
   "birthday": "2018-12-09 16:00:00.0",
   "pwd": "1234569",
-  "description": "1235655559"
+  "description": "1235655559",
+  "email": "790872612@qq.com",
+  "tel" : "18322693235"
 }
 
 ###
 GET http://127.0.0.1:8080/user/2
 
 ###
-GET http://127.0.0.1:8080/user/one/2
+GET http://127.0.0.1:8080/json
 
 ###
+GET http://127.0.0.1:8080/user/one/2
 
+### 用户创建
+POST http://127.0.0.1:8080/api/user/create/
+Content-Type: application/json
+
+{
+  "user_name":"乔风鳞",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.0",
+  "pwd": "1234569",
+  "description": "1235655559",
+  "email": "790872612@qq.com",
+  "tel" : "18322693235"
+}
+
+### 用户列表
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
+
+###
