@@ -79,7 +79,8 @@ public class ProjectFileController {
         logger.debug("[ request args ]: " + jsonParam.toJSONString());
         FileOutputStream outSTr = null;
         BufferedOutputStream Buff = null;
-        String File_path = "/home/qiao/online_program/notes/test.py";
+//        String File_path = "/home/qiao/online_program/notes/test.py";
+        String File_path = "/home/qiao/java_pojo/online_program/notes/test.py";
         // TODO 获取文件路径
         outSTr = new FileOutputStream(new File(File_path));
         Buff = new BufferedOutputStream(outSTr);

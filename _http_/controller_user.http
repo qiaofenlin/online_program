@@ -44,7 +44,7 @@ POST http://127.0.0.1:8080/api/user/create/
 Content-Type: application/json
 
 {
-  "user_name":"乔风鳞",
+  "user_name":"乔风鳞1",
   "age":18,
   "desc": "1239",
   "birthday": "2018-12-09 16:00:00.0",

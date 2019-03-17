@@ -17,9 +17,9 @@ public class runShell {
 
         List<String> stringList = new ArrayList<>();
         //可以执行脚本
-        String command = "~/online_program/src/test/java/a.sh";
+//        String command = "~/online_program/src/test/java/a.sh";
         //可以执行命令
-//        String command = "ps -ef|grep java";
+        String command = "python /home/qiao/java_pojo/online_program/src/test/java/yaml_opt.py";
         //可以执行带参数的脚本
 //        String[] command = {"/usr/local/RPFiles/transStr.sh", "test"};
         Process ps = Runtime.getRuntime().exec(command);

@@ -78,6 +78,6 @@ public class runShell_02 {
     public static void main(String[] args) throws Exception {
         runShell_02 r = new runShell_02();
 //        r.run();
-        r.execShell("python /home/qiao/WorkNotes/code/algorithm/sort.py");
+        r.execShell("python /home/qiao/java_pojo/online_program/src/test/java/yaml_opt.py");
     }
 }
