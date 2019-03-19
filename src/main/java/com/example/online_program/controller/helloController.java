@@ -43,8 +43,6 @@ public class helloController {
 
     @GetMapping("/aaa")
     public String index() {
-
-//        Layui.data(1,);
         return "login";
     }
 
