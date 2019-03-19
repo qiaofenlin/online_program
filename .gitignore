@@ -34,8 +34,3 @@
 ### yaml conf
 *.yaml
 *.yml
-
-
-#pom.xml
-#将删除 js/layui/layuiCMS_online_program/layui/lay/modules/table.js
-#将删除 notes/test.py
