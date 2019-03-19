@@ -66,7 +66,6 @@ public class helloController {
         Result result= ResultGenerator.genSuccessResult(userinfo);
         return result;
     }
-
     @PostMapping("/user/")
     public Result insertUser(@RequestBody JSONObject jsonParam) {
         System.out.println("**********************************************" + jsonParam.toJSONString());
@@ -77,7 +76,6 @@ public class helloController {
         Result result = ResultGenerator.genSuccessResult(user.toString());
         return result;
     }
-
 
 
     @GetMapping("/user/one/{id}")
@@ -95,6 +93,5 @@ public class helloController {
 //
 //        return ResultGenerator.genFailResult("json test",ResultCode.FAIL);
     }
-
 }
 
