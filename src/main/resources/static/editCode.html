@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>edit code</title>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
-    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
-    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
     <!--自定义js,css文件-->
     <script type="application/javascript" src="js/edit.js"></script>
     <link rel="stylesheet" type="text/css" href="css/edit.css">
 </head>
 <body class="easyui-layout">
-
         <div id="north" data-options="region:'north'" title="在线代码编辑运行平台" style="height: 70px">
             <a href="#" class="easyui-menubutton" data-options="menu:'#mm1'">File</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="button" value="Run" id="runbtn">&nbsp;&nbsp;
             <input type="button" value="Save" id="savebtn">&nbsp;&nbsp;
             <input type="button" value="MyCode" id="codebtn">&nbsp;&nbsp;
@@ -38,13 +38,19 @@
             <div>
                 <span>New</span>
                 <div>
-                    <div onclick="createProj()">Project</div>
-                    <div onclick="createDir()">Directory</div>
-                    <div onclick="createFile()">File</div>
+                    <div onclick="createProject()">Project</div>
+                    <div onclick="createDirFile('dir')">Directory</div>
+                    <div onclick="createDirFile()">File</div>
                 </div>
             </div>
             <div data-options="iconCls:'icon-remove',name:'delete'" onclick="deleteNode()">Delete</div>
-            <div onclick="importProj()">Import Project</div>
+            <!--<div onclick="importProject()">Import Project</div>-->
+            <div>
+                <span id="importProj">ImportMyProject</span>
+                <div id="myProjsList">
+
+                </div>
+            </div>
         </div>
 
 </body>

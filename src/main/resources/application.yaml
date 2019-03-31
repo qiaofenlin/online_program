@@ -7,7 +7,7 @@ spring:
     static-locations: classpath:/static/,classpath:/templates/
 
 server:
-  port: 8082
+  port: 8083
 
 logging:
   level:
