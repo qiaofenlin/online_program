@@ -7,7 +7,6 @@ import com.example.online_program.repository.TreeNodeCURDImpl;
 import com.example.online_program.utils.Utils;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -21,6 +20,12 @@ import java.util.*;
 @RequestMapping("/treenode")
 public class TreeNodeCURDController {
 
+    /**
+     * TODO createProject
+     *
+     * @param object
+     * @return
+     */
     @RequestMapping(value = "/create/proj")
     @ResponseBody
     public Result createProject(@RequestBody JSONObject object) {
@@ -39,6 +44,12 @@ public class TreeNodeCURDController {
 
     }
 
+    /**
+     * TODO create directory or file
+     *
+     * @param object
+     * @return
+     */
     @RequestMapping(value = "/create/dirfile")
     @ResponseBody
     public Result createDirFile(@RequestBody JSONObject object) {
@@ -70,6 +81,12 @@ public class TreeNodeCURDController {
         return ResultGenerator.genFailResult("创建位置不正确");
     }
 
+    /**
+     * TODO rename node by nodeId
+     *
+     * @param object
+     * @return
+     */
     @PostMapping(value = "/rename")
     @ResponseBody
     public Result renameNode(@RequestBody JSONObject object) {
@@ -116,6 +133,12 @@ public class TreeNodeCURDController {
         return ResultGenerator.genFailResult("move failed");
     }
 
+    /**
+     * TODO import my project list by userId
+     *
+     * @param object
+     * @return
+     */
     @PostMapping(value = "/import/list")
     @ResponseBody
     public Result ImportProjectsList(@RequestBody JSONObject object) {
@@ -140,37 +163,74 @@ public class TreeNodeCURDController {
      */
     @RequestMapping(value = "/delete")
     @ResponseBody
-    public Result deleteNode(@Param("id") String id) {
-        //如果为代码数据将code中数据删除，如果为目录(包括工程)迭代删除
-        return ResultGenerator.genSuccessResult();
+    public Result deleteNode(@RequestBody JSONObject object) {
+        if (object != null) {
+            String nodeId = object.getString("id");
+            TreeNodeCURDImpl tnci = new TreeNodeCURDImpl(new ArrayList<>());
+            if (Utils.adjustIsProject(nodeId)) {
+                tnci.deleteProject(nodeId);
+            }
+            List list = new ArrayList();
+            list.add(nodeId);
+            List list1 = Utils.mergeList(tnci.selectAllChildNodeId(list));
+            list1.add(nodeId);
+            tnci.deleteNode(list1);
+            //删除节点关联的代码
+            return ResultGenerator.genSuccessResult();
+        }
+        return ResultGenerator.genFailResult("delete failed");
     }
 
     /**
      * TODO import project
      *
-     * @param object
+     * @param id
      * @return
      */
-    /*@ResponseBody
-    @PostMapping(value = "/getNode")
-    public Result getTreeNodes(@RequestBody JSONObject object) {
-        System.out.println("[--------into getTreeNodes-------]");
-        List li = new ArrayList();
-        if (object != null) {
-            List<TreeNodeInfo> list = new TreeNodeCURDImpl()
-                    .queryNodeData(object.getString("nodeId"));
-            for (TreeNodeInfo tni : list) {
-                String state = tni.getLabel().equals("0") ? "closed" : "open";
-                li.add("{\"id\":\"" + tni.getChildId() + "\",\"text\":\"" + tni.getNodeName() + "\",\"state\":\"" + state + "\"}");
-            }
-//            System.out.println(li);
-        }
-        return ResultGenerator.genSuccessResult(li.toString());
-    }*/
     @ResponseBody
     @PostMapping(value = "/getNode")
-    public String getTreeNodes(String id) {
-        System.out.println("[--------into getTreeNodes-------] \t"+id);
-        return "[{\"id\":\"1\",\"text\":\"file\",\"state\":\"open\"},\"id\":\"2\",\"text\":\"dir\",\"state\":\"closed\"}]";
+    public List getTreeNodes(String id) {
+        System.out.println("[--------into getTreeNodes-------nodeID:] \t: " + id);
+        List result = new ArrayList();
+        if (id != null && !id.trim().equals("")) {
+            String[] ids = id.split(",");
+            if (ids.length != 2) {
+                String projName = new TreeNodeCURDImpl()
+                        .queryProjectName(id);
+                JSONObject node = new JSONObject();
+                node.put("id", id);
+                node.put("text", projName);
+                node.put("state", "closed");
+                result.add(node);
+            } else {
+                System.out.println("front :" + ids[0] + "\t" + " behind : " + ids[1]);
+                List<TreeNodeInfo> list = new TreeNodeCURDImpl()
+                        .queryNodeData(ids[1]);
+                for (TreeNodeInfo tni : list) {
+                    String state = tni.getLabel().equals("0") ? "closed" : "open";
+                    JSONObject node = new JSONObject();
+                    node.put("id", tni.getChildId());
+                    node.put("text", tni.getNodeName());
+                    node.put("state", state);
+                    result.add(node);
+                }
+            }
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/adjust/isFile")
+    @ResponseBody
+    public Result adjustIsTxtFile(@RequestBody JSONObject object) {
+        System.out.println("[--------adjustIsTxtFile-------]");
+        String id = object.getString("nodeId");
+        if (object != null && id != null && !id.trim().equals("")) {
+            if (!Utils.isDirectory(id)) {
+                return ResultGenerator.genSuccessResult(true);
+            } else {
+                return ResultGenerator.genSuccessResult(false);
+            }
+        }
+        return ResultGenerator.genFailResult("adjustIsTxtFile failed!");
     }
 }

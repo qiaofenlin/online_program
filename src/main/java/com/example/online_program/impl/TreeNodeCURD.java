@@ -4,6 +4,7 @@ import com.example.online_program.entity.ProjInfo;
 import com.example.online_program.entity.TreeNodeInfo;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -29,7 +30,7 @@ public interface TreeNodeCURD {
      * delete node
      * @return
      */
-    public boolean deleteNode(int nodeId);
+    public void deleteNode(List list);
 
     /**
      * renameNode

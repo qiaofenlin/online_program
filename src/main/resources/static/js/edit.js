@@ -3,7 +3,6 @@ var oldText = undefined;
 
 $(function () {
     $('#tt').tree({
-        url:"/treenode/getNode",
         dnd: false,// ban to drag
         //TODO edit treeNodeText
         onClick: function (node) {
@@ -34,22 +33,62 @@ $(function () {
             } else {
                 return false;
             }
-        }
+        },
         //TODO 当节点展开时触发
         /*onExpand: function (node) {
             console.log("------当节点展开时触发------" + node.id)
             importProjectNodeData(node)
         }*/
+
+        //TODO 当用户双击一个节点时触发
+        onDblClick: function (node) {
+            alert(node.text+"\t"+node.state)
+        }
     });
-    //TODO import projectList
-    $('#myProjsList').empty();
-    var userId = "1111";
-    var obj = ajaxRequest("/treenode/import/list", "{\"userId\":\"" + userId + "\"}", false);
-    for (var i = 0; i < obj.data.length; i++) {
-        var nodeStr = obj.data[i].projectId + "," + obj.data[i].projectName;
-        var innerEle = "<div class='menu-text' style='height: 30px;line-height: 30px;'>" + obj.data[i].projectName + "</div>";
-        $('#myProjsList').append("<div onclick='importPorjectInit(\"" + nodeStr + "\")' class='menu-item' style='height: 32px;'>" + innerEle + "</div>")
-    }
+
+    //TODO import projectList listener
+    $('#importProj').mouseenter(function () {
+        $('#myProjsList').empty();
+        var userId = "1111";
+        var obj = ajaxRequest("/treenode/import/list", "{\"userId\":\"" + userId + "\"}", false);
+        for (var i = 0; i < obj.data.length; i++) {
+            var nodeStr = obj.data[i].projectId + "," + obj.data[i].projectName;
+            var innerEle = "<div class='menu-text' style='height: 30px;line-height: 30px;'>" + obj.data[i].projectName + "</div>";
+            $('#myProjsList').append("<div onclick='importPorjectInit(\"" + nodeStr + "\")' class='menu-item' style='height: 32px;'>" + innerEle + "</div>")
+        }
+    })
+
+    //TODO save code listener
+    $('#savebtn').onclick(function () {
+        console.log("---------save code---------")
+        var node = $('#tt').tree('getSelected');
+        var code = $('#runText').val();
+        console.log("saveMyCode : " + node.text+"\t"+node.id);
+        console.log("code : "+code);
+
+        if (node != undefined) {
+            var o = ajaxRequest("/treenode/adjust/isFile",
+                "{\"nodeId\":\"" + node.id + "\"}",
+                false)
+            if (o.code==200&&o.data){
+                if (confirm("保存代码到文件"+node.text+"?")){
+                    var obj = ajaxRequest("/code/save",
+                        'nodeId=' + node.id + '&code=' + code,
+                        false,
+                        "application/x-www-form-urlencoded; charset=UTF-8");
+                    if (obj.code == 200) {
+                        console.log("save code success !!!")
+                    } else {
+                        alert(obj.code + "\t" + obj.message)
+                    }
+                }
+            }else {
+                alert("请选择正确的代码保存位置!!")
+            }
+        } else {
+            alert("请选择代码保存位置!!")
+        }
+    })
 });
 
 var isAlreadyCreateProj = false;
@@ -63,7 +102,8 @@ function importPorjectInit(nodeStr) {
         "state": "closed"
     }]
     $('#tt').tree({
-        data: nodes
+        // data: nodes
+        url: "/treenode/getNode?id=" + arr[0]
     })
 }
 
@@ -78,7 +118,6 @@ function importProjectNodeData(node) {
 function createDirFile(type) {
     var node = $('#tt').tree('getSelected');
     var reqdata = "{\"type\":\"" + type + "\",\"parentId\":\"" + node.id + "\"}";
-    console.log("reqdata : " + reqdata)
     var obj = ajaxRequest("/treenode/create/dirfile", reqdata, false);
     if (node) {
         if (obj.code == 200) {
@@ -122,24 +161,37 @@ function createProject() {
 }
 
 //todo deleteTreeNode
-/*function deleteNode() {
+function deleteNode() {
     var node = $('#tt').tree('getSelected');
-    $('#tt').tree('remove', node.target)
-    console.log("exe delete")
-}*/
+    var obj = ajaxRequest("/treenode/delete", "{\"id\":\"" + node.id + "\"}", false)
+    if (obj.code == 200) {
+        $('#tt').tree('remove', node.target)
+    } else {
+        alert("delete failed !")
+    }
+}
 
-function ajaxRequest(url, data, asyn) {
+function ajaxRequest(url, data, asyn,contentType) {
     var re = undefined;
+    var ct = contentType;
+    console.log("------ajaxRequest -------")
+    console.log("url : "+url)
+    console.log("data : "+data)
+    console.log("asyn : "+asyn)
+    console.log("contentType : "+contentType)
+    console.log("-------------------------")
+    if (ct==undefined){
+        ct="application/json; charset=UTF-8";
+    }
     $.ajax({
         type: "POST",//方法类型
         // dataType: "application/json;charset=UTF-8",
-        contentType: "application/json; charset=UTF-8",
+        contentType: ct,
         url: url,
         data: data,
         async: asyn,
         success: function (result) {
             console.log(result);
-            console.log(result.code + "-----" + result.message + "--------" + result.data)
             // re = JSON.parse(result);
             re = result;
         },

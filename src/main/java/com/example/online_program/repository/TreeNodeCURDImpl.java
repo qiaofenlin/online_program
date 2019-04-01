@@ -9,9 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 
 import java.sql.Timestamp;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Author: wtt
@@ -20,6 +18,22 @@ import java.util.Map;
  */
 public class TreeNodeCURDImpl implements TreeNodeCURD {
 
+    private List<List> lists;
+
+    public TreeNodeCURDImpl(List<List> lists) {
+        this.lists = lists;
+    }
+
+    public TreeNodeCURDImpl() {
+    }
+
+    public List<List> getLists() {
+        return lists;
+    }
+
+    public void setLists(List<List> lists) {
+        this.lists = lists;
+    }
 
     /**
      * createProject
@@ -62,10 +76,6 @@ public class TreeNodeCURDImpl implements TreeNodeCURD {
         return true;
     }
 
-    @Override
-    public boolean deleteNode(int nodeId) {
-        return false;
-    }
 
     public boolean renameNode(Map<String, Object> params) {
         SqlSession session = MybatisUtils.getSqlSession();
@@ -77,7 +87,7 @@ public class TreeNodeCURDImpl implements TreeNodeCURD {
         if (type != null && type.trim().equals("proj")) {
             System.out.println("[-------rename proj---------]");
             session.update("renameProj", params);
-        }else {
+        } else {
             System.out.println("[-------rename node---------]");
             session.update("renameNode", params);
         }
@@ -96,16 +106,64 @@ public class TreeNodeCURDImpl implements TreeNodeCURD {
                 System.out.println(info.getProjectId() + "\t" + info.getProjectName());
             }
         }
+        MybatisUtils.closeSqlSession(session);
         return list;
     }
+
     public List<TreeNodeInfo> queryNodeData(String nodeId) {
         List list = null;
         SqlSession session = MybatisUtils.getSqlSession();
-        if (session!=null&&nodeId!=null&&!nodeId.trim().equals("")){
-            list = session.selectList("queryNode",nodeId);
-            System.out.println("[ --- queryNodeData Result : "+list);
+        if (session != null && nodeId != null && !nodeId.trim().equals("")) {
+            list = session.selectList("queryNode", nodeId);
+            System.out.println("[ --- queryNodeData Result : " + list);
         }
+        MybatisUtils.closeSqlSession(session);
         return list;
+    }
+
+    public String queryProjectName(String projectId) {
+        String result = null;
+        SqlSession session = MybatisUtils.getSqlSession();
+        if (session != null) {
+            result = session.selectOne("queryProjName", projectId);
+        }
+        MybatisUtils.closeSqlSession(session);
+        return result;
+    }
+
+    @Override
+    public void deleteNode(List list) {
+        SqlSession session = MybatisUtils.getSqlSession();
+        if (session != null&&list.size()>0) {
+            int i = session.delete("deleteNode", list);
+            session.commit();
+            System.out.println("[  deleteNode count is : " + i);
+        }
+        MybatisUtils.closeSqlSession(session);
+    }
+
+    public void deleteProject(String projectId) {
+        SqlSession session = MybatisUtils.getSqlSession();
+        if (session != null) {
+            int i = session.delete("deleteProj", projectId);
+            session.commit();
+            System.out.println("[  deleteProject count is : " + i);
+        }
+    }
+
+    public List<List> selectAllChildNodeId(List list) {
+        SqlSession session = MybatisUtils.getSqlSession();
+        if (session != null&&list.size()>0) {
+            List li = session.selectList("queryAllchildNode", list);
+            MybatisUtils.closeSqlSession(session);
+            System.out.println("[selectAllChildNodeId : ]" + li);
+            if (li == null || li.size() < 1) {
+                return null;
+            }
+            lists.add(li);
+            selectAllChildNodeId(li);
+        }
+        return lists;
     }
 
     public boolean moveNode(TreeNodeInfo treeNodeInfo) {
@@ -119,7 +177,7 @@ public class TreeNodeCURDImpl implements TreeNodeCURD {
 
     public static void main(String[] args) {
 //        isDirectory("163e2a632ca5478482fbfaa6783f49c5");
-        TreeNodeCURDImpl tnci = new TreeNodeCURDImpl();
+//        TreeNodeCURDImpl tnci = new TreeNodeCURDImpl();
         /*Map map = new HashMap();
         map.put("nodeId","c0c233e827cf482294235d21db79f6dd");
         map.put("nodeName","qweasd123");
@@ -127,7 +185,12 @@ public class TreeNodeCURDImpl implements TreeNodeCURD {
         map.put("updateTime", Utils.getTimeStamp());
         tnci.renameNode(map);*/
 
-        tnci.queryProjectList("1111");
-
+//        tnci.queryProjectList("1111");
+        List<List> lists = new ArrayList<>();
+        TreeNodeCURDImpl tni1 = new TreeNodeCURDImpl(lists);
+        List list = new ArrayList<>();
+        list.add("p8cbdd1440c0415a9d944b571a5528dc");
+        tni1.selectAllChildNodeId(list);
+        System.out.println(Utils.mergeList(lists));
     }
 }

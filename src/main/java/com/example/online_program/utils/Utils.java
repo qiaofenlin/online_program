@@ -2,6 +2,8 @@ package com.example.online_program.utils;
 import org.apache.ibatis.session.SqlSession;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -44,6 +46,11 @@ public class Utils {
         return false;
     }
 
+    /**
+     * 0为目录文件,1为普通文件
+     * @param parentId
+     * @return
+     */
     public static boolean isDirectory(String parentId){
         SqlSession session = MybatisUtils.getSqlSession();
         if (session!=null){
@@ -54,6 +61,22 @@ public class Utils {
         }
         return false;
 
+    }
+
+    /**
+     * merge many inner list of list to a list
+     * @param lists
+     * @return
+     */
+    public static List mergeList(List<List> lists){
+        List list = new ArrayList();
+        if (lists!=null&&lists.size()>0){
+            for (List li : lists){
+                list.addAll(li);
+            }
+            return list;
+        }
+        return list;
     }
     public static void main(String[] args) {
         for (int i = 0;i<10;i++){

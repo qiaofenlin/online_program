@@ -28,6 +28,8 @@ public class MybatisUtils {
     }
 
     public static void closeSqlSession(SqlSession session){
-        session.close();
+        if (session!=null){
+            session.close();
+        }
     }
 }

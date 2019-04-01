@@ -59,4 +59,34 @@
         from treenode
         where parent_id=#{nodeId}
     </select>
+    <!--query project name by proj_id-->
+    <select id="queryProjName" parameterType="java.lang.String" resultType="java.lang.String">
+        select proj_name from project where proj_id=#{projectId}
+    </select>
+    <!--delete project-->
+    <delete id="deleteProj" parameterType="java.lang.String">
+        delete from project where proj_id=#{projectId}
+    </delete>
+    <!--delete node-->
+    <delete id="deleteNode" parameterType="java.util.List">
+        delete from treenode where child_id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    <!--query allChildNode by parentId-->
+    <select id="queryAllchildNode" parameterType="java.util.List" resultType="java.lang.String">
+        select child_id from treenode where parent_id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    <!--save code-->
+    <insert id="saveCode" parameterType="com.example.online_program.entity.CodeInfo" keyProperty="id">
+        insert into ide.code(code_id, code_text, user_id)values (#{codeId},#{codeText},#{userId})
+    </insert>
+    <!--show code-->
+    <select id="showCode" parameterType="java.lang.String" resultType="java.lang.String">
+        select code_text from ide.code where code_id=#{codeId}
+    </select>
 </mapper>
