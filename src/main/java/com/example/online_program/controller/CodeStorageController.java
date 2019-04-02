@@ -4,9 +4,16 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.online_program.entity.CodeInfo;
 import com.example.online_program.impl.CodeStorage;
 import com.example.online_program.repository.CodeStorageImpl;
+import com.example.online_program.utils.Utils;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @Author: wtt
@@ -17,28 +24,63 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/code")
 public class CodeStorageController {
 
-    @PostMapping(value = "/save")
+    @PostMapping(value = "/save",consumes = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
-    public Result saveCodeToDB(String nodeId, String code) {
-        System.out.println("[---------saveCodeToDB--------]");
-        System.out.println("nodeId : " + nodeId + "\n" + "code : " + code);
-        if (nodeId != null && !nodeId.trim().equals("")) {
-            CodeStorage codeStorage = new CodeStorageImpl();
-            CodeInfo codeInfo = new CodeInfo();
-            codeInfo.setCodeId(nodeId);
-            codeInfo.setCodeText(code);
-            codeInfo.setUserId("1111");
-            if (codeStorage.save(codeInfo)) {
-                return ResultGenerator.genSuccessResult();
+    public Result saveCodeToDB(HttpServletRequest request) {
+        Utils.disRequestData(request);
+        String codeId = null;
+        String userId = null;
+        String code = null;
+        String queryString = request.getQueryString();
+        if (queryString!=null&&!queryString.trim().equals("")){
+            String[] arr= queryString.split("&");
+            codeId = arr[0].split("=")[1];
+            userId = arr[1].split("=")[1];
+        }
+        BufferedReader in = null;
+        try {
+            in = request.getReader();
+            char[] buf = new char[1024];
+            int len = 0;
+            StringBuffer buffer = new StringBuffer();
+            while ((len=in.read(buf))!=-1){
+                buffer.append(buf,0,len);
+            }
+            code = buffer.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if (in!=null){
+                    in.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-        return ResultGenerator.genFailResult("save code failed !!");
+        if (codeId!=null&&code!=null
+                &&!codeId.trim().equals("")&&!userId.trim().equals("")){
+            CodeStorage codeStorage = new CodeStorageImpl();
+            CodeInfo codeInfo = new CodeInfo();
+            codeInfo.setUserId(userId);
+            codeInfo.setCodeId(codeId);
+            codeInfo.setCodeText(code);
+            codeStorage.save(codeInfo);
+            return ResultGenerator.genSuccessResult();
+        }
+        return ResultGenerator.genFailResult("[ save failed !]");
     }
+
 
     @PostMapping(value = "/show")
     @ResponseBody
-    public Result showCode(String codeId) {
-        System.out.println("[---------showCode-------codeId : ]" + codeId);
+    public Result showCode(@RequestBody JSONObject object) {
+        System.out.println("[---------showCode-------codeId : ]");
+        String codeId = null;
+        if (object!=null){
+            codeId = object.getString("codeId");
+            System.out.println("[ ----codeId----: "+codeId);
+        }
         if (codeId != null && !codeId.trim().equals("")) {
             CodeStorage codeStorage = new CodeStorageImpl();
             String result = codeStorage.show(codeId);
@@ -46,4 +88,54 @@ public class CodeStorageController {
         }
         return ResultGenerator.genFailResult("show code failed");
     }
+
+   /* @PostMapping(value = "/save")
+    @ResponseBody
+    public Result saveCodeToDB(String nodeId, String code) {
+        System.out.println("[---------saveCodeToDB--------]");
+        System.out.println("nodeId : " + nodeId + "\n" + "code : " + code);
+        if (nodeId != null && !nodeId.trim().equals("")) {
+            if (code!=null){
+                CodeStorage codeStorage = new CodeStorageImpl();
+                CodeInfo codeInfo = new CodeInfo();
+                codeInfo.setCodeId(nodeId);
+                codeInfo.setCodeText(code);
+                codeInfo.setUserId("1111");
+                if (codeStorage.save(codeInfo)) {
+                    return ResultGenerator.genSuccessResult();
+                }
+            }else {
+                return ResultGenerator.genFailResult("code is null !!");
+            }
+        }
+        return ResultGenerator.genFailResult("save code failed !!");
+    }*/
+   /*@PostMapping(value = "/save")
+    @ResponseBody
+    public Result saveCodeToDB(@RequestBody JSONObject object) {
+        System.out.println("[---------saveCodeToDB--------]");
+        String nodeId = null;
+        String code = null;
+        if (object!=null){
+            nodeId = object.getString("nodeId");
+            code = object.getString("code");
+            System.out.println("nodeId : " + nodeId + "\n" + "code : " + code);
+        }
+        if (nodeId != null && !nodeId.trim().equals("")) {
+            if (code!=null){
+                CodeStorage codeStorage = new CodeStorageImpl();
+                CodeInfo codeInfo = new CodeInfo();
+                codeInfo.setCodeId(nodeId);
+                codeInfo.setCodeText(code);
+                codeInfo.setUserId("1111");
+                if (codeStorage.save(codeInfo)) {
+                    return ResultGenerator.genSuccessResult();
+                }
+            }else {
+                return ResultGenerator.genFailResult("code is null !!");
+            }
+        }
+        return ResultGenerator.genFailResult("save code failed !!");
+    }
+*/
 }

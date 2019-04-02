@@ -40,9 +40,17 @@ $(function () {
             importProjectNodeData(node)
         }*/
 
-        //TODO 当用户双击一个节点时触发
+        //TODO 展示代码(当用户双击一个节点时触发)
         onDblClick: function (node) {
-            alert(node.text+"\t"+node.state)
+            var o = ajaxRequest("/treenode/adjust/isFile",
+                "{\"nodeId\":\"" + node.id + "\"}",
+                false)
+            if (o.code == 200 && o.data) {
+                var obj = ajaxRequest("/code/show", "{\"codeId\":\"" + node.id + "\"}",false);
+                $('#runText').val(obj.data);
+            }else {
+                console.log("double click error !!!")
+            }
         }
     });
 
@@ -57,32 +65,40 @@ $(function () {
             $('#myProjsList').append("<div onclick='importPorjectInit(\"" + nodeStr + "\")' class='menu-item' style='height: 32px;'>" + innerEle + "</div>")
         }
     })
+    //TODO mycode btn listener
+    $('#codebtn').click(function () {
+        window.location.href = "/myCode.html"
+    })
 
     //TODO save code listener
-    $('#savebtn').onclick(function () {
+    $('#savebtn').click(function () {
         console.log("---------save code---------")
         var node = $('#tt').tree('getSelected');
         var code = $('#runText').val();
-        console.log("saveMyCode : " + node.text+"\t"+node.id);
-        console.log("code : "+code);
-
+        var userId = "1111";
+        console.log("saveMyCode : " + node.text + "\t" + node.id);
         if (node != undefined) {
             var o = ajaxRequest("/treenode/adjust/isFile",
                 "{\"nodeId\":\"" + node.id + "\"}",
-                false)
-            if (o.code==200&&o.data){
-                if (confirm("保存代码到文件"+node.text+"?")){
-                    var obj = ajaxRequest("/code/save",
-                        'nodeId=' + node.id + '&code=' + code,
+                false);
+            if (o.code == 200 && o.data) {
+                if (confirm("保存代码到文件" + node.text + "?")) {
+                    var uri = "/code/save?codeId="+node.id+"&userId="+userId;
+                    var obj = ajaxRequest(
+                        uri,
+                        // "{\"nodeId\":\"" + node.id + "\",\"code\":\"" + code + "\"}",
+                        // 'nodeId=' + node.id + '&code=' + code,
+                        code,
                         false,
-                        "application/x-www-form-urlencoded; charset=UTF-8");
+                        "text/plain");
+                        // "application/x-www-form-urlencoded;charset=utf-8");
                     if (obj.code == 200) {
-                        console.log("save code success !!!")
+                        console.log("save code success !!!");
                     } else {
-                        alert(obj.code + "\t" + obj.message)
+                        alert(obj.code + "\t" + obj.message);
                     }
                 }
-            }else {
+            } else {
                 alert("请选择正确的代码保存位置!!")
             }
         } else {
@@ -171,18 +187,18 @@ function deleteNode() {
     }
 }
 
-function ajaxRequest(url, data, asyn,contentType) {
+function ajaxRequest(url, data, asyn, contentType) {
     var re = undefined;
     var ct = contentType;
-    console.log("------ajaxRequest -------")
-    console.log("url : "+url)
-    console.log("data : "+data)
-    console.log("asyn : "+asyn)
-    console.log("contentType : "+contentType)
-    console.log("-------------------------")
-    if (ct==undefined){
-        ct="application/json; charset=UTF-8";
+    if (ct == undefined) {
+        ct = "application/json; charset=UTF-8";
     }
+    console.log("------ajaxRequest -------")
+    console.log("url : " + url)
+    console.log("data : " + data)
+    console.log("asyn : " + asyn)
+    console.log("contentType : " + contentType)
+    console.log("-------------------------")
     $.ajax({
         type: "POST",//方法类型
         // dataType: "application/json;charset=UTF-8",

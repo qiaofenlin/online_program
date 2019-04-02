@@ -223,12 +223,17 @@ public class TreeNodeCURDController {
     @ResponseBody
     public Result adjustIsTxtFile(@RequestBody JSONObject object) {
         System.out.println("[--------adjustIsTxtFile-------]");
-        String id = object.getString("nodeId");
-        if (object != null && id != null && !id.trim().equals("")) {
-            if (!Utils.isDirectory(id)) {
-                return ResultGenerator.genSuccessResult(true);
-            } else {
-                return ResultGenerator.genSuccessResult(false);
+        if (object!=null){
+            String id = object.getString("nodeId");
+            if (id != null && !id.trim().equals("")) {
+                if (Utils.adjustIsProject(id)){
+                    return ResultGenerator.genSuccessResult(false);
+                }
+                if (!Utils.isDirectory(id)) {
+                    return ResultGenerator.genSuccessResult(true);
+                } else {
+                    return ResultGenerator.genSuccessResult(false);
+                }
             }
         }
         return ResultGenerator.genFailResult("adjustIsTxtFile failed!");

@@ -85,6 +85,17 @@
     <insert id="saveCode" parameterType="com.example.online_program.entity.CodeInfo" keyProperty="id">
         insert into ide.code(code_id, code_text, user_id)values (#{codeId},#{codeText},#{userId})
     </insert>
+    <select id="isExistsCode" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select COUNT(*) from ide.code where code_id=#{codeId}
+    </select>
+    <!--update code-->
+    <update id="updateCode" parameterType="com.example.online_program.entity.CodeInfo">
+        update ide.code
+        set code_text =#{codeText},
+        update_time=#{updateTime},
+        user_id=#{userId}
+        where code_id=#{codeId}
+    </update>
     <!--show code-->
     <select id="showCode" parameterType="java.lang.String" resultType="java.lang.String">
         select code_text from ide.code where code_id=#{codeId}
