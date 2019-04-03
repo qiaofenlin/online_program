@@ -24,7 +24,7 @@ import java.io.InputStream;
 @RequestMapping("/code")
 public class CodeStorageController {
 
-    @PostMapping(value = "/save",consumes = MediaType.TEXT_PLAIN_VALUE)
+    @PostMapping(value = "/save", consumes = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
     public Result saveCodeToDB(HttpServletRequest request) {
         Utils.disRequestData(request);
@@ -32,8 +32,8 @@ public class CodeStorageController {
         String userId = null;
         String code = null;
         String queryString = request.getQueryString();
-        if (queryString!=null&&!queryString.trim().equals("")){
-            String[] arr= queryString.split("&");
+        if (queryString != null && !queryString.trim().equals("")) {
+            String[] arr = queryString.split("&");
             codeId = arr[0].split("=")[1];
             userId = arr[1].split("=")[1];
         }
@@ -43,23 +43,23 @@ public class CodeStorageController {
             char[] buf = new char[1024];
             int len = 0;
             StringBuffer buffer = new StringBuffer();
-            while ((len=in.read(buf))!=-1){
-                buffer.append(buf,0,len);
+            while ((len = in.read(buf)) != -1) {
+                buffer.append(buf, 0, len);
             }
             code = buffer.toString();
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
-                if (in!=null){
+                if (in != null) {
                     in.close();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        if (codeId!=null&&code!=null
-                &&!codeId.trim().equals("")&&!userId.trim().equals("")){
+        if (codeId != null && code != null
+                && !codeId.trim().equals("") && !userId.trim().equals("")) {
             CodeStorage codeStorage = new CodeStorageImpl();
             CodeInfo codeInfo = new CodeInfo();
             codeInfo.setUserId(userId);
@@ -77,9 +77,9 @@ public class CodeStorageController {
     public Result showCode(@RequestBody JSONObject object) {
         System.out.println("[---------showCode-------codeId : ]");
         String codeId = null;
-        if (object!=null){
+        if (object != null) {
             codeId = object.getString("codeId");
-            System.out.println("[ ----codeId----: "+codeId);
+            System.out.println("[ ----codeId----: " + codeId);
         }
         if (codeId != null && !codeId.trim().equals("")) {
             CodeStorage codeStorage = new CodeStorageImpl();
