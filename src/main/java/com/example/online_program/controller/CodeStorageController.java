@@ -24,6 +24,12 @@ import java.io.InputStream;
 @RequestMapping("/code")
 public class CodeStorageController {
 
+    /**
+     * TODO save code to DB
+     *
+     * @param request
+     * @return
+     */
     @PostMapping(value = "/save", consumes = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
     public Result saveCodeToDB(HttpServletRequest request) {
@@ -72,6 +78,12 @@ public class CodeStorageController {
     }
 
 
+    /**
+     * TODO show code
+     *
+     * @param object
+     * @return
+     */
     @PostMapping(value = "/show")
     @ResponseBody
     public Result showCode(@RequestBody JSONObject object) {
