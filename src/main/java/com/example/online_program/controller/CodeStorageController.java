@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * @Author: wtt
@@ -24,6 +25,12 @@ import java.io.InputStream;
 @RequestMapping("/code")
 public class CodeStorageController {
 
+    /**
+     * TODO save code to DB
+     *
+     * @param request
+     * @return
+     */
     @PostMapping(value = "/save", consumes = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
     public Result saveCodeToDB(HttpServletRequest request) {
@@ -72,6 +79,12 @@ public class CodeStorageController {
     }
 
 
+    /**
+     * TODO show code
+     *
+     * @param object
+     * @return
+     */
     @PostMapping(value = "/show")
     @ResponseBody
     public Result showCode(@RequestBody JSONObject object) {
@@ -89,6 +102,47 @@ public class CodeStorageController {
         return ResultGenerator.genFailResult("show code failed");
     }
 
+    /**
+     * TODO showHistoryCode
+     * @param object
+     * @return
+     */
+    @PostMapping(value = "/history")
+    @ResponseBody
+    public Result showHistoryCode(@RequestBody JSONObject object){
+        String userId = null;
+        if (object != null) {
+            userId = object.getString("userId");
+            System.out.println("[----into showHistoryCode Controller : ]"+userId);
+            if (userId!=null&&!userId.trim().equals("")){
+                CodeStorageImpl csi = new CodeStorageImpl();
+                List list= csi.getHistoryCode(userId);
+                return ResultGenerator.genSuccessResult(list);
+            }
+        }
+        return ResultGenerator.genFailResult("get history failed ~");
+    }
+
+    /**
+     * TODO del code
+     * @param object
+     * @return
+     */
+    @PostMapping(value = "/delete")
+    @ResponseBody
+    public Result deleteCode(@RequestBody JSONObject object){
+        String codeId = null;
+        if (object != null) {
+            codeId = object.getString("codeId");
+            if (codeId!=null&&!codeId.trim().equals("")){
+                if (new CodeStorageImpl()
+                        .deleteCode(codeId)){
+                    return ResultGenerator.genSuccessResult();
+                }
+            }
+        }
+        return ResultGenerator.genFailResult("del code failed");
+    }
    /* @PostMapping(value = "/save")
     @ResponseBody
     public Result saveCodeToDB(String nodeId, String code) {

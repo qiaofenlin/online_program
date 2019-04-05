@@ -1,0 +1,47 @@
+/*以下为全文搜索结果布局样式*/
+body {
+    background: url("img/codeIcon.jpeg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+#first {
+    width: 50%;
+    float: left;
+    height: 700px;
+}
+
+#second {
+    width: 50%;
+    margin-left: 50%;
+}
+
+em{
+    color: yellow;
+}
+#full {
+    margin-left: 36px;
+    margin-right: 30px;
+    margin-top: 36px;
+}
+
+#fulink{
+    color: white;
+}
+#fullre{
+    margin-left: 34px;
+    color: white;
+}
+
+#out{
+
+}
+
+textarea {
+    overflow-y: hidden;
+    resize: none;
+    width: 98%;
+    /*height: 760px;*/
+    color: white;
+    border: 0;
+    background-color: rgba(251, 248, 248, 0.2);
+}

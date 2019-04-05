@@ -67,17 +67,18 @@ $(function () {
     })
     //TODO mycode btn listener
     $('#codebtn').click(function () {
-        window.location.href = "/myCode.html"
+        window.open("/myCode.html?userId=1111");
+        // window.location.href = "/myCode.html"
     })
 
     //TODO save code listener
     $('#savebtn').click(function () {
-        console.log("---------save code---------")
         var node = $('#tt').tree('getSelected');
         var code = $('#runText').val();
         var userId = "1111";
-        console.log("saveMyCode : " + node.text + "\t" + node.id);
+        console.log("[--------save code listener---------node : "+node)
         if (node != undefined) {
+            console.log("saveMyCode : " + node.text + "\t" + node.id);
             var o = ajaxRequest("/treenode/adjust/isFile",
                 "{\"nodeId\":\"" + node.id + "\"}",
                 false);

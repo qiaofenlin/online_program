@@ -17,6 +17,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="TreeNodeCURD.xml"/>
+        <mapper resource="OnlineIde.xml"/>
     </mappers>
 </configuration>
