@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/full.css">
+    <link rel="stylesheet" type="text/css" href="css/search.css">
+    <link rel="stylesheet" href="css/split.css">
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/split.js"></script>
+    <script>
+        $(function () {
+            $("#page").Page({
+                totalPages: 8,//分页总数
+                liNums: 5,//分页的数字按钮数(建议取奇数)
+                activeClass: 'activP', //active 类样式定义
+                callBack: function (page) {
+                    console.log(page)
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<div id="titl"><img src="img/pyIcon.png" id="pyIcon">History Code</div>
+<div class="search" action="">
+    <input type="search" placeholder="Input here..." required>
+    <button type="submit">Search</button>
+</div>
+<div id="out">
+    <div id="first">
+        <!--以下为ES搜索结果展示-->
+        <p id="fullre">共找到相关结果约8个</p>
+        <div id="full">
+            <a id="fulink" href="">private static int nArr[] = new int[16];
+                //新的数组index
+                private static int index = 0;
+                private <em>CountDownLatch</em>...cdl;
+                //用于第二种解法的锁lock
+                private static Lock lock;
+
+                public ThreadPoolArrayOpt(<em>CountDownLatch</em>...cdl) {
+                this.cdl = cdl;
+                }
+
+                public ThreadPoolArrayOpt(<em>CountDownLatch</em> cdl, Lock lock) {...
+                }
+
+                public static void main(String[] args) {
+                Lock lock=new ReentrantLock();
+                <em>CountDownLatch</em>...cdl = new <em>CountDownLatch</em>(16);
+                ThreadPoolExecutor executor = null;
+                try {...
+            </a>
+        </div>
+        <div id="full">
+            <a id="fulink">raf =null;
+                <em>RandomAccessFile</em> raf1=null;
+                try {
+                raf = new <em>RandomAccessFile</em>(...raf=null;
+                <em>RandomAccessFile</em> raf1=null;
+                try {
+                raf = new <em>RandomAccessFile</em>(newFile..., "rw");
+                for (int i = 0; i < 20; i++) {
+                raf1 = new <em>RandomAccessFile</em>(filesDir...ra=null;
+                <em>RandomAccessFile</em> raf=null;
+                try {
+                //生成100M的文件
+                ra = new...<em>RandomAccessFile</em>(file, "rw");
+                raf = new <em>RandomAccessFile</em>("C:\\Users\\ENVY\\Desktop\\rdkj...</a>
+        </div>
+        <div id="full">
+            <a id="fulink">raf =null;
+                <em>RandomAccessFile</em> raf1=null;
+                try {
+                raf = new <em>RandomAccessFile</em>(...raf=null;
+                <em>RandomAccessFile</em> raf1=null;
+                try {
+                raf = new <em>RandomAccessFile</em>(newFile..., "rw");
+                for (int i = 0; i < 20; i++) {
+                raf1 = new <em>RandomAccessFile</em>(filesDir...ra=null;
+                <em>RandomAccessFile</em> raf=null;
+                try {
+                //生成100M的文件
+                ra = new...<em>RandomAccessFile</em>(file, "rw");
+                raf = new <em>RandomAccessFile</em>("C:\\Users\\ENVY\\Desktop\\rdkj...</a>
+        </div>
+        <div id="full">
+            <a id="fulink">raf =null;
+                <em>RandomAccessFile</em> raf1=null;
+                try {
+                raf = new <em>RandomAccessFile</em>(...raf=null;
+                <em>RandomAccessFile</em> raf1=null;
+                try {
+                raf = new <em>RandomAccessFile</em>(newFile..., "rw");
+                for (int i = 0; i < 20; i++) {
+                raf1 = new <em>RandomAccessFile</em>(filesDir...ra=null;
+                <em>RandomAccessFile</em> raf=null;
+                try {
+                //生成100M的文件
+                ra = new...<em>RandomAccessFile</em>(file, "rw");
+                raf = new <em>RandomAccessFile</em>("C:\\Users\\ENVY\\Desktop\\rdkj...</a>
+        </div><div id="full">
+            <a id="fulink">raf =null;
+                <em>RandomAccessFile</em> raf1=null;
+                try {
+                raf = new <em>RandomAccessFile</em>(...raf=null;
+                <em>RandomAccessFile</em> raf1=null;
+                try {
+                raf = new <em>RandomAccessFile</em>(newFile..., "rw");
+                for (int i = 0; i < 20; i++) {
+                raf1 = new <em>RandomAccessFile</em>(filesDir...ra=null;
+                <em>RandomAccessFile</em> raf=null;
+                try {
+                //生成100M的文件
+                ra = new...<em>RandomAccessFile</em>(file, "rw");
+                raf = new <em>RandomAccessFile</em>("C:\\Users\\ENVY\\Desktop\\rdkj...</a>
+        </div>
+        <!--split page-->
+        <div id="page">split page</div>
+    </div>
+    <div id="second">
+        <textarea rows="49">
+public class Test {
+    public static void main(String[] args) throws IOException {
+        Settings settings = Settings.builder()
+                .put("cluster.name", "elasticsearch").build();
+        // 创建client
+        TransportClient client = new PreBuiltTransportClient(settings)
+                .addTransportAddress(new TransportAddress(
+                        InetAddress.getByName("127.0.0.1"),9300));
+
+        client.prepareIndex("blog", "article", "1")
+                .setSource(jsonBuilder()
+                        .startObject()
+                        .field("title", "java编程思想")
+                        .field("content", "《Java编程思想》这本书赢得了全球程序员的广泛赞誉")
+                        .endObject()
+                ).get();
+        client.prepareIndex("blog", "article", "2")
+                .setSource(jsonBuilder()
+                        .startObject()
+                        .field("title", "手把手教你使用Git")
+                        .field("content", "这是一个非常容易上手的GIt详细教程")
+                        .endObject()
+                );
+        client.prepareIndex("blog", "article", "3")
+                .setSource(jsonBuilder()
+                        .startObject()
+                        .field("title", "java从入门到精通")
+                        .field("content", "《java从入门到精通》非常适合java初学")
+                        .endObject()
+                );
+        QueryBuilder matchQuery = QueryBuilders.matchQuery("title", "编程");
+        HighlightBuilder hiBuilder=new HighlightBuilder();
+        hiBuilder.preTags("<h2>");
+        hiBuilder.postTags("</h2>");
+        hiBuilder.field("title");
+        // 搜索数据
+        SearchResponse response = client.prepareSearch("blog")
+                .setQuery(matchQuery)
+                .highlighter(hiBuilder)
+                .execute().actionGet();
+        //获取查询结果集
+        SearchHits searchHits = response.getHits();
+        System.out.println("共搜到:"+searchHits.getTotalHits()+"条结果!");
+        //遍历结果
+        for(SearchHit hit:searchHits){
+            System.out.println("String方式打印文档搜索内容:");
+        </textarea>
+    </div>
+</div>
+</body>
+</html>

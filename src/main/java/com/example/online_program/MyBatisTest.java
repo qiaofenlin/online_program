@@ -1,6 +1,7 @@
 package com.example.online_program;
 
 import com.example.online_program.entity.ProjInfo;
+import com.example.online_program.utils.MybatisUtils;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,6 +16,16 @@ import java.io.InputStream;
  * @Description:
  */
 public class MyBatisTest {
+    public static boolean test1(){
+        try {
+            if (1==1){
+                return true;
+            }
+        }finally {
+            System.out.println("finally!!!");
+        }
+        return false;
+    }
     public static void main(String[] args) {
         /*InputStream in = null;
         SqlSessionFactory factory = null;
@@ -30,5 +41,6 @@ public class MyBatisTest {
         }*/
         String str = " ";
         System.out.println(str.trim().equals(""));
+        System.out.println("--------------"+test1());
     }
 }

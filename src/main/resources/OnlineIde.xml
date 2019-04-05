@@ -100,4 +100,18 @@
     <select id="showCode" parameterType="java.lang.String" resultType="java.lang.String">
         select code_text from ide.code where code_id=#{codeId}
     </select>
+    <!--show history code-->
+    <resultMap id="getHistoryCode" type="com.example.online_program.entity.CodeInfo">
+        <result property="codeId" column="code_id"/>
+        <result property="codeText" column="code_text"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+    <select id="showHistory" parameterType="java.lang.String" resultMap="getHistoryCode">
+        select * from ide.code where user_id=#{userId}
+    </select>
+    <!--delete code-->
+    <delete id="deleteCode" parameterType="java.lang.String">
+        delete from ide.code where code_id=#{codeId}
+    </delete>
 </mapper>

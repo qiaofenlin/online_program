@@ -1,0 +1,63 @@
+/*html,body{
+            background: #C7EDCC;
+            background-color: #C7EDCC;
+        }*/
+body {
+    background: url("img/codeIcon.jpeg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+textarea {
+    margin-left: 300px;
+    margin-top: 8px;
+    /*隐藏行下拉条*/
+    overflow-y: hidden;
+    resize: none;
+    width: 65%;
+    color: white;
+    background-color: rgba(251, 248, 248, 0.2);;
+}
+
+p {
+    margin-left: 300px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    color: greenyellow;
+}
+
+#line {
+    width: 65%;
+    border-bottom: #4332f4 1px dashed;
+    margin-left: 300px;
+    border-bottom: green 1px dashed;
+    /*dotted:点状；solid:实线；double:双实线；dashed：虚线*/
+}
+
+#del {
+    width: 24px;
+    height: 18px;
+    margin-bottom: -2px;
+    margin-left: 10px;
+}
+
+a:hover {
+    color: #FF00FF
+}
+
+a {
+    color: greenyellow;
+}
+
+
+h1{
+    margin-left: 539px;
+    width: 50%;
+    font-size: -webkit-xxx-large;
+    font-style: italic;
+    color: seashell;
+}
+img#hwc {
+    margin-left: 393px;
+    border-radius: 20px;
+}
