@@ -1,8 +1,14 @@
 package com.example.online_program.utils;
 
 import org.apache.ibatis.session.SqlSession;
+import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.transport.TransportAddress;
+import org.elasticsearch.transport.client.PreBuiltTransportClient;
 
 import javax.servlet.http.HttpServletRequest;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,6 +104,34 @@ public class Utils {
         System.out.println("req getQueryString : " + request.getQueryString());
     }
 
+    /**
+     * 返回起始查询数据的起始点from
+     * @param page 第几页
+     * @param num  每页的数据条数
+     * @return
+     */
+    public static int getLimitStartPoint(int page,int num){
+        if (page>0&&num>0){
+            if (page>1){
+                return (page-1)*num;
+            }
+            return 0;
+        }
+        //参数不正确返回-1
+        return -1;
+    }
+
+    public static int countPages(Number sum,Number num){
+        double s = sum.doubleValue();
+        double n = num.doubleValue();
+//        System.out.println("s : "+s +"\t n : "+n + "\t res : "+Math.ceil(s/n));
+        if (s>0&&n>0){
+            return (int) Math.ceil(s/n);
+        }
+        return -1;
+    }
+
+
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             System.out.println(new StringBuffer(getUUIDString()).replace(0, 1, "p"));
@@ -105,3 +139,6 @@ public class Utils {
         System.out.println(getTimeStamp());
     }
 }
+/*
+向上取整用Math.ceil(double a)
+向下取整用Math.floor(double a)*/

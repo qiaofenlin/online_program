@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="css/search.css" media="screen" type="text/css"/>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="application/javascript" src="js/history.js"></script>
+</head>
 <body>
 <div>
     <div id="titl"><img src="img/pyIcon.png" id="pyIcon">History Code</div>
     <div class="search" action="">
-        <input type="search" placeholder="Input here..." required>
-        <button type="submit">Search</button>
+        <input type="search" id="kw" placeholder="Input here..."/>
+        <button type="submit" onclick="searchBtn()">Search</button>
     </div>
     <!--<p id="startAppend">以下是用户<em>407191993</em>保存的代码</p>-->
     <!--<div>
