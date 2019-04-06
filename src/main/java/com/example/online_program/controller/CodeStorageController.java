@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.online_program.entity.CodeInfo;
 import com.example.online_program.impl.CodeStorage;
 import com.example.online_program.repository.CodeStorageImpl;
+import com.example.online_program.service.EsOptService;
 import com.example.online_program.utils.Utils;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
@@ -72,7 +73,12 @@ public class CodeStorageController {
             codeInfo.setUserId(userId);
             codeInfo.setCodeId(codeId);
             codeInfo.setCodeText(code);
-            codeStorage.save(codeInfo);
+            if (!codeStorage.save(codeInfo)){
+                return ResultGenerator.genFailResult("save db failed");
+            }
+            if (!EsOptService.saveDataToEs(codeId,code,userId)){
+                return ResultGenerator.genFailResult("[save es failed]");
+            }
             return ResultGenerator.genSuccessResult();
         }
         return ResultGenerator.genFailResult("[ save failed !]");
@@ -143,6 +149,7 @@ public class CodeStorageController {
         }
         return ResultGenerator.genFailResult("del code failed");
     }
+
    /* @PostMapping(value = "/save")
     @ResponseBody
     public Result saveCodeToDB(String nodeId, String code) {

@@ -11,8 +11,8 @@
     lastPage: '末页',//末页按钮名称
     prv: '«',//前一页按钮名称
     next: '»',//后一页按钮名称
-    hasFirstPage: true,//是否有首页按钮
-    hasLastPage: true,//是否有末页按钮
+    hasFirstPage: false,//是否有首页按钮
+    hasLastPage: false,//是否有末页按钮
     hasPrv: true,//是否有前一页按钮
     hasNext: true,//是否有后一页按钮
     callBack : function(page){

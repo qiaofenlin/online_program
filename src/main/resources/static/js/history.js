@@ -8,6 +8,10 @@ $(function () {
     getHistoryCode(userId);
 
 })
+function searchBtn() {
+    var val = $('#kw').val();
+    window.location.href = "/search.html?kw="+val;
+}
 function getHistoryCode(userId) {
     if (userId!=undefined&&userId.trim()!=""){
         var data = "{\"userId\":\""+userId+"\"}";
@@ -68,6 +72,7 @@ function delcode(codeId) {
         }
     }
 }
+
 function ajaxRequest(url, data, asyn, contentType) {
     var re = undefined;
     var ct = contentType;
@@ -102,6 +107,7 @@ function ajaxRequest(url, data, asyn, contentType) {
     });
     return re;
 }
+
 /*
 * //设置或获取对象指定的文件名或路径。
 alert(window.location.pathname);
