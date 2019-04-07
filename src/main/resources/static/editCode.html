@@ -9,8 +9,63 @@
     <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
     <!--自定义js,css文件-->
-    <script type="application/javascript" src="http://127.0.0.1:8083/js/edit.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8083/css/edit.css">
+    <script type="application/javascript" src="js/edit.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/edit.css">
+    <script type="application/javascript">
+        var pName = null;
+        $(document).ready(function(){
+            $('#paci').combobox({
+                onSelect: function(record){
+                    pName = record.text;
+                    console.log("选中 : "+record.text)
+                }
+            });
+
+            $('.textbox-icon').css("width","80px");
+            $('.combo-arrow').css({"background-image":"url('')","text-align":"center",
+                "line-height":"26px","width":"58px"});
+            $('.combo-arrow').text("INSTALL")
+            $('.textbox').css({"width":"175px","margin-left":"1330px","margin-top":"-3px"})
+            $('.textbox-text').css({"width":"117px"});
+
+            $('.textbox-addon').unbind("click");
+            $('.textbox-addon').click(function () {
+                console.log("id : "+$('#paci').val());
+                if (!$('#paci').val()){
+                    return;
+                }
+                var pipV = undefined;
+                console.log(" ---install listen ---"+pName);
+                $.ajax({
+                    type: "POST",//方法类型
+                    contentType: "application/json; charset=UTF-8",
+                    url: "/search/ipac",
+                    data: "{\"pName\":\"" + pName + "\",\"pipV\":\"" + pipV + "\"}",
+                    async: true,
+                    success: function (result) {
+                        console.log(result);
+                        if (result.code==200){
+                            if (result.data==0){
+                                alert("Successfully install\t"+pName)
+                            }
+                            if (result.data==1) {
+                                alert("Requirement already satisfied\t"+pName)
+                            }
+                        }else {
+                            alert("Failed install\t"+pName);
+                        }
+                    },
+                    error: function (XMLHttpResponse, textStatus, errorThrown) {
+                        console.log("1 异步调用返回失败,XMLHttpResponse.readyState:" + XMLHttpResponse.readyState);
+                        console.log("2 异步调用返回失败,XMLHttpResponse.status:" + XMLHttpResponse.status);
+                        console.log("3 异步调用返回失败,textStatus:" + textStatus);
+                        console.log("4 异步调用返回失败,errorThrown:" + errorThrown);
+                        alert("server is exeception !")
+                    }
+                });
+            })
+        });
+    </script>
 </head>
 <body class="easyui-layout">
         <div id="north" data-options="region:'north'" title="在线代码编辑运行平台" style="height: 70px">
@@ -19,7 +74,15 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="button" value="Run" id="runbtn">&nbsp;&nbsp;
             <input type="button" value="Save" id="savebtn">&nbsp;&nbsp;
-            <input type="button" value="MyCode" id="codebtn">&nbsp;&nbsp;
+            <input type="button" value="Code" id="codebtn">&nbsp;&nbsp;
+            <input id="paci" class="easyui-combobox" name="language" data-options="
+    				url: '/search/spac',
+    				method: 'get',
+    				valueField: 'id',
+    				textField: 'text',
+    				mode:'remote',
+    				formatter: formatItem
+    			">
         </div>
         <div data-options="region:'south',split:true" title="Console" id="south">
             <textarea title="run result" id="consoleText">
@@ -52,6 +115,12 @@
                 </div>
             </div>
         </div>
-
+        <script type="text/javascript">
+            function formatItem(row){
+                var s = '<span style="font-weight:bold">' + row.text + '</span><br/>' +
+                    '<span style="color:#888">' + row.desc + '</span>';
+                return s;
+            }
+        </script>
 </body>
 </html>
