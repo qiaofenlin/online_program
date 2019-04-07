@@ -1,7 +1,7 @@
 //重命名之前的节点名称
 var oldText = undefined;
 $(function () {
-    $('#tt').tree({
+        $('#tt').tree({
         dnd: false,// ban to drag
         //TODO edit treeNodeText
         onClick: function (node) {

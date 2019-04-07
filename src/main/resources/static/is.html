@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Format in ComboBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Application/Home/View/Public/js/easyui/demo/demo.css">
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <!--自定义js,css文件-->
+    <script type="application/javascript">
+        $(document).ready(function(){
+            $('.textbox-icon').css("width","80px");
+            $('.combo-arrow').css({"background-image":"url('')","text-align":"center",
+                                    "line-height":"26px"});
+            $('.combo-arrow').text("INSTALL")
+        });
+    </script>
+</head>
+<body>
+<input class="easyui-combobox" name="language" data-options="
+    				url: '/search/install?txt=china',
+    				method: 'get',
+    				valueField: 'id',
+    				textField: 'text',
+    				panelWidth: 350,
+    				panelHeight: 'auto',
+    				formatter: formatItem
+    			">
+<script type="text/javascript">
+    function formatItem(row){
+        var s = '<span style="font-weight:bold">' + row.text + '</span><br/>' +
+            '<span style="color:#888">' + row.desc + '</span>';
+        return s;
+    }
+</script>
+</body>
+</html>
