@@ -18,10 +18,10 @@ public class OnlineProgramApplication extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
+        //解决netty冲突
+        System.setProperty("es.set.netty.runtime.available.processors", "false");
         SpringApplication.run(OnlineProgramApplication.class, args);
     }
 }
-
-
 
 

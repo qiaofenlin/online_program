@@ -36,9 +36,6 @@ public class ProjectInfo implements Serializable {
     @Column(nullable = false)
     private String proj_member;
 
-    @Column(nullable = false)
-    private String proj_type;
-
     public Integer getProj_id() {
         return proj_id;
     }
@@ -95,13 +92,6 @@ public class ProjectInfo implements Serializable {
         this.user_id = user_id;
     }
 
-    public String getProj_type() {
-        return proj_type;
-    }
-
-    public void setProj_type(String proj_type) {
-        this.proj_type = proj_type;
-    }
     @Override
     public String toString() {
         return "ProjectInfo{" +
