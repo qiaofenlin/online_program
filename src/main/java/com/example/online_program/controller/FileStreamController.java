@@ -32,22 +32,22 @@ public class FileStreamController {
     public ResponseEntity<FileSystemResource> getSearchResult(String path) {
         System.out.println("path : " + path);
 //        String filePath = "/home/wtt/下载/北京地大2019年硕士研究生招生目录.xls";
-//        String filePath = "/home/wtt/下载/2019年硕士研究生招生简章.pdf";
-        String filePath = "/home/wtt/IdeaProjects/online_program/src/main/resources/static/editCode.html";
+        String filePath = "/home/wtt/下载/2019年硕士研究生招生简章.pdf";
+//        String filePath = "/home/wtt/IdeaProjects/online_program/src/main/resources/static/editCode.html";
         File file = new File(filePath);
         HttpHeaders headers = new HttpHeaders();
 //        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
 //        headers.add("Content-Disposition", "attachment; filename=" + System.currentTimeMillis() + ".pdf");
 //        headers.add("Pragma", "no-cache");
-        headers.add("Expires", "0");
-        headers.add("Last-Modified", new Date().toString());
-        headers.add("ETag", String.valueOf(System.currentTimeMillis()));
+//        headers.add("Expires", "0");
+//        headers.add("Last-Modified", new Date().toString());
+//        headers.add("ETag", String.valueOf(System.currentTimeMillis()));
         return ResponseEntity
                 .ok()
                 .headers(headers)
                 .contentLength(file.length())
-//                .contentType(MediaType.parseMediaType("application/octet-stream"))
-                .contentType(MediaType.TEXT_HTML)
+                .contentType(MediaType.parseMediaType("application/octet-stream"))
+//                .contentType(MediaType.TEXT_HTML)
                 .body(new FileSystemResource(file));
     }
 
