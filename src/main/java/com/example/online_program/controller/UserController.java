@@ -39,6 +39,7 @@ public class UserController {
 
     @PostMapping("/api/user/list/")
     public Result UserQueryList(@RequestBody JSONObject jsonParam) {
+        //分页
         Result result = ResultGenerator.genSuccessResult();
         return result;
     }
