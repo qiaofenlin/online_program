@@ -19,9 +19,13 @@ public class ResultGenerator {
                 .setData(data);
     }
 
-    public static Result genFailResult(String message) {
-        return new Result()
-                .setCode(ResultCode.FAIL)
+    public static Result genFailResult(String message,ResultCode resultCode) {
+        System.out.println("message " + message + "  resultCode  " + resultCode);
+        Result r = new Result()
+                .setCode(resultCode)
                 .setMessage(message);
+        System.out.println("*********************   "+r.toString());
+        return r;
     }
+
 }

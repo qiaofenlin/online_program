@@ -62,18 +62,5 @@ public class UserTests {
     }
 
 
-    public boolean isOdd(int i) {
-        return i >> 1 << 1 != i;
-    }
-
-    @Test
-    public void user_opt() {
-        UserTests t = new UserTests();
-        Boolean b = t.isOdd(10);
-        System.out.println("=====================================");
-        System.out.println(b);
-
-    }
-
 
 }

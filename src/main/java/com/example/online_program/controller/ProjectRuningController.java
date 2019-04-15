@@ -23,11 +23,11 @@ public class ProjectRuningController {
      * TODO 用户项目的启动和暂停
      * @param jsonParam
      * @return
+     * java 调用shell命令 https://www.cnblogs.com/shihaiming/p/5884859.html
      */
     @PostMapping("/api/projectRunning/start/")
     public Result ProjectStart(@RequestBody JSONObject jsonParam) {
         Result result = ResultGenerator.genSuccessResult();
         return result;
     }
-
 }

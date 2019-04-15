@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: test
+  mvc:
+    static-path-pattern: /static/**
+
+logging:
+  level:
+    com.example: debug
+#  file:
+  path: ./logger/
+#server:
+#  servlet:
+#    context-path: /crud

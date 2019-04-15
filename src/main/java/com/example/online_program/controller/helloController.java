@@ -2,6 +2,7 @@ package com.example.online_program.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.example.online_program.advice.MyException;
 import com.example.online_program.entity.Userinfo;
 import com.example.online_program.repository.UserRepository;
 import com.example.online_program.service.UserService;
@@ -9,6 +10,7 @@ import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,8 +41,10 @@ public class helloController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/")
+    @GetMapping("/aaa")
     public String index() {
+
+//        Layui.data(1,);
         return "login";
     }
 
@@ -85,5 +89,14 @@ public class helloController {
         Result result = ResultGenerator.genSuccessResult(userinfo1.get());
         return result;
     }
+
+    @GetMapping("/json")
+    public Result json() throws MyException {
+//        throw new MyException(ResultGenerator.genFailResult("json test",ResultCode.FAIL));
+        throw new MyException("error ....");
+//
+//        return ResultGenerator.genFailResult("json test",ResultCode.FAIL);
+    }
+
 }
 

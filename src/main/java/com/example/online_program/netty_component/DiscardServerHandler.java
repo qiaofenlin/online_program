@@ -1,5 +1,15 @@
 package com.example.online_program.netty_component;
 
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelHandlerAdapter;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.CharsetUtil;
+import io.netty.util.ReferenceCountUtil;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+
 /**
  * @Author: qfl
  * @Date: 19-1-5 下午5:26

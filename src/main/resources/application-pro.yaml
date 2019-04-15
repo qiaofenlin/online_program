@@ -1,0 +1,14 @@
+project:
+  name: 测试环境
+
+server:
+  port: 8081
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1/online_program?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource

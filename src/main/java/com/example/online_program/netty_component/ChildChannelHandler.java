@@ -1,4 +1,4 @@
-package com.example.online_program.netty_component;//package com.example.online_program.netty_component;
+//package com.example.online_program.netty_component;
 //
 //import io.netty.channel.ChannelInitializer;
 //import io.netty.channel.socket.SocketChannel;

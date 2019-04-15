@@ -19,7 +19,6 @@ public class ProjectManageController {
     public Result ProjectCreate(@RequestBody JSONObject jsonParam) {
 //        System.out.println("**********************************************" + jsonParam.toJSONString());
 //
-//        // TODO todo pojo
 //        Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam), Userinfo.class);
 //        System.out.println("***********************************************toString()"+userinfo.toString());
 //        Userinfo user = userRepository.save(userinfo); user.toString()
