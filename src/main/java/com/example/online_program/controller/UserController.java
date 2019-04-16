@@ -43,6 +43,9 @@ public class UserController {
 
     @PostMapping("/api/user/list/")
     public Result UserQueryList(@RequestBody JSONObject jsonParam) {
+        Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam), Userinfo.class);
+//        userinfo
+
         Result result = ResultGenerator.genSuccessResult();
         return result;
     }

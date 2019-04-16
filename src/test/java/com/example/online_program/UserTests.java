@@ -8,10 +8,16 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * @program: online_program
@@ -68,10 +74,21 @@ public class UserTests {
 
     @Test
     public void user_opt() {
-        UserTests t = new UserTests();
-        Boolean b = t.isOdd(10);
-        System.out.println("=====================================");
-        System.out.println(b);
+//        List<Userinfo> user_list = userRepository.findAll();
+//        logger.debug("*****************************\n" + user_list.toString());
+//        Pageable pageable = PageRequest.of(1, 10,Sort.Direction.DESC,"id");
+//        Page<Userinfo> page = userRepository.findAll(pageable);
+//        System.out.println(page.getNumber());  //当前页start
+//        System.out.println(page.getNumberOfElements());  //当前页start
+//        System.out.println(page.getSize());   //每页数量size
+//        System.out.println(page.getTotalElements());  //总数量
+//        System.out.println(page.getTotalPages());    //总页数
+//        System.out.println(page.getContent());    //总内容
+
+
+        List<Userinfo> userinfos = userRepository.findAllByIdPage(1, 3);
+        logger.debug("**************************\n ",userinfos.toString());
+
 
     }
 

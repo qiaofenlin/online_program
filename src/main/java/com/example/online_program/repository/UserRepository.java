@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -31,6 +32,16 @@ public interface UserRepository extends JpaRepository<Userinfo, Integer> {
     Optional<String > getByUserNameExistsAndPwdExists(@Param("username") String username, @Param("pwd") String password);
 
     Optional<Userinfo> findByUserName(String username);
+
+    @Query(value = "select * from userinfo  where id > limit ?",nativeQuery = true)
+    List<Userinfo> findAllByIdPage(Integer start_page, Integer end_page);
+
+//    Optional<Userinfo> findByIdBetween(@Param("start_page") int start_page, @Param("end_page") int end_page);
+
+
+
+
+
 
 }
 

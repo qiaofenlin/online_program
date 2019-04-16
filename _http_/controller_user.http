@@ -54,7 +54,7 @@ Content-Type: application/json
   "tel" : "18322693235"
 }
 
-### 用户列表
+### 用户登录
 POST http://127.0.0.1:8080/api/user/login/
 Content-Type: application/json
 
@@ -65,4 +65,13 @@ Content-Type: application/json
   }
 }
 
-###
+### 用户列表
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
