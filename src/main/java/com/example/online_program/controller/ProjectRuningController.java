@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class ProjectRuningController {
+public class ProjectRuningController extends BaseController{
 
     /**
      * TODO 用户项目的启动和暂停

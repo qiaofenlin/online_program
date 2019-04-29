@@ -3,7 +3,6 @@ package com.example.online_program;
 import com.example.online_program.entity.Userinfo;
 import com.example.online_program.repository.UserRepository;
 import com.example.online_program.service.UserService;
-import org.apache.lucene.queryparser.xml.builders.UserInputQueryBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -14,10 +13,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -25,12 +20,9 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 /**
  * @program: online_program
@@ -122,7 +114,10 @@ public class UserTests {
 
 
         List<Userinfo> userinfos = userRepository.findAllByIdPage(1, 3);
-        logger.debug("**************************\n ",userinfos.toString());
+        logger.debug("**************************\n ", userinfos.toString());
+
+    }
+
 
 
 

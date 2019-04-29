@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * @Description: 对用户所拥有项目的操作
  */
 @RestController
-public class ProjectManageController {
+public class ProjectManageController extends BaseController{
 
     @PostMapping("/api/projectManage/create/")
     public Result ProjectCreate(@RequestBody JSONObject jsonParam) {

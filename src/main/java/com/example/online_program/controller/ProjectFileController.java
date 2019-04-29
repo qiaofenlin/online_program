@@ -21,7 +21,7 @@ import java.io.*;
  * @Description: 用户项目文件的操作。
  */
 @RestController
-public class ProjectFileController {
+public class ProjectFileController extends BaseController{
 
     Logger logger = LoggerFactory.getLogger(getClass());
 

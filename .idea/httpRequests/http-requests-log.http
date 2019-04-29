@@ -1,0 +1,589 @@
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-04-29T010339.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/create/
+Content-Type: application/json
+
+{
+  "user_name":"18322693235",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.00",
+  "pwd": "1234569",
+  "description": "1235655559",
+  "email": "790872612@qq.com",
+  "tel" : "18322693237"
+}
+
+<> 2019-04-29T010325.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-04-29T010217.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "12345694"
+  }
+}
+
+<> 2019-04-29T010212.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "12345694"
+  }
+}
+
+<> 2019-04-29T095533.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-04-29T095505.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-03-15T042042.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-03-15T041746.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-03-15T041657.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-03-15T041504.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-03-15T041405.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-03-15T041336.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"乔风鳞",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-03-15T041247.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "user_name":"乔风鳞",
+  "pwd": "1234569"
+}
+
+<> 2019-03-15T041115.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/create/
+Content-Type: application/json
+
+{
+  "user_name":"乔风鳞",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.0",
+  "pwd": "1234569",
+  "description": "1235655559",
+  "email": "790872612@qq.com",
+  "tel" : "18322693235"
+}
+
+<> 2019-03-15T034046.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/create/
+Content-Type: application/json
+
+{
+  "user_name":"乔风鳞",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.0",
+  "pwd": "1234569",
+  "description": "1235655559",
+  "email": "790872612@qq.com",
+  "tel" : "18322693235"
+}
+
+###
+
+GET http://127.0.0.1:8080/json
+
+<> 2019-03-15T025636.200.json
+
+###
+
+GET http://127.0.0.1:8080/json
+
+<> 2019-03-15T025020.200.json
+
+###
+
+GET http://127.0.0.1:8080/json
+
+<> 2019-03-15T024734.200.json
+
+###
+
+GET http://127.0.0.1:8080/json
+
+<> 2019-03-15T024456.200.json
+
+###
+
+GET http://127.0.0.1:8080/json
+
+<> 2019-03-15T023906.200.json
+
+###
+
+GET http://127.0.0.1:8080/json
+
+<> 2019-03-15T023835.200.json
+
+###
+
+GET http://127.0.0.1:8080/json
+
+###
+
+GET http://127.0.0.1:8080/json
+
+<> 2019-03-15T023606.200.json
+
+###
+
+GET http://127.0.0.1:8080/json
+
+<> 2019-03-15T023328.200.json
+
+###
+
+GET http://127.0.0.1:8080/user/2
+
+<> 2019-03-15T023326.500.json
+
+###
+
+GET http://127.0.0.1:8080/json
+
+<> 2019-03-15T020125.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/create/
+Content-Type: application/json
+
+{
+  "user_name":"123456799",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.0",
+  "pwd": "1234569",
+  "description": "1235655559",
+  "email": "790872612@qq.com",
+  "tel" : "18322693235"
+}
+
+<> 2019-03-15T011430.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/create/
+Content-Type: application/json
+
+{
+  "user_name":"123456799",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.0",
+  "pwd": "1234569",
+  "description": "1235655559",
+  "email": "790872612@qq.com",
+  "tel" : "18322693235"
+}
+
+<> 2019-03-15T011333.500.json
+
+###
+
+POST http://127.0.0.1:8080/user/
+Content-Type: application/json
+
+{
+  "user_name":"123456799",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.0",
+  "pwd": "1234569",
+  "description": "1235655559",
+  "email": "790872612@qq.com",
+  "tel" : "18322693235"
+}
+
+<> 2019-03-15T010533.200.json
+
+###
+
+POST http://127.0.0.1:8080/user/
+Content-Type: application/json
+
+{
+  "user_name":"123456799",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.0",
+  "pwd": "1234569",
+  "description": "1235655559",
+  "email": "790872612@qq.com"
+}
+
+<> 2019-03-15T010508.500.json
+
+###
+
+POST http://127.0.0.1:8080/user/
+Content-Type: application/json
+
+{
+  "user_name":"123456799",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.0",
+  "pwd": "1234569",
+  "description": "1235655559"
+}
+
+<> 2019-03-15T010332.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login?username=123456&password=123456
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+<> 2019-03-15T010317.200.txt
+
+###
+
+POST http://127.0.0.1:8080/api/user/login?username=123456&password=123456
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+###
+
+POST http://127.0.0.1:8080/user/
+Content-Type: application/json
+
+{
+  "user_name":"123456799",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.0",
+  "pwd": "1234569",
+  "description": "1235655559"
+}
+
+<> 2019-03-15T115621.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectFile/files/upload/
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+<> 2019-03-13T103254.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectFile/files/upload/
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+<> 2019-03-13T103119.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectFile/files/upload/
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+<> 2019-03-13T103107.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectFile/files/upload/
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+<> 2019-03-13T103017.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectFile/files/upload/
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+<> 2019-03-13T103007.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectFile/files/upload/
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+<> 2019-03-13T102757.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectFile/files/upload/
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+###
+
+POST http://127.0.0.1:8080/api/projectFile/files/upload/
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+<> 2019-03-13T102731.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectFile/files/upload/
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+<> 2019-03-13T102606.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectFile/files/upload/
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+<> 2019-03-13T102543.405.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectFile/files/upload/
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+###
+
+POST http://127.0.0.1:8080/user/
+Content-Type: application/json
+
+{
+  "user_name":"123456799",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.0",
+  "pwd": "1234569",
+  "description": "1235655559"
+}
+
+<> 2019-03-13T102313.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login?username=123456&password=123456
+Content-Type: application/json
+
+{
+  "username":"123456",
+  "password":"123456"
+}
+
+<> 2019-03-13T102303.200.txt
+
+###
+

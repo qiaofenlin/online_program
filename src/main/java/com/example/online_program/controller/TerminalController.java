@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @package_name: online_program
  * @Description: 对用户所属的终端操作
  */
-public class TerminalController {
+public class TerminalController extends BaseController{
 
     /**
      * TODO 用户对自己所属项目进行操作

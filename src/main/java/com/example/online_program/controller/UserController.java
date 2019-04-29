@@ -18,12 +18,33 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class UserController {
+public class UserController extends BaseController {
     @Autowired
     UserService userService;
 
     /**
-     * TODO 用户创建 基本数据创建。
+     * 用户登录
+     *
+     * @param args
+     * @return
+     */
+    @PostMapping("/api/user/login/")
+    public Result UserCLogin(@RequestBody JSONObject args) {
+
+        Userinfo userinfo = JSON.parseObject(String.valueOf(args.getJSONObject("data")), Userinfo.class);
+        boolean result = userService.checkNameAndPwd(userinfo.getUserName(), userinfo.getPwd());
+        if (result) {
+            String result_data = "OK";
+            return ResultGenerator.genSuccessResult(result_data);
+        } else {
+            String result_data = "用户名或密码错误";
+            return ResultGenerator.genSuccessResult(result_data);
+        }
+    }
+
+    /**
+     * 用户创建 基本数据创建。
+     *
      * @param jsonParam
      * @return
      */
@@ -63,24 +84,9 @@ public class UserController {
     }
 
 
-    @PostMapping("/api/user/login/")
-    public Result UserCLogin(@RequestBody JSONObject args) {
-        Userinfo userinfo = JSON.parseObject(String.valueOf(args.getJSONObject("data")), Userinfo.class);
-        System.out.println("****************************  "+ args.getJSONObject("data"));
-        System.out.println("****************************  "+ userinfo.getUserName());
-        System.out.println("****************************  "+ userinfo.getPwd());
-        Boolean result = userService.checkNameAndPwd(userinfo.getUserName(),userinfo.getPwd());
-        if (result){
-            return ResultGenerator.genSuccessResult();
-        }else{
-            String result_data = "用户名或密码错误";
-            return ResultGenerator.genSuccessResult(result_data);
-        }
-
-    }
-
     /**
      * TODO 给用户在系统中创建相应的用户 并设置该用户对文件操作的权限
+     *
      * @param jsonParam
      * @return
      */
