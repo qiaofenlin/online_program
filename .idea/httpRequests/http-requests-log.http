@@ -1,3 +1,87 @@
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+"data": {
+     "page": 1,
+     "size": 10
+}
+}
+
+<> 2019-04-30T081119.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+"data": {
+     "page": 1,
+     "size": 10
+}
+}
+
+<> 2019-04-30T080635.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+"data": {
+     "page": 1,
+     "size": 10
+}
+}
+
+<> 2019-04-30T080536.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+"data": {
+     "page": 1,
+     "size": 10
+}
+}
+
+<> 2019-04-30T080438.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+"data": {
+     "page": 1,
+     "size": 10
+}
+}
+
+<> 2019-04-30T074129.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+"data": {
+     "page": 1,
+     "size": 10
+}
+}
+
+<> 2019-04-30T074027.200.json
+
+###
+
 POST http://127.0.0.1:8080/api/user/login/
 Content-Type: application/json
 
@@ -522,68 +606,6 @@ Content-Type: application/json
 }
 
 <> 2019-03-13T102731.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/projectFile/files/upload/
-Content-Type: application/json
-
-{
-  "username":"123456",
-  "password":"123456"
-}
-
-<> 2019-03-13T102606.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/projectFile/files/upload/
-Content-Type: application/json
-
-{
-  "username":"123456",
-  "password":"123456"
-}
-
-<> 2019-03-13T102543.405.json
-
-###
-
-POST http://127.0.0.1:8080/api/projectFile/files/upload/
-Content-Type: application/json
-
-{
-  "username":"123456",
-  "password":"123456"
-}
-
-###
-
-POST http://127.0.0.1:8080/user/
-Content-Type: application/json
-
-{
-  "user_name":"123456799",
-  "age":18,
-  "desc": "1239",
-  "birthday": "2018-12-09 16:00:00.0",
-  "pwd": "1234569",
-  "description": "1235655559"
-}
-
-<> 2019-03-13T102313.500.json
-
-###
-
-POST http://127.0.0.1:8080/api/user/login?username=123456&password=123456
-Content-Type: application/json
-
-{
-  "username":"123456",
-  "password":"123456"
-}
-
-<> 2019-03-13T102303.200.txt
 
 ###
 

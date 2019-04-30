@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.example.online_program.entity.Userinfo;
 import com.example.online_program.service.UserService;
+import com.example.online_program.utils.page_utils.ResultPage;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,12 +63,22 @@ public class UserController extends BaseController {
         return result;
     }
 
-    @PostMapping("/api/user/list/")
-    public Result UserQueryList(@RequestBody JSONObject jsonParam) {
-        Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam), Userinfo.class);
-//        userinfo
+//    @PostMapping("/api/user/list/")
+//    public ResultPage<Userinfo> queryByPageUserList(@RequestBody ResultPage<Userinfo> result, Userinfo example) {
+//        result.setExample(example);//设置前台条件，没有则为null
+//        userService.queryByPage(result);//调用service中的查询方法
+//        result.setCode("0");//设置状态码
+//        return result;
+//        Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam), Userinfo.class);
+//        userService.getUserList(1,10);
+//        Result result = ResultGenerator.genSuccessResult();
+//        return result;
+//    }
 
-        Result result = ResultGenerator.genSuccessResult();
+    @PostMapping("/api/user/list/simple/")
+    public Result queryByPageUserListSimple(@RequestBody JSONObject jsonParam) {
+        Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam.getJSONObject("data")), Userinfo.class);
+        Result result = userService.getUserList(0,10);
         return result;
     }
 

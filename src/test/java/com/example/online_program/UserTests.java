@@ -127,14 +127,16 @@ public class UserTests {
     @Test
     public void user_jpa_sort_page() {
         Sort sort = new Sort(Sort.Direction.DESC,"id");
-        Pageable pageable =PageRequest.of(1,2,sort);
+        Pageable pageable =PageRequest.of(1,10,sort);
         Page<Userinfo> page = userRepository.findAll(pageable);
-        System.out.println("总条数:" + page.getTotalElements());
-        System.out.println("总页数:" + page.getTotalPages());
         List<Userinfo> list = page.getContent();
         for (Userinfo userinfo : list) {
-            System.out.println(userinfo);
+            System.out.println("************************" + userinfo.toString());
         }
+        System.out.println("aaa" + list.size());
+        System.out.println("总条数:" + page.getTotalElements());
+        System.out.println("总页数:" + page.getTotalPages());
+
     }
 
     /**
@@ -149,7 +151,8 @@ public class UserTests {
              */
             @Override
             public Predicate toPredicate(Root<Userinfo> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-                Predicate pre = criteriaBuilder.equal(root.get("userName"),"乔风鳞");
+//                Predicate pre = criteriaBuilder.equal(root.get("userName"),"乔风鳞");
+                Predicate pre =criteriaBuilder.isNotNull(root.get("userName"));
                 return pre;
             }
         };
@@ -194,11 +197,13 @@ public class UserTests {
              */
             @Override
             public Predicate toPredicate(Root<Userinfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-                return cb.or(cb.and(cb.equal(root.get("userName"), "乔风鳞"),cb.equal(root.get("age"), 18)),cb.equal(root.get("id"),4));
+//                return cb.or(cb.and(cb.equal(root.get("userName"), "乔风鳞"),cb.equal(root.get("age"), 18)),cb.equal(root.get("id"),4));
+                return cb.isNotNull(root.get("userName"));
+
             }
         };
         Sort sort = new Sort(Sort.Direction.ASC,"id");
-        Pageable pageable =PageRequest.of(1,1,sort);
+        Pageable pageable =PageRequest.of(0,3,sort);
 
         Page<Userinfo> page = userRepository.findAll(spec,pageable);
 

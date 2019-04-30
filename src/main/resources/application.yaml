@@ -12,3 +12,7 @@ logging:
 #server:
 #  servlet:
 #    context-path: /crud
+
+devtools:
+  restart:
+    enabled=true:

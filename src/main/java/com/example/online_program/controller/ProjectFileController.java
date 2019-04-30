@@ -80,7 +80,7 @@ public class ProjectFileController extends BaseController{
         FileOutputStream outSTr = null;
         BufferedOutputStream Buff = null;
 //        String File_path = "/home/qiao/online_program/notes/test.py";
-        String File_path = "/home/qiao/java_pojo/online_program/notes/test.py";
+        String File_path = "/home/qiao/online_program/src/main/java/com/example/online_program/utils/test.py";
         // TODO 获取文件路径
         outSTr = new FileOutputStream(new File(File_path));
         Buff = new BufferedOutputStream(outSTr);
