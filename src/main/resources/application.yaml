@@ -3,16 +3,16 @@ spring:
     active: test
   mvc:
     static-path-pattern: /static/**
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: ./src/main/java
 
 logging:
   level:
-    com.example: debug
+    com.example: info
 #  file:
   path: ./logger/
 #server:
 #  servlet:
 #    context-path: /crud
-
-devtools:
-  restart:
-    enabled=true:

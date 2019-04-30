@@ -77,8 +77,9 @@ public class UserController extends BaseController {
 
     @PostMapping("/api/user/list/simple/")
     public Result queryByPageUserListSimple(@RequestBody JSONObject jsonParam) {
-        Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam.getJSONObject("data")), Userinfo.class);
-        Result result = userService.getUserList(0,10);
+        System.out.println(jsonParam.getJSONObject("data"));
+//      UserController page = JSON.parseObject(String.valueOf(jsonParam.getJSONObject("data")), UserController.class);
+        Result result = userService.getUserList(1,10);
         return result;
     }
 

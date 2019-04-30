@@ -84,7 +84,7 @@ public class UserService {
         };
         Sort sort = new Sort(Sort.Direction.ASC,"id");
         System.out.println("*********************"+page + "\t"+ size);
-        Pageable pageable = PageRequest.of(page,size,sort);
+        Pageable pageable = PageRequest.of(page-1,size,sort);
 
         Page<Userinfo> page_user_info = userRepository.findAll(spec,pageable);
 
@@ -92,11 +92,13 @@ public class UserService {
         System.out.println("总页数:" + page_user_info.getTotalPages());
         List<Userinfo> list = page_user_info.getContent();
         for (Userinfo userinfo : list) {
-            System.out.println("=============== user :"+userinfo);
+            logger.debug("=============== user :"+userinfo);
         }
         Result result = ResultGenerator.genSuccessResult();
-        Map<String, List<Userinfo>> user_list = new HashMap<String, List<Userinfo>>();
+        Map<String, Object> user_list = new HashMap<String, Object>();
         user_list.put("user_info_list",list);
+        user_list.put("count",page_user_info.getTotalElements());
+        user_list.put("all_page",page_user_info.getTotalPages());
         result.setData(user_list);
         return result;
     }
