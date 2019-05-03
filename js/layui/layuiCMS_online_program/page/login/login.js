@@ -2,16 +2,18 @@ var post = function (newD){
 	console.log(newD)
 	$.ajax({
 		type: 'POST',
-		url: 'http://callintest.aimango.net/callin/account/admin/anon/login/',
+		url: 'http://127.0.0.1:8080/api/user/login/',
 		data: JSON.stringify({data:newD}),
 		// data: {data:newD},
-		// contentType: 'application/json',
+		contentType: 'application/json',
 		dataType: "json",
 		processData:false,
 		async:false,
 		success: function(r){
-			window.location.href = "../../index.html";
-			console.log(r)
+			console.log("********************************"+r.data)
+			return r.data
+			// window.location.href = "../../index.html";
+			// console.log(r)
 		},
 		error:function (e) {
 			console.log(e)
@@ -34,12 +36,17 @@ layui.config({
 	}).resize();
 	
 	//登录按钮事件
-	form.on("submit(login)",function(data){
+	form.on("submit(login1)",function(data){
 		console.log(data)
 		// var newD = {data:data.field};
 		var newD = data.field;
-		post(newD)
-		// window.location.href = "../../index.html";
-		return false;
+		var login_result = post(newD)
+		if (login_result.equals("OK")){
+			console.log(login_result)
+			window.location.href = "../../index.html";
+		}else {
+			console.log(login_result);
+		}
+
 	})
 })

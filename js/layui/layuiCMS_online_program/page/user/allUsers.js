@@ -7,16 +7,60 @@ layui.config({
 		$ = layui.jquery;
 
 	//加载页面数据
+	var post_user_list = function (){
+		$.ajax({
+			type: 'POST',
+			url: ' http://127.0.0.1:8080/api/user/list/simple/',
+			data: JSON.stringify({data:{"page": 1,"size": 2}}),
+			// data: {data:newD},
+			contentType: 'application/json',
+			dataType: "json",
+			processData:false,
+			async:false,
+			success: function(userList){
+				// window.location.href = "../../index.html";
+				usersData = userList['data']['user_info_list']
+				console.log("success userinfo :",usersData)
+				usersList();
+
+			},
+			error:function (e) {
+				console.log(e)
+			}
+		});
+	};
 	var usersData = '';
-	$.get("../../json/usersList.json", function(data){
-		usersData = data;
-		if(window.sessionStorage.getItem("addUser")){
-			var addUser = window.sessionStorage.getItem("addUser");
-			usersData = JSON.parse(addUser).concat(usersData);
-		}
-		//执行加载数据的方法
-		usersList();
-	})
+	post_user_list()
+
+
+	//获取用户信息
+	// $.get("../../json/users_list.json", function(data){
+	// 	usersData = data;
+	// 	if(window.sessionStorage.getItem("addUser")){
+	// 		var addUser = window.sessionStorage.getItem("addUser");
+	// 		usersData = JSON.parse(addUser).concat(usersData);
+	// 	}
+	// 	//执行加载数据的方法
+	// 	usersList();
+	// })
+	//
+	// //
+	// $.get("../../json/users_list.json", function(data){
+	// 	usersData = data;
+	// 	if(window.sessionStorage.getItem("addUser")){
+	// 		var addUser = window.sessionStorage.getItem("addUser");
+	// 		usersData = JSON.parse(addUser).concat(usersData);
+	// 	}
+	// 	//执行加载数据的方法
+	// 	usersList();
+	// })
+
+
+	// console.log("=============== start")
+	// var user_info = post()
+	// console.log("=============== end ",user_info)
+
+
 
 	//查询
 	$(".search_btn").click(function(){
@@ -25,7 +69,7 @@ layui.config({
 			var index = layer.msg('查询中，请稍候',{icon: 16,time:false,shade:0.8});
             setTimeout(function(){
             	$.ajax({
-					url : "../../json/usersList.json",
+					url : "../../json/users_list.json",
 					type : "get",
 					dataType : "json",
 					success : function(data){
@@ -180,14 +224,16 @@ layui.config({
 			currData = usersData.concat().splice(curr*nums-nums, nums);
 			if(currData.length != 0){
 				for(var i=0;i<currData.length;i++){
+					console.log("************** data "+currData)
 					dataHtml += '<tr>'
 			    	+  '<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>'
 			    	+  '<td>'+currData[i].userName+'</td>'
-			    	+  '<td>'+currData[i].userEmail+'</td>'
-			    	+  '<td>'+currData[i].userSex+'</td>'
-			    	+  '<td>'+currData[i].userGrade+'</td>'
-			    	+  '<td>'+currData[i].userStatus+'</td>'
-			    	+  '<td>'+currData[i].userEndTime+'</td>'
+			    	+  '<td>'+currData[i].email+'</td>'
+			    	+  '<td>'+checkout_sex(currData[i].sex)+'</td>'
+			    	+  '<td>'+currData[i].age+'</td>'
+			    	+  '<td>'+currData[i].tel+'</td>'
+			    	+  '<td>'+currData[i].description+'</td>'
+			    	+  '<td>'+currData[i].regTime+'</td>'
 			    	+  '<td>'
 					+    '<a class="layui-btn layui-btn-mini users_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
 					+    '<a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="'+data[i].usersId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
@@ -198,6 +244,14 @@ layui.config({
 				dataHtml = '<tr><td colspan="8">暂无数据</td></tr>';
 			}
 		    return dataHtml;
+		}
+
+		function checkout_sex(result_sex){
+			if (result_sex) {
+				return "男"
+			}else{
+				return "女"
+			}
 		}
 
 		//分页

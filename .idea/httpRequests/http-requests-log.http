@@ -1,3 +1,217 @@
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-05-03T045549.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-05-03T045434.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-05-03T045129.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "12345694"
+  }
+}
+
+<> 2019-05-03T045124.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "12345694"
+  }
+}
+
+<> 2019-05-03T045012.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "12345694"
+  }
+}
+
+<> 2019-05-03T044106.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-05-03T044101.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-05-03T043048.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-05-03T043045.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "12345691"
+  }
+}
+
+<> 2019-05-03T043037.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "1234569"
+  }
+}
+
+<> 2019-05-03T043031.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 1,
+    "size": 10
+  }
+}
+
+<> 2019-05-03T032728.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 1,
+    "size": 10
+  }
+}
+
+<> 2019-05-03T031716.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/create/
+Content-Type: application/json
+
+{
+  "user_name":"18322693235",
+  "age":18,
+  "desc": "1239",
+  "birthday": "2018-12-09 16:00:00.00",
+  "pwd": "1234569",
+  "description": "1235655559",
+  "email": "790872612@qq.com",
+  "tel" : "18322693237"
+}
+
+<> 2019-05-03T031709.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 1,
+    "size": 10
+  }
+}
+
+<> 2019-05-03T023547.200.json
+
+###
+
 POST http://127.0.0.1:8080/api/user/list/simple/
 Content-Type: application/json
 
@@ -451,177 +665,6 @@ GET http://127.0.0.1:8080/json
 GET http://127.0.0.1:8080/json
 
 <> 2019-03-15T023906.200.json
-
-###
-
-GET http://127.0.0.1:8080/json
-
-<> 2019-03-15T023835.200.json
-
-###
-
-GET http://127.0.0.1:8080/json
-
-###
-
-GET http://127.0.0.1:8080/json
-
-<> 2019-03-15T023606.200.json
-
-###
-
-GET http://127.0.0.1:8080/json
-
-<> 2019-03-15T023328.200.json
-
-###
-
-GET http://127.0.0.1:8080/user/2
-
-<> 2019-03-15T023326.500.json
-
-###
-
-GET http://127.0.0.1:8080/json
-
-<> 2019-03-15T020125.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/user/create/
-Content-Type: application/json
-
-{
-  "user_name":"123456799",
-  "age":18,
-  "desc": "1239",
-  "birthday": "2018-12-09 16:00:00.0",
-  "pwd": "1234569",
-  "description": "1235655559",
-  "email": "790872612@qq.com",
-  "tel" : "18322693235"
-}
-
-<> 2019-03-15T011430.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/user/create/
-Content-Type: application/json
-
-{
-  "user_name":"123456799",
-  "age":18,
-  "desc": "1239",
-  "birthday": "2018-12-09 16:00:00.0",
-  "pwd": "1234569",
-  "description": "1235655559",
-  "email": "790872612@qq.com",
-  "tel" : "18322693235"
-}
-
-<> 2019-03-15T011333.500.json
-
-###
-
-POST http://127.0.0.1:8080/user/
-Content-Type: application/json
-
-{
-  "user_name":"123456799",
-  "age":18,
-  "desc": "1239",
-  "birthday": "2018-12-09 16:00:00.0",
-  "pwd": "1234569",
-  "description": "1235655559",
-  "email": "790872612@qq.com",
-  "tel" : "18322693235"
-}
-
-<> 2019-03-15T010533.200.json
-
-###
-
-POST http://127.0.0.1:8080/user/
-Content-Type: application/json
-
-{
-  "user_name":"123456799",
-  "age":18,
-  "desc": "1239",
-  "birthday": "2018-12-09 16:00:00.0",
-  "pwd": "1234569",
-  "description": "1235655559",
-  "email": "790872612@qq.com"
-}
-
-<> 2019-03-15T010508.500.json
-
-###
-
-POST http://127.0.0.1:8080/user/
-Content-Type: application/json
-
-{
-  "user_name":"123456799",
-  "age":18,
-  "desc": "1239",
-  "birthday": "2018-12-09 16:00:00.0",
-  "pwd": "1234569",
-  "description": "1235655559"
-}
-
-<> 2019-03-15T010332.500.json
-
-###
-
-POST http://127.0.0.1:8080/api/user/login?username=123456&password=123456
-Content-Type: application/json
-
-{
-  "username":"123456",
-  "password":"123456"
-}
-
-<> 2019-03-15T010317.200.txt
-
-###
-
-POST http://127.0.0.1:8080/api/user/login?username=123456&password=123456
-Content-Type: application/json
-
-{
-  "username":"123456",
-  "password":"123456"
-}
-
-###
-
-POST http://127.0.0.1:8080/user/
-Content-Type: application/json
-
-{
-  "user_name":"123456799",
-  "age":18,
-  "desc": "1239",
-  "birthday": "2018-12-09 16:00:00.0",
-  "pwd": "1234569",
-  "description": "1235655559"
-}
-
-<> 2019-03-15T115621.500.json
-
-###
-
-POST http://127.0.0.1:8080/api/projectFile/files/upload/
-Content-Type: application/json
-
-{
-  "username":"123456",
-  "password":"123456"
-}
-
-<> 2019-03-13T103254.200.json
 
 ###
 
