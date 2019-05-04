@@ -8,6 +8,20 @@ Content-Type: application/json
   }
 }
 
+<> 2019-05-03T045932.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/login/
+Content-Type: application/json
+
+{
+  "data": {
+    "user_name":"18322693235",
+    "pwd": "1234569"
+  }
+}
+
 <> 2019-05-03T045549.200.json
 
 ###
@@ -659,12 +673,6 @@ GET http://127.0.0.1:8080/json
 GET http://127.0.0.1:8080/json
 
 <> 2019-03-15T024456.200.json
-
-###
-
-GET http://127.0.0.1:8080/json
-
-<> 2019-03-15T023906.200.json
 
 ###
 

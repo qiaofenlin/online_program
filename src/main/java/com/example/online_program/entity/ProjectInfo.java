@@ -3,6 +3,7 @@ package com.example.online_program.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * @Created by qfl
@@ -34,10 +35,29 @@ public class ProjectInfo implements Serializable {
     private String proj_description;
 
     @Column(nullable = false)
-    private String proj_member;
+    private int proj_type; //star fork own
 
-    @Column(nullable = false)
-    private String proj_type;
+    @Column
+    private int proj_from_id; //项目的来源
+
+    @Column
+    private int proj_status; //项目的状态 public private friend
+
+    public int getProj_from_id() {
+        return proj_from_id;
+    }
+
+    public void setProj_from_id(int proj_from_id) {
+        this.proj_from_id = proj_from_id;
+    }
+
+    public int getProj_status() {
+        return proj_status;
+    }
+
+    public void setProj_status(int proj_status) {
+        this.proj_status = proj_status;
+    }
 
     public Integer getProj_id() {
         return proj_id;
@@ -79,14 +99,6 @@ public class ProjectInfo implements Serializable {
         this.proj_description = proj_description;
     }
 
-    public String getProj_member() {
-        return proj_member;
-    }
-
-    public void setProj_member(String proj_member) {
-        this.proj_member = proj_member;
-    }
-
     public Integer getUser_id() {
         return user_id;
     }
@@ -95,23 +107,12 @@ public class ProjectInfo implements Serializable {
         this.user_id = user_id;
     }
 
-    public String getProj_type() {
+    public int getProj_type() {
         return proj_type;
     }
 
-    public void setProj_type(String proj_type) {
+    public void setProj_type(int proj_type) {
         this.proj_type = proj_type;
     }
-    @Override
-    public String toString() {
-        return "ProjectInfo{" +
-                "proj_id:" + proj_id +
-                ", user_id:" + user_id +
-                ", proj_path:'" + proj_path + '\'' +
-                ", proj_name:'" + proj_name + '\'' +
-                ", proj_create_time:" + proj_create_time +
-                ", proj_description:'" + proj_description + '\'' +
-                ", proj_member:'" + proj_member + '\'' +
-                '}';
-    }
+
 }
