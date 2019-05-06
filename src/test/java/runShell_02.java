@@ -72,12 +72,14 @@ public class runShell_02 {
                 }
             }
         }
-//        logger.debug(sb.toString());
+        logger.debug("222 "+sb.toString());
         return "".equals(sb.toString()) ? 0 : Integer.parseInt(sb.toString());
     }
     public static void main(String[] args) throws Exception {
         runShell_02 r = new runShell_02();
 //        r.run();
-        r.execShell("python /home/qiao/java_pojo/online_program/src/test/java/yaml_opt.py");
+//        r.execShell("python /home/qiao/java_pojo/online_program/src/test/java/yaml_opt.py");
+        r.execShell("python /home/qiao/aidweb/runserver.py");
+//        r.execShell(". ~/online_program/src/test/java/a.sh");
     }
 }

@@ -1,6 +1,9 @@
 package com.example.online_program;
 
 import com.example.online_program.service.UserService;
+import com.example.online_program.utils.result_utils.Result;
+import com.example.online_program.utils.result_utils.ResultGenerator;
+import com.example.online_program.utils.run_python_utils.RunPython;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.python.core.PyFunction;
@@ -16,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -84,6 +88,17 @@ public class jpython {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void user_get_() throws Exception {
+        RunPython runPython = new RunPython();
+        List<String> list = runPython.run("/home/qiao/online_program/src/test/java/yaml_opt.py");
+//        System.out.println(StringUtils.join(list.toArray()));
+        logger.info("result" + list);
+        Result result = ResultGenerator.genSuccessResult(list);
+        System.out.println(result.toString());
+
     }
 
 

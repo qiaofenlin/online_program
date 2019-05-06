@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.example.online_program.entity.Userinfo;
 import com.example.online_program.service.UserService;
-import com.example.online_program.utils.page_utils.ResultPage;
+import com.example.online_program.utils.Utils;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
 import org.slf4j.Logger;
@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Created by  qiao
@@ -36,15 +39,17 @@ public class UserController extends BaseController {
     public Result UserCLogin(@RequestBody JSONObject args) {
 
         Userinfo userinfo = JSON.parseObject(String.valueOf(args.getJSONObject("data")), Userinfo.class);
-        boolean result = userService.checkNameAndPwd(userinfo.getUserName(), userinfo.getPwd());
-        if (result) {
-            String result_data = "OK";
-            logger.info("请求参数：" + String.valueOf(args.getJSONObject("data"))+ " result:" +result_data);
-            return ResultGenerator.genSuccessResult(result_data);
-        } else {
+        String result = userService.checkNameAndPwd(userinfo.getTel(), userinfo.getPwd());
+        if (result.equals("error")) {
             String result_data = "用户名或密码错误";
             logger.info("请求参数：" + String.valueOf(args.getJSONObject("data"))+ " result:" +result_data);
             return ResultGenerator.genSuccessResult(result_data);
+        } else {
+
+            Map<String, Object> return_data = new HashMap<String, Object>();
+            return_data.put("token",result);
+            logger.info("请求参数：" + String.valueOf(args.getJSONObject("data"))+ " result:" +return_data);
+            return ResultGenerator.genSuccessResult(return_data);
         }
     }
 
@@ -57,6 +62,7 @@ public class UserController extends BaseController {
     @PostMapping("/api/user/create/")
     public Result UserCreate(@RequestBody JSONObject jsonParam) {
         Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam), Userinfo.class);
+        userinfo.setToken(Utils.getUUIDString());
         Userinfo user = userService.insertUserInfo(userinfo);
         Result result = ResultGenerator.genSuccessResult();
         return result;

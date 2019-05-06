@@ -119,20 +119,22 @@
 #     statement = statement[:-1] + ');CREATE INDEX {}_call_status_index ON public.{} (call_status);CREATE INDEX {}_number_index ON public.{} (number);'.format("tabel_name", "tabel_name", "tabel_name", "tabel_name")
 # print(statement)
 
+import time
+now_time = time.strftime("%Y%m%d", time.localtime())
+now_time_all = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+print(now_time_all)
 
-# now_time = time.strftime("%Y%m%d", time.localtime())
-# now_time_all = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-# print(now_time_all)
-#
-# print(now_time)
-# pro = "2018-12-04"
-# filt_result = pro.replace('-','')+
-# print(filt_result)
-# print(now_time>=filt_result)
+print(now_time)
+pro = "2018-12-04"
+filt_result = pro.replace('-','')
+print(filt_result)
+print(now_time>=filt_result)
 
-def add(a,b):
-    a = "2018-12-01 10:26:52"
-    print(a.split(' ')[0].replace('-',''))
-    print("*****************************************")
-    return a + b
+a = {"aaa":"123"}
+
+# def add(a,b):
+#     a = "2018-12-01 10:26:52"
+#     print(a.split(' ')[0].replace('-',''))
+#     print("*****************************************")
+#     return a + b
 

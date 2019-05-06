@@ -41,8 +41,19 @@ public class Userinfo implements Serializable {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column
+    private String token;
+
+    @Column(columnDefinition = "true")
     private Boolean sex;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public Boolean getSex() {
         return sex;

@@ -24,6 +24,7 @@ public interface UserRepository extends JpaRepository<Userinfo, Integer>, JpaSpe
 //
 //
     Optional<Userinfo> findAllById(int id);
+    Optional<Userinfo> findAllByToken(String token);
 //
 //    //简单自定义查询
 //    Userinfo findAllByUserName(String userName);
@@ -32,7 +33,7 @@ public interface UserRepository extends JpaRepository<Userinfo, Integer>, JpaSpe
     @Query("select u.pwd from Userinfo u where u.userName=:username and u.pwd=:pwd")
     Optional<String > getByUserNameExistsAndPwdExists(@Param("username") String username, @Param("pwd") String password);
 
-    Optional<Userinfo> findByUserName(String username);
+    Optional<Userinfo> findByTel(String tel);
 
     @Query(value = "select * from userinfo  where id > limit ?",nativeQuery = true)
     List<Userinfo> findAllByIdPage(Integer start_page, Integer end_page);

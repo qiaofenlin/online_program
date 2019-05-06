@@ -11,8 +11,8 @@ Content-Type: application/json
 
 {
   "data": {
-    "user_name":"18322693235",
-    "pwd": "1234569"
+    "tel":"18322693235",
+    "pwd": "123456"
   }
 }
 
@@ -21,14 +21,15 @@ POST http://127.0.0.1:8080/api/user/create/
 Content-Type: application/json
 
 {
-  "user_name":"18322693235",
+  "user_name":"乔乔",
   "age":18,
   "desc": "1239",
-  "birthday": "2018-12-09 16:00:00.00",
-  "pwd": "1234569",
-  "description": "1235655559",
+  "birthday": "2019-05-20 13:14:00.00",
+  "pwd": "123456",
+  "description": "后端开发程序员",
   "email": "790872612@qq.com",
-  "tel" : "18322693237"
+  "tel" : "18322693235",
+  "sex": true
 }
 
 ###

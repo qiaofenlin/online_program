@@ -3,7 +3,6 @@ package com.example.online_program.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.List;
 
 /**
  * @Created by qfl
@@ -33,6 +32,9 @@ public class ProjectInfo implements Serializable {
 
     @Column(nullable = false)
     private String proj_description;
+
+    @Column(nullable = false)
+    private int proj_member; //项目成员列表 id
 
     @Column(nullable = false)
     private int proj_type; //star fork own
@@ -99,6 +101,14 @@ public class ProjectInfo implements Serializable {
         this.proj_description = proj_description;
     }
 
+    public int getProj_member() {
+        return proj_member;
+    }
+
+    public void setProj_member(int proj_member) {
+        this.proj_member = proj_member;
+    }
+
     public Integer getUser_id() {
         return user_id;
     }
@@ -114,5 +124,16 @@ public class ProjectInfo implements Serializable {
     public void setProj_type(int proj_type) {
         this.proj_type = proj_type;
     }
-
+    @Override
+    public String toString() {
+        return "ProjectInfo{" +
+                "proj_id:" + proj_id +
+                ", user_id:" + user_id +
+                ", proj_path:'" + proj_path + '\'' +
+                ", proj_name:'" + proj_name + '\'' +
+                ", proj_create_time:" + proj_create_time +
+                ", proj_description:'" + proj_description + '\'' +
+                ", proj_member:'" + proj_member + '\'' +
+                '}';
+    }
 }

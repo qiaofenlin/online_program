@@ -39,7 +39,7 @@ public class UserService {
     Logger logger = LoggerFactory.getLogger(UserService.class);
 
 
-    @Cacheable(cacheNames = "user_info" ,key = "#id",unless = "#result eq null")
+    @Cacheable(cacheNames = "user_info", key = "#id", unless = "#result eq null")
     public Optional<Userinfo> getUserInfobyId(Integer id) {
         System.out.println("*********************************** execute  ");
         Optional<Userinfo> userinfo = userRepository.findById(id);
@@ -47,30 +47,25 @@ public class UserService {
     }
 
 
-//    @Cacheable(cacheNames = "user_info" ,key = "#id",unless = "#result eq null")
-    public Userinfo  insertUserInfo(Userinfo userinfo) {
+    //    @Cacheable(cacheNames = "user_info" ,key = "#id",unless = "#result eq null")
+    public Userinfo insertUserInfo(Userinfo userinfo) {
         logger.debug("[insert user_info] " + userinfo.toString());
         Userinfo user = userRepository.save(userinfo);
         return user;
     }
 
-    public boolean checkNameAndPwd(String username,String password) {
-        logger.debug(username +": \t" + password);
+    public String checkNameAndPwd(String tel, String password) {
+        logger.debug(tel + ": \t" + password);
 //        logger.debug(args.getData()['user_name']);
-        Optional<Userinfo> user = userRepository.findByUserName(username);
-        if(user.get().getPwd().equals(password)){
-            System.out.println(" \n");
-            return true;
-
-        }else {
-            System.out.println(" \n");
-            return false;
+        Optional<Userinfo> user = userRepository.findByTel(tel);
+        if (user.get().getPwd().equals(password)) {
+            String token = user.get().getToken();
+            return token;
+        } else {
+            return "error";
 
         }
     }
-
-
-
 
     public Result getUserList(int page, int size) {
         Specification<Userinfo> spec = new Specification<Userinfo>() {
@@ -82,23 +77,23 @@ public class UserService {
                 return cb.isNotNull(root.get("userName"));
             }
         };
-        Sort sort = new Sort(Sort.Direction.ASC,"id");
-        System.out.println("*********************"+page + "\t"+ size);
-        Pageable pageable = PageRequest.of(page-1,size,sort);
+        Sort sort = new Sort(Sort.Direction.ASC, "id");
+        System.out.println("*********************" + page + "\t" + size);
+        Pageable pageable = PageRequest.of(page - 1, size, sort);
 
-        Page<Userinfo> page_user_info = userRepository.findAll(spec,pageable);
+        Page<Userinfo> page_user_info = userRepository.findAll(spec, pageable);
 
         System.out.println("总条数:" + page_user_info.getTotalElements());
         System.out.println("总页数:" + page_user_info.getTotalPages());
         List<Userinfo> list = page_user_info.getContent();
         for (Userinfo userinfo : list) {
-            logger.debug("=============== user :"+userinfo);
+            logger.debug("=============== user :" + userinfo);
         }
         Result result = ResultGenerator.genSuccessResult();
         Map<String, Object> user_list = new HashMap<String, Object>();
-        user_list.put("user_info_list",list);
-        user_list.put("count",page_user_info.getTotalElements());
-        user_list.put("all_page",page_user_info.getTotalPages());
+        user_list.put("user_info_list", list);
+        user_list.put("count", page_user_info.getTotalElements());
+        user_list.put("all_page", page_user_info.getTotalPages());
         result.setData(user_list);
         return result;
     }
@@ -115,6 +110,11 @@ public class UserService {
 //
 //    }
 
+    public int getUserInfoByToken(String token) {
+        Optional<Userinfo> user = userRepository.findAllByToken(token);
+        return user.get().getId();
+
+    }
 
 
 

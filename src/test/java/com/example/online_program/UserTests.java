@@ -23,6 +23,7 @@ import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * @program: online_program
@@ -67,8 +68,15 @@ public class UserTests {
 
     @Test
     public void user_jpa2() {
-        Optional<Userinfo> user = userRepository.findByUserName("乔风鳞");
-        logger.debug("******************************"+user.get());
+//        Optional<Userinfo> user = userRepository.findByTel("18322693235");
+//        logger.info("******************************"+user.get().getPwd());
+        String uuid = UUID.randomUUID().toString();
+
+        System.out.println(uuid);   //打印UUID
+
+        uuid = uuid.replace("-", "");
+
+        System.out.println(uuid);
 
     }
 
@@ -215,5 +223,14 @@ public class UserTests {
         }
     }
 
+    /**
+     * 排序测试
+     */
+    @Test
+    public void get_user_by_token() {
+        Optional<Userinfo> user = userRepository.findAllByToken("e1ffe11015e74cda87e7e8e9b36c18a91");
+        System.out.println(user);
+
+    }
 
 }
