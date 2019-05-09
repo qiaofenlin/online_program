@@ -24,8 +24,8 @@ layui.config({
 	var post_user_list = function (){
 		$.ajax({
 			type: 'POST',
-			url: 'http://127.0.0.1:8080/api/user/list/simple/',
-			data: JSON.stringify({data:{"page": 1,"size": 2}}),
+			url: 'http://127.0.0.1:8080/api/stars/list/',
+			data: JSON.stringify({data:{ "token": "e1ffe11015e74cda87e7e8e9b36c18a9"}}),
 			// data: {data:newD},
 			contentType: 'application/json',
 			dataType: "json",
@@ -261,7 +261,6 @@ layui.config({
 			    	+  '<td>'+currData[i].regTime+'</td>'
 			    	+  '<td>'
 					+    '<a class="layui-btn layui-btn-mini users_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
-					+    '<a class="layui-btn layui-btn-mini test_clock"><i class="iconfont icon-edit"></i> test</a>'
 					+    '<a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="'+data[i].usersId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
 			        +  '</td>'
 			    	+'</tr>';

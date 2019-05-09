@@ -21,14 +21,14 @@ POST http://127.0.0.1:8080/api/user/create/
 Content-Type: application/json
 
 {
-  "user_name":"乔乔",
+  "user_name":"小华",
   "age":18,
   "desc": "1239",
   "birthday": "2019-05-20 13:14:00.00",
   "pwd": "123456",
-  "description": "后端开发程序员",
+  "description": "算法程序员",
   "email": "790872612@qq.com",
-  "tel" : "18322693235",
+  "tel" : "18322693237",
   "sex": true
 }
 

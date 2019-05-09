@@ -2,12 +2,12 @@
 
 <title>CodeMirror: Python mode</title>
 <meta charset="utf-8"/>
-<link rel=stylesheet href="python/docs.css">
+<link rel=stylesheet href="../test/python/docs.css">
 
-<link rel="stylesheet" href="python/lib/codemirror.css">
-<script src="python/lib/codemirror.js"></script>
-<script src="python/edit/matchbrackets.js"></script>
-<script src="python/python.js"></script>
+<link rel="stylesheet" href="../test/python/lib/codemirror.css">
+<script src="../test/python/lib/codemirror.js"></script>
+<script src="../test/python/edit/matchbrackets.js"></script>
+<script src="../test/python/python.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <style>.CodeMirror {
     border-top: 1px solid black;
@@ -31,29 +31,6 @@
     <h2>Python test</h2>
 
     <div><textarea id="code_test" name="code_test" content="code_content">
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Time    : 18-10-27 下午1:54
-# @Author  : qfl
-# @Site    :
-# @File    : tts_xf.py
-# @Software: PyCharm
-
-#-*- coding: utf-8 -*-
-import tornado.escape
-
-data = {'appid': [b'1400098645'], 'text': [b'test_sign'], 'sign_type': [b'1'], 'remark': [b'test_sing_reamrk'], 'user_id': [b'n_ut_2019_02_19_92']}
-args={}
-
-# data = tornado.escape.native_str(data)
-print("data {}".format(data))
-for r in data:
-    args[r] = tornado.escape.native_str(data[r][0])
-
-for r in data:
-    args[r] = tornado.escape.native_str(data[r][0])
-
-print(args)
 </textarea></div>
 
     <script>

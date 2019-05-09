@@ -136,6 +136,11 @@ public class Userinfo implements Serializable {
         this.regTime = regTime;
     }
 
+    public static Userinfo set_safe_user_info(Userinfo user_info) {
+        user_info.setToken("");
+        user_info.setPwd("");
+        return user_info;
+    }
     @Override
     public String toString() {
         return "{" +
@@ -150,4 +155,6 @@ public class Userinfo implements Serializable {
                 ", email :'" + email + '\'' +
                 '}';
     }
+
+//    public
 }

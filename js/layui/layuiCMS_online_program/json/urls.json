@@ -1,0 +1,6 @@
+{
+  "get_user_list": {
+    "name" : "test",
+    "uri" : "/api/user/list/simple/"
+  }
+}

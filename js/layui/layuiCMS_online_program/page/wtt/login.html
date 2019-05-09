@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/wtt/login.css"/>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="../../css/wtt/login_demo/js/bootstrap.min.js"></script>
+
+
+    <!--add particle link-->
+    <link rel="stylesheet" href="../../css/wtt/myStyle.css">
+    <script  type="application/javascript" src="../../js/wtt/jquery.particleground.js"></script>
+    <script type='application/javascript' src='../../js/wtt/demo.js'></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#regist_container").hide();
+            $("#login_container").show(500);
+
+            //todo 去注册
+            $("#toRegist").click(function () {
+                $("#login_container").hide(500);
+                $("#regist_container").show(500);
+            });
+            //todo 去登录
+            $("#toLogin").click(function () {
+                $("#regist_container").hide(500);
+                $("#login_container").show(500);
+            });
+        });
+    </script>
+</head>
+
+<body style="background-color: #000000;" id="particles">
+<div id='_start'>
+    <!--登录框-->
+    <div id="login_container">
+        <div id="lab1">
+            <span id="lab_login">用户登录</span>
+            <span id="lab_toRegist">
+						&emsp;还没有账号&nbsp;
+						<span id='toRegist' style="color: #EB9316;cursor: pointer;">立即注册</span>
+					</span>
+        </div>
+        <div id="form_container1">
+            <br/>
+            <input type="text" class="form-control" placeholder="用户名" id="login_number"/>
+            <input type="password" class="form-control" placeholder="密码" id="login_password"/>
+            <input type="button" value="登录" class="btn btn-success" id="login_btn"/>
+        </div>
+
+    </div>
+    <!-- 用户注册 -->
+    <div id='regist_container' style="display: none;">
+        <div id="lab1">
+            <span id="lab_login">用户注册</span>
+            <span id="lab_toLogin">
+						&emsp;已有账号&nbsp;
+						<span id='toLogin' style="color: #EB9316;cursor: pointer;">立即登录</span>
+					</span>
+        </div>
+        <div id="form_container2" style="padding-top: 25px;">
+
+            <input type="text" class="form-control" placeholder="用户名" id="regist_account"/>
+            <input type="password" class="form-control" placeholder="密码" id="regist_password1"/>
+            <input type="password" class="form-control" placeholder="确认密码" id="regist_password2"/>
+            <!--<button id="getVCode" type="button" class="btn btn-success" >获取验证码</button>-->
+            <input type="button" value="注册" class="btn btn-success" id="regist_btn"/>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

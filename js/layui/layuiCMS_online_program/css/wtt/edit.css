@@ -1,0 +1,55 @@
+body{
+    /*background-color: #2C3437;*/
+}
+
+#runbtn,#savebtn,#codebtn{
+    border: 1px solid #161A1B;
+    color: #282dbe;
+    font-weight: bold;
+    padding: 4px 8px!important;
+    border-radius: 5px;
+    margin: 5px 5px 5px 0;
+    line-height: 18px;
+    width: 60px;
+}
+#consoleText,#runText{
+    width: 100%;
+    height: 100%;
+    resize: none;
+}
+
+#consoleText{
+    /*background-color: #383F4B;
+    color: #78CF8A;
+    white-space: pre-wrap;
+    overflow: auto;*/
+}
+#runText{
+
+    /*overflow: hidden;*/
+}
+#west{
+    overflow: hidden;
+}
+#south{
+    width:100%;
+    height: 200px;
+    overflow:hidden;
+}
+#north{
+    overflow: hidden;
+}
+#center{
+    overflow: hidden;
+}
+
+/*
+.l-btn-text {
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+    line-height: 28px;
+    font-size: 14px;
+    padding: 0;
+    margin: 0 6px;
+}*/

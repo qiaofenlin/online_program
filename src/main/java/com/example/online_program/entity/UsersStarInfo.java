@@ -1,10 +1,11 @@
 package com.example.online_program.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
-public class UsersStarInfo {
+public class UsersStarInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer star_id;
@@ -48,5 +49,15 @@ public class UsersStarInfo {
 
     public void setStar_create_time(Timestamp star_create_time) {
         this.star_create_time = star_create_time;
+    }
+
+    @Override
+    public String toString() {
+        return "UsersStarInfo{" +
+                "star_id=" + star_id +
+                ", user_id=" + user_id +
+                ", star_user_id=" + star_user_id +
+                ", star_create_time=" + star_create_time +
+                '}';
     }
 }

@@ -1,8 +1,12 @@
 package com.example.online_program;
 
 import com.example.online_program.entity.Userinfo;
+import com.example.online_program.entity.UsersStarInfo;
 import com.example.online_program.repository.UserRepository;
+import com.example.online_program.repository.UsersStarRepository;
 import com.example.online_program.service.UserService;
+import com.example.online_program.utils.result_utils.Result;
+import com.example.online_program.utils.result_utils.ResultGenerator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -37,6 +41,9 @@ import java.util.UUID;
 public class UserTests {
     @Resource
     private UserRepository userRepository;
+
+    @Resource
+    private UsersStarRepository usersStarRepository;
     Logger logger = LoggerFactory.getLogger(UserService.class);
 
 
@@ -153,21 +160,21 @@ public class UserTests {
      */
     @Test
     public void user_jpa_JpaSpecificationExecutor() {
-        Specification<Userinfo> spec = new Specification<Userinfo>() {
+        Specification<UsersStarInfo> spec = new Specification<UsersStarInfo>() {
             /**
              * 单个条件的查询
              */
             @Override
-            public Predicate toPredicate(Root<Userinfo> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<UsersStarInfo> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
 //                Predicate pre = criteriaBuilder.equal(root.get("userName"),"乔风鳞");
-                Predicate pre =criteriaBuilder.isNotNull(root.get("userName"));
+                Predicate pre =criteriaBuilder.isNotNull(root.get("user_id"));
                 return pre;
             }
         };
-        List<Userinfo> list = userRepository.findAll(spec);
+        List<UsersStarInfo> list = usersStarRepository.findAll(spec);
 
-        for (Userinfo userinfo : list) {
-            System.out.println("user :"+userinfo);
+        for (UsersStarInfo userinfo : list) {
+            System.out.println("user :"+userinfo.toString());
         }
     }
 
@@ -199,26 +206,26 @@ public class UserTests {
 
     @Test
     public void user_jpa_JpaSpecificationExecutor_more2() {
-        Specification<Userinfo> spec = new Specification<Userinfo>() {
+        Specification<UsersStarInfo> spec = new Specification<UsersStarInfo>() {
             /**
              * 多个条件的查询
              */
             @Override
-            public Predicate toPredicate(Root<Userinfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+            public Predicate toPredicate(Root<UsersStarInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 //                return cb.or(cb.and(cb.equal(root.get("userName"), "乔风鳞"),cb.equal(root.get("age"), 18)),cb.equal(root.get("id"),4));
-                return cb.isNotNull(root.get("userName"));
+                return cb.isNotNull(root.get("user_id"));
 
             }
         };
-        Sort sort = new Sort(Sort.Direction.ASC,"id");
+        Sort sort = new Sort(Sort.Direction.ASC,"star_id");
         Pageable pageable =PageRequest.of(0,3,sort);
 
-        Page<Userinfo> page = userRepository.findAll(spec,pageable);
+        Page<UsersStarInfo> page = usersStarRepository.findAll(spec,pageable);
 
         System.out.println("总条数:" + page.getTotalElements());
         System.out.println("总页数:" + page.getTotalPages());
-        List<Userinfo> list = page.getContent();
-        for (Userinfo userinfo : list) {
+        List<UsersStarInfo> list = page.getContent();
+        for (UsersStarInfo userinfo : list) {
             System.out.println("=============== user :"+userinfo);
         }
     }
@@ -228,9 +235,38 @@ public class UserTests {
      */
     @Test
     public void get_user_by_token() {
-        Optional<Userinfo> user = userRepository.findAllByToken("e1ffe11015e74cda87e7e8e9b36c18a91");
+        Boolean user = userRepository.existsByToken("e1ffe11015e74cda87e7e8e9b36c18a9");
         System.out.println(user);
 
     }
+    /**
+     * 排序测试
+     */
+    @Test
+    public void get_user_by_token1() {
+        Specification<UsersStarInfo> spec = new Specification<UsersStarInfo>() {
+            /**
+             * 多个条件的查询
+             */
+            @Override
+            public Predicate toPredicate(Root<UsersStarInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                return cb.isNotNull(root.get("user_id"));
+//                return cb.equal(root.get("user_id"), 6);
+            }
+        };
+        Sort sort = new Sort(Sort.Direction.ASC, "star_create_time");
+        System.out.println("*********************" + 1 + "\t" + 10);
+        Pageable pageable = PageRequest.of(0, 10, sort);
 
+        Page<UsersStarInfo> page_user_info = usersStarRepository.findAll(spec, pageable);
+
+        System.out.println("总条数:" + page_user_info.getTotalElements());
+        System.out.println("总页数:" + page_user_info.getTotalPages());
+        List<UsersStarInfo> list = page_user_info.getContent();
+        for (UsersStarInfo userinfo : list) {
+            logger.debug("=============== user :" + userinfo);
+        }
+        Result result = ResultGenerator.genSuccessResult();
+
+    }
 }

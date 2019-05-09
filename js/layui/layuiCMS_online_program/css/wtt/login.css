@@ -1,0 +1,128 @@
+* {
+	margin: 0 auto;
+}
+
+#_start
+{
+	box-shadow: -15px 15px 15px rgba(6, 17, 47, 0.7);
+	opacity: 1;
+	top: 20px;
+	-webkit-transition-timing-function: cubic-bezier(0.68, -0.25, 0.265, 0.85);
+	-webkit-transition-property: -webkit-transform,opacity,box-shadow,top,left;
+	transition-property: transform,opacity,box-shadow,top,left;
+	-webkit-transition-duration: .5s;
+	transition-duration: .5s;
+	-webkit-transform-origin: 161px 100%;
+	-ms-transform-origin: 161px 100%;
+	transform-origin: 161px 100%;
+	-webkit-transform: rotateX(0deg);
+	transform: rotateX(0deg);
+	position: relative;
+	width: 400px;
+	/*border-top: 2px solid #D8312A;*/
+	height: 520px;
+	position: absolute;
+	left: 48px;
+	right: 0;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	padding: 100px 40px 40px 40px;
+	background: #35394a;
+	/* Old browsers */
+	/* FF3.6+ */
+	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #35394a), color-stop(100%, rgb(0, 0, 0)));
+	/* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(230deg, rgba(53, 57, 74, 0) 0%, rgb(0, 0, 0) 100%);
+	/* Chrome10+,Safari5.1+ */
+	/* Opera 11.10+ */
+	/* IE10+ */
+	background: linear-gradient(230deg, rgba(53, 57, 74, 0) 0%, rgb(0, 0, 0) 100%);
+	/* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(53, 57, 74, 0)', endColorstr='rgb(0, 0, 0)',GradientType=1 );
+	/* IE6-9 fallback on horizontal gradient */
+}
+
+
+#login_container,#regist_container {
+	width: 360px;
+	text-align: center;
+	display: none;
+	margin-top: 30px;
+}
+
+#lab1 {
+	width: 330px;
+	text-align: left;
+	font-family: 微软雅黑;
+	border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+#lab_login {
+	font-size: 30px;
+	height: 40px;
+	color: #e0dae6;
+}
+
+#lab_toRegist,#lab_toLogin {
+	font-size: 15px;
+	line-height: 40px;
+	float: right;
+	color: #000;
+}
+
+#lab_type1,
+#lab_type2 {
+	font-size: 16px;
+	float: left;
+	color: #8C8C8C;
+}
+/*登录表单字段*/
+#login_number,
+#login_password {
+	height: 50px;
+	border-radius: 8px;
+	margin-top: 10px;
+}
+
+/* 注册表单 开始 */
+#regist_account,
+#regist_password1,
+#regist_password2,
+#regist_phone,
+#regist_vcode
+{
+	height: 42px;
+	width: 324px;
+	border-radius: 8px;
+	margin-top: 8px;
+}
+
+
+/*登陆按钮*/
+#login_btn {
+	width: 200px;
+	height: 50px;
+	border-radius: 15px;
+	margin-top: 40px;
+}
+/*注册按钮*/
+#regist_btn{
+	width: 200px;
+	height: 50px;
+	border-radius: 15px;
+	margin-top: 50px;
+}
+
+/*登陆表单容器*/
+#form_container1 {
+	width: 330px;
+	height: 160px;
+	border-bottom: 1px solid #337ab7;
+}
+/*注册表单容器*/
+#form_container2 {
+	width: 330px;
+	height: 200px;
+	border-bottom: 1px solid #FFFFFF;
+}

@@ -25,6 +25,7 @@ public interface UserRepository extends JpaRepository<Userinfo, Integer>, JpaSpe
 //
     Optional<Userinfo> findAllById(int id);
     Optional<Userinfo> findAllByToken(String token);
+    Boolean existsByToken(String token);
 //
 //    //简单自定义查询
 //    Userinfo findAllByUserName(String userName);

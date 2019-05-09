@@ -1,0 +1,28 @@
+[
+  {
+    "id": 7,
+    "pwd": "",
+    "userName": "小明",
+    "age": 18,
+    "regTime": "19-5-7 上午1:42",
+    "birthday": "19-5-20 下午1:14",
+    "description": "前端开发程序员",
+    "tel": "18322693236",
+    "email": "790872612@qq.com",
+    "token": "",
+    "sex": true
+  },
+  {
+    "id": 8,
+    "pwd": "",
+    "userName": "小华",
+    "age": 18,
+    "regTime": "19-5-7 上午1:42",
+    "birthday": "19-5-20 下午1:14",
+    "description": "算法程序员",
+    "tel": "18322693237",
+    "email": "790872612@qq.com",
+    "token": "",
+    "sex": true
+  }
+]

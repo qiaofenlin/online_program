@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BaseController {
 
-    private Logger logger = LoggerFactory.getLogger(UserController.class);
+    private Logger logger = LoggerFactory.getLogger(BaseController.class);
     private PageBean pageBean = new PageBean();
 
     public Logger getLogger() {

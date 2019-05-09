@@ -15,14 +15,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import javax.persistence.criteria.*;
+import java.util.*;
 
 
 /**
@@ -114,6 +108,55 @@ public class UserService {
         Optional<Userinfo> user = userRepository.findAllByToken(token);
         return user.get().getId();
 
+    }
+
+    public Boolean checkUserInfoByToken(String token) {
+        Boolean existsByToken = userRepository.existsByToken(token);
+        return existsByToken;
+
+    }
+
+    public Result getUserListByUserId(List<Integer> user_id_list,int page, int size) {
+        Specification<Userinfo> spec = new Specification<Userinfo>() {
+            /**
+             * 多个条件的查询
+             */
+            @Override
+            public Predicate toPredicate(Root<Userinfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> list = new ArrayList<>();
+                if (user_id_list != null && user_id_list.size() > 0) {
+                    CriteriaBuilder.In<Object> in = cb.in(root.get("id"));
+                    for (Integer id : user_id_list) {
+                        in.value(id);
+                    }
+                    list.add(in);
+                }
+
+                Predicate[] p = new Predicate[list.size()];
+                return cb.and(list.toArray(p));
+            }
+        };
+        Sort sort = new Sort(Sort.Direction.ASC, "id");
+        System.out.println("*********************" + page + "\t" + size);
+        Pageable pageable = PageRequest.of(page - 1, size, sort);
+
+        Page<Userinfo> page_user_info = userRepository.findAll(spec, pageable);
+
+        System.out.println("总条数:" + page_user_info.getTotalElements());
+        System.out.println("总页数:" + page_user_info.getTotalPages());
+        List<Userinfo> list = page_user_info.getContent();
+        List<Userinfo> result_safe_user_info = new ArrayList<>();
+        for (Userinfo userinfo : list) {
+            logger.debug("=============== user :" + userinfo);
+            result_safe_user_info.add(Userinfo.set_safe_user_info(userinfo));
+        }
+        Result result = ResultGenerator.genSuccessResult();
+        Map<String, Object> user_list = new HashMap<String, Object>();
+        user_list.put("user_info_list", result_safe_user_info);
+        user_list.put("count", page_user_info.getTotalElements());
+        user_list.put("all_page", page_user_info.getTotalPages());
+        result.setData(user_list);
+        return result;
     }
 
 

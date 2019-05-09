@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>edit code</title>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="https://www.jeasyui.com/easyui/themes/icon.css">
+    <!--自定义js,css文件-->
+    <script type="application/javascript" src="../../js/wtt/edit.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/wtt/edit.css">
+    <script type="application/javascript">
+        var pName = null;
+        $(document).ready(function(){
+            $('#paci').combobox({
+                onSelect: function(record){
+                    pName = record.text;
+                    console.log("选中 : "+record.text)
+                }
+            });
+
+            $('.textbox-icon').css("width","80px");
+            $('.combo-arrow').css({"background-image":"url('')","text-align":"center",
+                "line-height":"26px","width":"58px"});
+            $('.combo-arrow').text("INSTALL")
+            $('.textbox').css({"width":"175px","margin-left":"1330px","margin-top":"-3px"})
+            $('.textbox-text').css({"width":"117px"});
+
+            $('.textbox-addon').unbind("click");
+            $('.textbox-addon').click(function () {
+                console.log("id : "+$('#paci').val());
+                if (!$('#paci').val()){
+                    return;
+                }
+                var pipV = undefined;
+                console.log(" ---install listen ---"+pName);
+                $.ajax({
+                    type: "POST",//方法类型
+                    contentType: "application/json; charset=UTF-8",
+                    url: "/search/ipac",
+                    data: "{\"pName\":\"" + pName + "\",\"pipV\":\"" + pipV + "\"}",
+                    async: true,
+                    success: function (result) {
+                        console.log(result);
+                        if (result.code==200){
+                            if (result.data==0){
+                                alert("Successfully install\t"+pName)
+                            }
+                            if (result.data==1) {
+                                alert("Requirement already satisfied\t"+pName)
+                            }
+                        }else {
+                            alert("Failed install\t"+pName);
+                        }
+                    },
+                    error: function (XMLHttpResponse, textStatus, errorThrown) {
+                        console.log("1 异步调用返回失败,XMLHttpResponse.readyState:" + XMLHttpResponse.readyState);
+                        console.log("2 异步调用返回失败,XMLHttpResponse.status:" + XMLHttpResponse.status);
+                        console.log("3 异步调用返回失败,textStatus:" + textStatus);
+                        console.log("4 异步调用返回失败,errorThrown:" + errorThrown);
+                        alert("server is exeception !")
+                    }
+                });
+            })
+        });
+    </script>
+</head>
+<body class="easyui-layout">
+        <div id="north" data-options="region:'north'" title="在线代码编辑运行平台" style="height: 70px">
+            <a href="#" class="easyui-menubutton" data-options="menu:'#mm1'">File</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="Run" id="runbtn">&nbsp;&nbsp;
+            <input type="button" value="Save" id="savebtn">&nbsp;&nbsp;
+            <input type="button" value="Code" id="codebtn">&nbsp;&nbsp;
+            <input id="paci" class="easyui-combobox" name="language" data-options="
+    				url: '/search/spac',
+    				method: 'get',
+    				valueField: 'id',
+    				textField: 'text',
+    				mode:'remote',
+    				formatter: formatItem
+    			">
+        </div>
+        <div data-options="region:'south',split:true" title="Console" id="south">
+            <textarea title="run result" id="consoleText">
+
+            </textarea>
+        </div>
+        <div id="west" data-options="region:'west',split:true" title="Project" style="width:150px;">
+            <ul id="tt" class="easyui-tree">
+            </ul>
+        </div>
+        <div data-options="region:'center',title:'Edit Your Code',iconCls:'icon-ok'" id="center">
+            <textarea title="code edit" autofocus="autofocus" required="required" id="runText">print("hello world !")</textarea>
+        </div>
+        <!--以下为菜单按钮密码mm1-->
+        <div id="mm1" style="width:150px;">
+            <div>
+                <span>New</span>
+                <div>
+                    <div onclick="createProject()">Project</div>
+                    <div onclick="createDirFile('dir')">Directory</div>
+                    <div onclick="createDirFile()">File</div>
+                </div>
+            </div>
+            <div data-options="iconCls:'icon-remove',name:'delete'" onclick="deleteNode()">Delete</div>
+            <!--<div onclick="importProject()">Import Project</div>-->
+            <div>
+                <span id="importProj">ImportMyProject</span>
+                <div id="myProjsList">
+
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function formatItem(row){
+                var s = '<span style="font-weight:bold">' + row.text + '</span><br/>' +
+                    '<span style="color:#888">' + row.desc + '</span>';
+                return s;
+            }
+        </script>
+</body>
+</html>

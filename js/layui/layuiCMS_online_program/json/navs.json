@@ -4,20 +4,65 @@
 	"href" : "page/main.html",
 	"spread" : false
 },{
-	"title" : "文章列表",
+	"title" : "实验室",
 	"icon" : "icon-text",
-	"href" : "page/news/newsList.html",
+	"href" : "",
+	"spread" : false,
+	"children" : [
+		{
+			"title" : "进入项目",
+			"icon" : "&#xe61c;",
+			"href" : "page/wtt/editCode.html",
+			"spread" : false
+		},
+		{
+			"title" : "执行代码",
+			"icon" : "&#xe609;",
+			"href" : "page/codeModule/edit_upload.html",
+			"spread" : false
+		},
+		{
+			"title" : "代码历史",
+			"icon" : "&#xe609;",
+			"href" : "page/wtt/myCode.html",
+			"spread" : false
+		},
+		{
+			"title" : "代码查询",
+			"icon" : "&#xe609;",
+			"href" : "page/wtt/search.html",
+			"spread" : false
+		}
+	]
+},{
+	"title" : "测试代码",
+	"icon" : "&#xe64c;",
+	"href" : "page/codeModule/coding_simple.html",
 	"spread" : false
 },{
-	"title" : "友情链接",
+	"title" : "我的仓库",
 	"icon" : "&#xe64c;",
 	"href" : "page/links/linksList.html",
 	"spread" : false
 },{
-	"title" : "系统基本参数",
+	"title" : "好友",
 	"icon" : "&#xe631;",
-	"href" : "page/systemParameter/systemParameter.html",
-	"spread" : false
+	"href" : "",
+	"spread" : false,
+	"children" : [
+		{
+			"title" : "Followers",
+			"icon" : "&#xe61c;",
+			"href" : "page/user/followers.html",
+			"spread" : false
+		},
+		{
+			"title" : "Followering",
+			"icon" : "&#xe609;",
+			"href" : "page/user/followering.html",
+			"spread" : false
+		}
+	]
 },{
 	"title" : "其他页面",
 	"icon" : "&#xe630;",
