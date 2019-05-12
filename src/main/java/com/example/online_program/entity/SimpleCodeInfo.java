@@ -19,7 +19,7 @@ public class SimpleCodeInfo {
     private String content;
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp code_time;
+    private String code_time;
 
     public Integer getCode_id() {
         return code_id;
@@ -45,11 +45,11 @@ public class SimpleCodeInfo {
         this.content = content;
     }
 
-    public Timestamp getCode_time() {
+    public String getCode_time() {
         return code_time;
     }
 
-    public void setCode_time(Timestamp code_time) {
+    public void setCode_time(String code_time) {
         this.code_time = code_time;
     }
 }

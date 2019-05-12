@@ -86,6 +86,11 @@ public class UserController extends BaseController {
 //        return result;
 //    }
 
+    /**
+     * 用户列表模块
+     * @param jsonParam
+     * @return
+     */
     @PostMapping("/api/user/list/simple/")
     public Result queryByPageUserListSimple(@RequestBody JSONObject jsonParam) {
         System.out.println(jsonParam.getJSONObject("data"));
@@ -103,6 +108,17 @@ public class UserController extends BaseController {
     @PostMapping("/api/user/delete/")
     public Result UserDelete(@RequestBody JSONObject jsonParam) {
         Result result = ResultGenerator.genSuccessResult();
+        return result;
+    }
+
+    /**
+     * 通过电话号码查询用户id
+     * @param jsonParam
+     * @return
+     */
+    @PostMapping("/api/user/info/by/tel/")
+    public Result UserInfoByTel(@RequestBody JSONObject jsonParam) {
+        Result result = userService.getUserInfoBytel(String.valueOf(jsonParam.getJSONObject("data").get("tel")));
         return result;
     }
 

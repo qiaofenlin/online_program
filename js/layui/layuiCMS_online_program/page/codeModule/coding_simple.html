@@ -63,7 +63,30 @@
             function(err) {
                 console.log(err.toString());
             });
+        post_add_simple_code(prog)
     }
+
+    var post_add_simple_code = function (content){
+        $.ajax({
+            type: 'POST',
+            url: 'http://127.0.0.1:8080/api/simple/code/add/',
+            data: JSON.stringify({data:{ "token": "e1ffe11015e74cda87e7e8e9b36c18a9","content":content}}),
+            // data: {data:newD},
+            contentType: 'application/json',
+            dataType: "json",
+            processData:false,
+            async:false,
+            success: function(result_data){
+                // window.location.href = "../../index.html";
+                // usersData = userList['data']['user_info_list']
+                console.log("success result_data :",result_data)
+                // usersList();
+            },
+            error:function (e) {
+                console.log(e)
+            }
+        });
+    };
 
 
 </script>

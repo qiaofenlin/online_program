@@ -1,9 +1,21 @@
 package com.example.online_program.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.example.online_program.entity.ProjectInfo;
+import com.example.online_program.entity.SimpleCodeInfo;
+import com.example.online_program.entity.Userinfo;
+import com.example.online_program.service.ProjectManageService;
+import com.example.online_program.service.UserService;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @Created by qfl
@@ -15,15 +27,43 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ProjectManageController extends BaseController{
 
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    ProjectManageService projectManageService;
+    private Logger logger = LoggerFactory.getLogger(ProjectManageController.class);
+
+    /**
+     * 创建项目
+     * @param jsonParam
+     * @return
+     */
     @PostMapping("/api/projectManage/create/")
     public Result ProjectCreate(@RequestBody JSONObject jsonParam) {
-//        System.out.println("**********************************************" + jsonParam.toJSONString());
-//
-//        Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam), Userinfo.class);
-//        System.out.println("***********************************************toString()"+userinfo.toString());
-//        Userinfo user = userRepository.save(userinfo); user.toString()
-        Result result = ResultGenerator.genSuccessResult();
-        return result;
+        ProjectInfo projectInfo = JSON.parseObject(String.valueOf(jsonParam), ProjectInfo.class);
+
+        Boolean check_token = userService.checkUserInfoByToken(String.valueOf(jsonParam.getJSONObject("data").get("token")));
+        if (check_token) {
+            int user_id = userService.getUserInfoByToken(String.valueOf(jsonParam.getJSONObject("data").get("token")));
+            if (user_id == 0) {
+                return ResultGenerator.genFailResult("用户不存在。");
+            }else {
+                // TODO 创建项目成员列表 获取项目成员列表id
+
+                Date date = new Date();
+                SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+                System.out.println(dateFormat.format(date));
+                projectInfo.setProj_create_time(dateFormat.format(date));
+                logger.info("projectInfo "+projectInfo.toString());
+                projectManageService.addProject(projectInfo);
+                return ResultGenerator.genSuccessResult();
+            }
+        } else {
+            String result_data = "验证信息错误。";
+            logger.info("请求参数：" + String.valueOf(jsonParam.getJSONObject("data"))+ " result:" +result_data);
+            return ResultGenerator.genFailResult(result_data);
+        }
     }
 
     @GetMapping("/api/projectManage/list/")

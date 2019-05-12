@@ -72,17 +72,11 @@ public class UserService {
             }
         };
         Sort sort = new Sort(Sort.Direction.ASC, "id");
-        System.out.println("*********************" + page + "\t" + size);
         Pageable pageable = PageRequest.of(page - 1, size, sort);
 
         Page<Userinfo> page_user_info = userRepository.findAll(spec, pageable);
-
-        System.out.println("总条数:" + page_user_info.getTotalElements());
-        System.out.println("总页数:" + page_user_info.getTotalPages());
+        logger.info("总条数:" + page_user_info.getTotalElements() + "\t总页数:" + page_user_info.getTotalPages());
         List<Userinfo> list = page_user_info.getContent();
-        for (Userinfo userinfo : list) {
-            logger.debug("=============== user :" + userinfo);
-        }
         Result result = ResultGenerator.genSuccessResult();
         Map<String, Object> user_list = new HashMap<String, Object>();
         user_list.put("user_info_list", list);
@@ -106,7 +100,8 @@ public class UserService {
 
     public int getUserInfoByToken(String token) {
         Optional<Userinfo> user = userRepository.findAllByToken(token);
-        return user.get().getId();
+        Integer user_id = user.map(Userinfo::getId).orElse(0);
+        return user_id;
 
     }
 
@@ -136,29 +131,48 @@ public class UserService {
                 return cb.and(list.toArray(p));
             }
         };
-        Sort sort = new Sort(Sort.Direction.ASC, "id");
-        System.out.println("*********************" + page + "\t" + size);
-        Pageable pageable = PageRequest.of(page - 1, size, sort);
-
-        Page<Userinfo> page_user_info = userRepository.findAll(spec, pageable);
-
-        System.out.println("总条数:" + page_user_info.getTotalElements());
-        System.out.println("总页数:" + page_user_info.getTotalPages());
-        List<Userinfo> list = page_user_info.getContent();
+        List<Userinfo> list;
         List<Userinfo> result_safe_user_info = new ArrayList<>();
-        for (Userinfo userinfo : list) {
-            logger.debug("=============== user :" + userinfo);
-            result_safe_user_info.add(Userinfo.set_safe_user_info(userinfo));
+        Map<String, Object> user_list = new HashMap<String, Object>();
+        if (user_id_list.size() >0){
+            Sort sort = new Sort(Sort.Direction.ASC, "id");
+            Pageable pageable = PageRequest.of(page - 1, size, sort);
+            Page<Userinfo> page_user_info = userRepository.findAll(spec, pageable);
+            logger.info("总条数:" + page_user_info.getTotalElements() + "\t总页数:" + page_user_info.getTotalPages());
+            list = page_user_info.getContent();
+            user_list.put("count", page_user_info.getTotalElements());
+            user_list.put("all_page", page_user_info.getTotalPages());
+            for (Userinfo userinfo : list) {
+                result_safe_user_info.add(Userinfo.set_safe_user_info(userinfo));
+            }
         }
         Result result = ResultGenerator.genSuccessResult();
-        Map<String, Object> user_list = new HashMap<String, Object>();
         user_list.put("user_info_list", result_safe_user_info);
-        user_list.put("count", page_user_info.getTotalElements());
-        user_list.put("all_page", page_user_info.getTotalPages());
         result.setData(user_list);
         return result;
     }
 
+    public Result getUserInfoBytel(String tel) {
+        Optional<Userinfo> user = userRepository.findByTel(tel);
+        System.out.println("****************************user.get() "+user);
+        Integer user_id = user.map(Userinfo::getId).orElse(0);
+        System.out.println("******************** user_id "+user_id);
+        Map<String, Object> result_user_id = new HashMap<String, Object>();
+        Result result = ResultGenerator.genSuccessResult();
+        result_user_id.put("user_id", user_id);
+        result.setData(result_user_id);
 
+        return result;
+
+    }
+
+    public int getUserInfoBytelInt(String tel) {
+        Optional<Userinfo> user = userRepository.findByTel(tel);
+        System.out.println("****************************user.get() "+user);
+        Integer user_id = user.map(Userinfo::getId).orElse(0);
+        System.out.println("******************** user_id "+user_id);
+        return user_id;
+
+    }
 
 }

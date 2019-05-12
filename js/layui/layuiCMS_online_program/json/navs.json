@@ -37,8 +37,22 @@
 },{
 	"title" : "测试代码",
 	"icon" : "&#xe64c;",
-	"href" : "page/codeModule/coding_simple.html",
-	"spread" : false
+	"href" : "",
+	"spread" : false,
+	"children" : [
+		{
+			"title" : "测试页",
+			"icon" : "&#xe61c;",
+			"href" : "page/codeModule/coding_simple.html",
+			"spread" : false
+		},
+		{
+			"title" : "历史记录",
+			"icon" : "&#xe609;",
+			"href" : "page/codeModule/CodingSimpleList.html",
+			"spread" : false
+		}
+	]
 },{
 	"title" : "我的仓库",
 	"icon" : "&#xe64c;",

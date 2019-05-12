@@ -5,54 +5,34 @@
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
-# 登录
-POST http://127.0.0.1:8080/api/user/login/
+POST http://127.0.0.1:8080/api/simple/code/list/
 Content-Type: application/json
 
 {
   "data": {
-    "tel":"18322693235",
-    "pwd": "123456"
-  }
-}
-
-### 用户创建
-POST http://127.0.0.1:8080/api/user/create/
-Content-Type: application/json
-
-{
-  "user_name":"小强",
-  "age":18,
-  "desc": "1239",
-//  "birthday": "2019-05-20 13:14:00.00",
-  "pwd": "123456",
-  "description": "Python程序员",
-  "email": "790872612@qq.com",
-  "tel" : "18322693299",
-  "sex": true
-}
-
-###
-
-POST http://127.0.0.1:8080/api/user/list/simple/
-Content-Type: application/json
-
-{
-  "data": {
-    "page": 1,
-    "size": 10
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
   }
 }
 
 ###
-
-POST http://127.0.0.1:8080/api/user/info/by/tel/
+POST http://127.0.0.1:8080/api/simple/code/add/
 Content-Type: application/json
 
 {
   "data": {
     "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "tel": "18322693278"
+    "content": "class Test:\n     def run(self, b):\n         self.a = 10 + b\n         return self.a\n\nprint \"Hello World 123333\"\na = Test()\nprint(a.run(10))"
+  }
+}
+
+###
+POST http://127.0.0.1:8080/api/simple/code/del/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "code_id": 1
   }
 }
 

@@ -7,12 +7,47 @@
 
 
 
-POST http://127.0.0.1:8080/api/stars/list/
+POST http://127.0.0.1:8080/api/followering/list/
 Content-Type: application/json
 
 {
   "data": {
     "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
+  }
+}
+
+###
+
+
+POST http://127.0.0.1:8080/api/followers/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
+  }
+}
+
+###
+POST http://127.0.0.1:8080/api/followers/add/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "tel": "18322693278"
+  }
+}
+
+###
+###
+POST http://127.0.0.1:8080/api/followers/del/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "tel": "18322693278"
   }
 }
 

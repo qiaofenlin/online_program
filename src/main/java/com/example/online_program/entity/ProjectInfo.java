@@ -28,22 +28,22 @@ public class ProjectInfo implements Serializable {
     private String proj_name;
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp proj_create_time;
+    private String proj_create_time;
 
-    @Column(nullable = false)
+    @Column
     private String proj_description;
 
     @Column(nullable = false)
     private int proj_member; //项目成员列表 id
 
     @Column(nullable = false)
-    private int proj_type; //star fork own
+    private int proj_type; //star 0 fork 1 own 2
 
     @Column
     private int proj_from_id; //项目的来源
 
     @Column
-    private int proj_status; //项目的状态 public private friend
+    private int proj_status; //项目的状态 public 0/ private 1/ friend 2
 
     public int getProj_from_id() {
         return proj_from_id;
@@ -85,11 +85,11 @@ public class ProjectInfo implements Serializable {
         this.proj_name = proj_name;
     }
 
-    public Timestamp getProj_create_time() {
+    public String getProj_create_time() {
         return proj_create_time;
     }
 
-    public void setProj_create_time(Timestamp proj_create_time) {
+    public void setProj_create_time(String proj_create_time) {
         this.proj_create_time = proj_create_time;
     }
 

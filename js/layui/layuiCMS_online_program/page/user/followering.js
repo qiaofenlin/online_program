@@ -24,7 +24,7 @@ layui.config({
 	var post_user_list = function (){
 		$.ajax({
 			type: 'POST',
-			url: 'http://127.0.0.1:8080/api/stars/list/',
+			url: 'http://127.0.0.1:8080/api/followering/list/',
 			data: JSON.stringify({data:{ "token": "e1ffe11015e74cda87e7e8e9b36c18a9"}}),
 			// data: {data:newD},
 			contentType: 'application/json',
@@ -156,9 +156,9 @@ layui.config({
 	//添加会员
 	$(".usersAdd_btn").click(function(){
 		var index = layui.layer.open({
-			title : "添加会员",
+			title : "Following",
 			type : 2,
-			content : "addUser.html",
+			content : "addFollowering.html",
 			success : function(layero, index){
 				setTimeout(function(){
 					layui.layer.tips('点击此处返回会员列表', '.layui-layer-setwin .layui-layer-close', {
@@ -183,9 +183,14 @@ layui.config({
 				var index = layer.msg('删除中，请稍候',{icon: 16,time:false,shade:0.8});
 	            setTimeout(function(){
 	            	//删除数据
-	            	for(var j=0;j<$checked.length;j++){
+					console.log("==============data_id "+ $checked[0])
+
+					for(var j=0;j<$checked.length;j++){
 	            		for(var i=0;i<usersData.length;i++){
-							if(usersData[i].newsId == $checked.eq(j).parents("tr").find(".news_del").attr("data-id")){
+							console.log("==============data_id "+ $checked[0].parents("tr").find(".users_del").attr("data-id"))
+							console.log("==============usersData "+ usersData[i].id)
+							console.log("==============del "+ $checked.eq(j).parents("tr").find(".news_del").attr("data-id"))
+							if(usersData[i].id == $checked.eq(j).parents("tr").find(".users_del").attr("data-id")){
 								usersData.splice(i,1);
 								usersList(usersData);
 							}
@@ -232,9 +237,15 @@ layui.config({
 		var _this = $(this);
 		layer.confirm('确定删除此用户？',{icon:3, title:'提示信息'},function(index){
 			//_this.parents("tr").remove();
+			console.log("=========== data_id "+_this.attr("data-id"))
+			var user_info
 			for(var i=0;i<usersData.length;i++){
-				if(usersData[i].usersId == _this.attr("data-id")){
-					usersData.splice(i,1);
+				if(usersData[i].id == _this.attr("data-id")){
+					// usersData.splice(i,1);
+					user_info = usersData[i]
+					post_del_user_star(user_info)
+					post_user_list();
+					console.log("================= usersData :" + usersData)
 					usersList(usersData);
 				}
 			}
@@ -261,7 +272,7 @@ layui.config({
 			    	+  '<td>'+currData[i].regTime+'</td>'
 			    	+  '<td>'
 					+    '<a class="layui-btn layui-btn-mini users_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
-					+    '<a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="'+data[i].usersId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
+					+    '<a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="'+data[i].id+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
 			        +  '</td>'
 			    	+'</tr>';
 				}
@@ -291,6 +302,29 @@ layui.config({
 			}
 		})
 	}
+
+	var post_del_user_star = function (user_info){
+		console.log("===============userData "+ user_info.id)
+		$.ajax({
+			type: 'POST',
+			url: 'http://127.0.0.1:8080/api/followers/del/',
+			data: JSON.stringify({data:{ "token": "e1ffe11015e74cda87e7e8e9b36c18a9","star_user_id":user_info.id}}),
+			// data: {data:newD},
+			contentType: 'application/json',
+			dataType: "json",
+			processData:false,
+			async:false,
+			success: function(usersData){
+				// window.location.href = "../../index.html";
+				// usersData = userList['data']['user_info_list']
+				console.log("success userinfo :",usersData)
+				// usersList();
+			},
+			error:function (e) {
+				console.log(e)
+			}
+		});
+	};
 
 
 

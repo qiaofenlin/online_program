@@ -3,6 +3,7 @@ package com.example.online_program.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 @Entity
 public class UsersStarInfo implements Serializable {
@@ -17,7 +18,7 @@ public class UsersStarInfo implements Serializable {
     private Integer star_user_id;
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp star_create_time;
+    private String star_create_time;
 
     public Integer getStar_id() {
         return star_id;
@@ -43,11 +44,11 @@ public class UsersStarInfo implements Serializable {
         this.star_user_id = star_user_id;
     }
 
-    public Timestamp getStar_create_time() {
+    public String getStar_create_time() {
         return star_create_time;
     }
 
-    public void setStar_create_time(Timestamp star_create_time) {
+    public void setStar_create_time(String star_create_time) {
         this.star_create_time = star_create_time;
     }
 

@@ -24,10 +24,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @program: online_program
@@ -66,12 +64,13 @@ public class UserTests {
     /**
      * JPA TEST
      */
-//    @Test
-//    public void user_jpa() {
-//        Optional<Userinfo> user = userRepository.getByUserName("乔风鳞");
-//        logger.debug("******************************"+user.toString());
-//
-//    }
+    @Test
+    public void date_test() {
+        Date date = new Date();
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        System.out.println(dateFormat.format(date));
+
+    }
 
     @Test
     public void user_jpa2() {
@@ -107,8 +106,7 @@ public class UserTests {
     public void user_jpa_page() {
         Pageable pageable =PageRequest.of(1,2);
         Page<Userinfo> page = userRepository.findAll(pageable);
-        System.out.println("总条数:" + page.getTotalElements());
-        System.out.println("总页数:" + page.getTotalPages());
+        logger.info("总条数:" + page.getTotalElements() + "\t总页数:" + page.getTotalPages());
         List<Userinfo> list = page.getContent();
         for (Userinfo userinfo : list) {
             System.out.println(userinfo);
@@ -126,8 +124,6 @@ public class UserTests {
 //        System.out.println(page.getTotalElements());  //总数量
 //        System.out.println(page.getTotalPages());    //总页数
 //        System.out.println(page.getContent());    //总内容
-
-
         List<Userinfo> userinfos = userRepository.findAllByIdPage(1, 3);
         logger.debug("**************************\n ", userinfos.toString());
 
@@ -148,9 +144,8 @@ public class UserTests {
         for (Userinfo userinfo : list) {
             System.out.println("************************" + userinfo.toString());
         }
-        System.out.println("aaa" + list.size());
-        System.out.println("总条数:" + page.getTotalElements());
-        System.out.println("总页数:" + page.getTotalPages());
+        logger.info("总条数:" + page.getTotalElements() + "\t总页数:" + page.getTotalPages());
+
 
     }
 
@@ -219,15 +214,8 @@ public class UserTests {
         };
         Sort sort = new Sort(Sort.Direction.ASC,"star_id");
         Pageable pageable =PageRequest.of(0,3,sort);
-
         Page<UsersStarInfo> page = usersStarRepository.findAll(spec,pageable);
-
-        System.out.println("总条数:" + page.getTotalElements());
-        System.out.println("总页数:" + page.getTotalPages());
-        List<UsersStarInfo> list = page.getContent();
-        for (UsersStarInfo userinfo : list) {
-            System.out.println("=============== user :"+userinfo);
-        }
+        logger.info("总条数:" + page.getTotalElements() + "\t总页数:" + page.getTotalPages());
     }
 
     /**
@@ -235,9 +223,13 @@ public class UserTests {
      */
     @Test
     public void get_user_by_token() {
-        Boolean user = userRepository.existsByToken("e1ffe11015e74cda87e7e8e9b36c18a9");
-        System.out.println(user);
-
+//        Boolean user = userRepository.existsByToken("e1ffe11015e74cda87e7e8e9b36c18a9");
+        Optional<Userinfo> user = userRepository.findByTel("1832269323511");
+        System.out.println("****************************user.get() "+user);
+//        Optional.ofNullable(user).map(Userinfo::getId).orElse("no name")
+        Integer user_id = user.map(Userinfo::getId).orElse(0);
+//        Integer user_id = user.get().getId();
+        System.out.println("******************** user_id "+user_id);
     }
     /**
      * 排序测试
@@ -259,14 +251,15 @@ public class UserTests {
         Pageable pageable = PageRequest.of(0, 10, sort);
 
         Page<UsersStarInfo> page_user_info = usersStarRepository.findAll(spec, pageable);
-
-        System.out.println("总条数:" + page_user_info.getTotalElements());
-        System.out.println("总页数:" + page_user_info.getTotalPages());
+        logger.info("总条数:" + page_user_info.getTotalElements() + "\t总页数:" + page_user_info.getTotalPages());
         List<UsersStarInfo> list = page_user_info.getContent();
-        for (UsersStarInfo userinfo : list) {
-            logger.debug("=============== user :" + userinfo);
-        }
         Result result = ResultGenerator.genSuccessResult();
 
+    }
+
+    @Test
+    public void del_opt() {
+        int a = usersStarRepository.deleteByUser_idAndAndStar_user_id(6, 8);
+        System.out.println(a);
     }
 }
