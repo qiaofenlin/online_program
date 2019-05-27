@@ -83,14 +83,14 @@
     </select>
     <!--save code-->
     <insert id="saveCode" parameterType="com.example.online_program.entity.CodeInfo" keyProperty="id">
-        insert into ide.code(code_id, code_text, user_id)values (#{codeId},#{codeText},#{userId})
+        insert into online_program.code(code_id, code_text, user_id)values (#{codeId},#{codeText},#{userId})
     </insert>
     <select id="isExistsCode" parameterType="java.lang.String" resultType="java.lang.Integer">
-        select COUNT(*) from ide.code where code_id=#{codeId}
+        select COUNT(*) from online_program.code where code_id=#{codeId}
     </select>
     <!--update code-->
     <update id="updateCode" parameterType="com.example.online_program.entity.CodeInfo">
-        update ide.code
+        update online_program.code
         set code_text =#{codeText},
         update_time=#{updateTime},
         user_id=#{userId}
@@ -98,7 +98,7 @@
     </update>
     <!--show code-->
     <select id="showCode" parameterType="java.lang.String" resultType="java.lang.String">
-        select code_text from ide.code where code_id=#{codeId}
+        select code_text from online_program.code where code_id=#{codeId}
     </select>
     <!--show history code-->
     <resultMap id="getHistoryCode" type="com.example.online_program.entity.CodeInfo">
@@ -108,10 +108,10 @@
         <result property="updateTime" column="update_time"/>
     </resultMap>
     <select id="showHistory" parameterType="java.lang.String" resultMap="getHistoryCode">
-        select * from ide.code where user_id=#{userId}
+        select * from online_program.code where user_id=#{userId}
     </select>
     <!--delete code-->
     <delete id="deleteCode" parameterType="java.lang.String">
-        delete from ide.code where code_id=#{codeId}
+        delete from online_program.code where code_id=#{codeId}
     </delete>
 </mapper>

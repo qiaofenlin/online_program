@@ -41,7 +41,8 @@ public interface UserRepository extends JpaRepository<Userinfo, Integer>, JpaSpe
 
 //    Optional<Userinfo> findByIdBetween(@Param("start_page") int start_page, @Param("end_page") int end_page);
 
-
+    @Query("update  Userinfo u set u.userName = :username where u.userName=:username and u.pwd=:pwd")
+    void updateOne(@Param("username") String username, @Param("pwd") String password);
 
 
 

@@ -87,7 +87,7 @@ public class SearchInstallPackage {
                         }
                     }
                 } else {
-                    System.out.println("pip3 cmd : "+cmds3);
+                    System.out.println("pip3 cmd : "+cmds3[2]);
                     Process pro = Runtime.getRuntime().exec(cmds3);
                     pro.waitFor();
                     in = pro.getInputStream();

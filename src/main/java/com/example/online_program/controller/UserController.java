@@ -36,7 +36,7 @@ public class UserController extends BaseController {
      * @return
      */
     @PostMapping("/api/user/login/")
-    public Result UserCLogin(@RequestBody JSONObject args) {
+    public Result UserLogin(@RequestBody JSONObject args) {
 
         Userinfo userinfo = JSON.parseObject(String.valueOf(args.getJSONObject("data")), Userinfo.class);
         String result = userService.checkNameAndPwd(userinfo.getTel(), userinfo.getPwd());
@@ -70,7 +70,9 @@ public class UserController extends BaseController {
 
     @PostMapping("/api/user/edit/")
     public Result UserEdit(@RequestBody JSONObject jsonParam) {
-        Result result = ResultGenerator.genSuccessResult();
+        //TODO edit
+        Userinfo userinfo = new Userinfo();
+        Result result = userService.updateUserinfo(userinfo);
         return result;
     }
 
@@ -92,7 +94,7 @@ public class UserController extends BaseController {
      * @return
      */
     @PostMapping("/api/user/list/simple/")
-    public Result queryByPageUserListSimple(@RequestBody JSONObject jsonParam) {
+    public Result QueryByPageUserListSimple(@RequestBody JSONObject jsonParam) {
         System.out.println(jsonParam.getJSONObject("data"));
 //      UserController page = JSON.parseObject(String.valueOf(jsonParam.getJSONObject("data")), UserController.class);
         Result result = userService.getUserList(1,10);

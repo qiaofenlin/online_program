@@ -66,12 +66,23 @@ public class ProjectManageController extends BaseController{
         }
     }
 
+    /**
+     * 获取项目列表
+     *
+     * TODO 添加全局筛选仓库模块 该功能不能查到自己的项目
+     *
+     * @param pageSize
+     * @param page
+     * @return
+     */
     @GetMapping("/api/projectManage/list/")
     public Result ProjectQueryList(@RequestParam("pageSize") String pageSize,
                                    @RequestParam("page") String page) {
+
         Result result = ResultGenerator.genSuccessResult();
         return result;
     }
+
 
     @PostMapping("/api/projectManage/edit/")
     public Result ProjectEdit(@RequestBody JSONObject jsonParam) {
@@ -81,6 +92,23 @@ public class ProjectManageController extends BaseController{
 
     @GetMapping("/api/projectManage/delete/")
     public Result ProjectDelete(@RequestParam("id") String id) {
+        Result result = ResultGenerator.genSuccessResult();
+        return result;
+    }
+
+
+    /**
+     * 收藏项目功能
+     *
+     * @param jsonParam
+     * @return
+     */
+    @PostMapping("/api/projectManage/collect/")
+    public Result ProjectCollect(@RequestBody JSONObject jsonParam) {
+        //TODO  验证用户信息
+        //      获取项目id
+        //      添加项目列表中  注意：非项目创建者，智能查看，不能修改
+
         Result result = ResultGenerator.genSuccessResult();
         return result;
     }

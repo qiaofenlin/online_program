@@ -175,4 +175,15 @@ public class UserService {
 
     }
 
+    /**
+     * TODO
+     * @param userinfo
+     * @return
+     */
+    public Result updateUserinfo(Userinfo userinfo) {
+        Result result = ResultGenerator.genSuccessResult();
+        userRepository.updateOne("123","123456");
+        return result;
+    }
+
 }

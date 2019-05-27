@@ -24,7 +24,7 @@ public class ProjectManageService {
     private Logger logger = LoggerFactory.getLogger(ProjectManageService.class);
 
     public void addProject(ProjectInfo projectInfo) {
-        ProjectInfo result = projectRepository.save(projectInfo);
+            ProjectInfo result = projectRepository.save(projectInfo);
         logger.info(result.toString());
     }
 }

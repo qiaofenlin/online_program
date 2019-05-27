@@ -37,3 +37,15 @@ Content-Type: application/json
 }
 
 ###
+{
+  "code": 200,
+  "message": "SUCCESS",
+  "data": [
+    {
+      "code_id": 3,
+      "user_id": 6,
+      "content": "",
+      "code_time": "2019-05-12 09:25:24"
+    }
+  ]
+}

@@ -7,6 +7,32 @@ Content-Type: application/json
   }
 }
 
+<> 2019-05-16T074116.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/followering/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
+  }
+}
+
+<> 2019-05-16T073047.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/simple/code/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
+  }
+}
+
 <> 2019-05-12T092934.200.json
 
 ###
@@ -660,38 +686,6 @@ Content-Type: application/json
 }
 
 <> 2019-05-07T020016.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/stars/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-07T015929.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/user/create/
-Content-Type: application/json
-
-{
-  "user_name":"小华",
-  "age":18,
-  "desc": "1239",
-  "birthday": "2019-05-20 13:14:00.00",
-  "pwd": "123456",
-  "description": "算法程序员",
-  "email": "790872612@qq.com",
-  "tel" : "18322693237",
-  "sex": true
-}
-
-<> 2019-05-07T014257.200.json
 
 ###
 

@@ -76,8 +76,8 @@ public class UsersStarController extends BaseController {
      * @param args
      * @return
      */
-    @PostMapping("/api/followers/add/")
-    public Result addUsersFollowes(@RequestBody JSONObject args) {
+    @PostMapping("/api/followering/add/")
+    public Result addUsersFollowering(@RequestBody JSONObject args) {
         Boolean check_token = userService.checkUserInfoByToken(String.valueOf(args.getJSONObject("data").get("token")));
         if (check_token) {
             int star_user_id = userService.getUserInfoBytelInt(String.valueOf(args.getJSONObject("data").get("tel")));

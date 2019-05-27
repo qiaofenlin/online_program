@@ -18,7 +18,7 @@ public interface SimpleCodeRepository extends JpaRepository<SimpleCodeInfo, Inte
     @Modifying
     @Transactional
     @Query("delete from SimpleCodeInfo code where code.code_id =:code_id and code.user_id=:user_id")
-    int deleteByUser_idAndAndStar_user_id(@Param("code_id") int code_id, @Param("user_id") int user_id);
+    int deleteByUser_idAndAndCode_id(@Param("code_id") int code_id, @Param("user_id") int user_id);
 
 }
 

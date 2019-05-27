@@ -17,7 +17,7 @@ $(function () {
             console.log("onBefore : " + oldText + " onAfterEdit : " + node.text);
             if (oldText != node.text) {
                 reqdata = "{\"id\":\"" + node.id + "\",\"text\":\"" + node.text + "\",\"type\":\"" + type + "\"}";
-                ajaxRequest("/treenode/rename", reqdata, false);
+                ajaxRequest("http://127.0.0.1:8080/treenode/rename", reqdata, false);
             }
         },
         //TODO 拖拽文件时触发执行
@@ -41,11 +41,11 @@ $(function () {
 
         //TODO 展示代码(当用户双击一个节点时触发)
         onDblClick: function (node) {
-            var o = ajaxRequest("/treenode/adjust/isFile",
+            var o = ajaxRequest("http://127.0.0.1:8080/treenode/adjust/isFile",
                 "{\"nodeId\":\"" + node.id + "\"}",
                 false)
             if (o.code == 200 && o.data) {
-                var obj = ajaxRequest("/code/show", "{\"codeId\":\"" + node.id + "\"}",false);
+                var obj = ajaxRequest("http://127.0.0.1:8080/code/show", "{\"codeId\":\"" + node.id + "\"}",false);
                 $('#runText').val(obj.data);
             }else {
                 console.log("double click error !!!")
@@ -57,7 +57,7 @@ $(function () {
     $('#importProj').mouseenter(function () {
         $('#myProjsList').empty();
         var userId = "1111";
-        var obj = ajaxRequest("/treenode/import/list", "{\"userId\":\"" + userId + "\"}", false);
+        var obj = ajaxRequest("http://127.0.0.1:8080/treenode/import/list", "{\"userId\":\"" + userId + "\"}", false);
         for (var i = 0; i < obj.data.length; i++) {
             var nodeStr = obj.data[i].projectId + "," + obj.data[i].projectName;
             var innerEle = "<div class='menu-text' style='height: 30px;line-height: 30px;'>" + obj.data[i].projectName + "</div>";
@@ -66,7 +66,7 @@ $(function () {
     })
     //TODO mycode btn listener
     $('#codebtn').click(function () {
-        window.open("/myCode.html?userId=1111");
+        window.open("http://127.0.0.1:8080/myCode.html?userId=1111");
         // window.location.href = "/myCode.html"
     })
 
@@ -78,12 +78,12 @@ $(function () {
         console.log("[--------save code listener---------node : "+node)
         if (node != undefined) {
             console.log("saveMyCode : " + node.text + "\t" + node.id);
-            var o = ajaxRequest("/treenode/adjust/isFile",
+            var o = ajaxRequest("http://127.0.0.1:8080/treenode/adjust/isFile",
                 "{\"nodeId\":\"" + node.id + "\"}",
                 false);
             if (o.code == 200 && o.data) {
                 if (confirm("保存代码到文件" + node.text + "?")) {
-                    var uri = "/code/save?codeId="+node.id+"&userId="+userId;
+                    var uri = "http://127.0.0.1:8080/code/save?codeId="+node.id+"&userId="+userId;
                     var obj = ajaxRequest(
                         uri,
                         // "{\"nodeId\":\"" + node.id + "\",\"code\":\"" + code + "\"}",
@@ -119,12 +119,12 @@ function importPorjectInit(nodeStr) {
     }]
     $('#tt').tree({
         // data: nodes
-        url: "/treenode/getNode?id=" + arr[0]
+        url: "http://127.0.0.1:8080/treenode/getNode?id=" + arr[0]
     })
 }
 
 function importProjectNodeData(node) {
-    var obj = ajaxRequest("/treenode/getNode", "{\"nodeId\":\"" + node.id + "\"}", false);
+    var obj = ajaxRequest("http://127.0.0.1:8080/treenode/getNode", "{\"nodeId\":\"" + node.id + "\"}", false);
     $('#tt').tree('append', {
         parent: node.target,
         data: JSON.parse(obj.data)
@@ -134,7 +134,7 @@ function importProjectNodeData(node) {
 function createDirFile(type) {
     var node = $('#tt').tree('getSelected');
     var reqdata = "{\"type\":\"" + type + "\",\"parentId\":\"" + node.id + "\"}";
-    var obj = ajaxRequest("/treenode/create/dirfile", reqdata, false);
+    var obj = ajaxRequest("http://127.0.0.1:8080/treenode/create/dirfile", reqdata, false);
     if (node) {
         if (obj.code == 200) {
             var stat = undefined;
@@ -163,7 +163,7 @@ function createProject() {
     if (isAlreadyCreateProj) {
         return;
     }
-    var obj = ajaxRequest("/treenode/create/proj", "{\"userId\":\"1111\"}", false);
+    var obj = ajaxRequest("http://127.0.0.1:8080/treenode/create/proj", "{\"userId\":\"1111\"}", false);
     console.log("obj.data : " + obj.data)
     var nodes = [{
         "id": obj.data.projectId,
@@ -179,7 +179,7 @@ function createProject() {
 //todo deleteTreeNode
 function deleteNode() {
     var node = $('#tt').tree('getSelected');
-    var obj = ajaxRequest("/treenode/delete", "{\"id\":\"" + node.id + "\"}", false)
+    var obj = ajaxRequest("http://127.0.0.1:8080/treenode/delete", "{\"id\":\"" + node.id + "\"}", false)
     if (obj.code == 200) {
         $('#tt').tree('remove', node.target)
     } else {

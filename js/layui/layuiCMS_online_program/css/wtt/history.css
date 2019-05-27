@@ -3,7 +3,7 @@
             background-color: #C7EDCC;
         }*/
 body {
-    background: url("img/codeIcon.jpeg") no-repeat center center fixed;
+    background: url("../../images/wtt/codeIcon.jpeg") no-repeat center center fixed;
     background-size: cover;
 }
 

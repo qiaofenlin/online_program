@@ -64,7 +64,7 @@ public class SimpleCodeService {
     }
 
     public void delUserStar(Integer code_id,Integer user_id) {
-        int result = simpleCodeRepository.deleteByUser_idAndAndStar_user_id(code_id,user_id);
+        int result = simpleCodeRepository.deleteByUser_idAndAndCode_id(code_id,user_id);
         logger.info("[del user_id "+user_id+" | code_id "+code_id+" | del result " +result);
     }
 
