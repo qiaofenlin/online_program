@@ -2,8 +2,10 @@ package com.example.online_program;
 
 import com.example.online_program.entity.Userinfo;
 import com.example.online_program.entity.UsersStarInfo;
+import com.example.online_program.repository.ProjectRepository;
 import com.example.online_program.repository.UserRepository;
 import com.example.online_program.repository.UsersStarRepository;
+import com.example.online_program.service.ProjectManageService;
 import com.example.online_program.service.UserService;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
@@ -11,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,6 +21,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -44,6 +48,11 @@ public class UserTests {
     private UsersStarRepository usersStarRepository;
     Logger logger = LoggerFactory.getLogger(UserService.class);
 
+    @Resource
+    ProjectManageService projectManageService;
+
+    @Resource
+    ProjectRepository projectRepository;
 
     @Test
     public void contextLoads() {
@@ -54,8 +63,10 @@ public class UserTests {
 
 
         // TODO 测试执行sql 同时获取部分值。
-        Optional<String> user = userRepository.getByUserNameExistsAndPwdExists("乔风鳞", "1234569");
-        logger.info("************ user "+user.get());
+//        Optional<String> user = userRepository.getByUserNameExistsAndPwdExists("乔风鳞", "1234569");
+//        logger.info("************ user "+user.get());
+
+
 
 
 
@@ -66,13 +77,18 @@ public class UserTests {
      */
     @Test
     public void date_test() {
-        Date date = new Date();
-        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
-        System.out.println(dateFormat.format(date));
+//        Date date = new Date();
+//        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+//        System.out.println(dateFormat.format(date));
+        projectManageService.updateProjIsActive(7,false);
+//        projectRepository.deleteProjectInfo(9,false);
+
+
 
     }
 
     @Test
+    @Transactional
     public void user_jpa2() {
 //        Optional<Userinfo> user = userRepository.findByTel("18322693235");
 //        logger.info("******************************"+user.get().getPwd());

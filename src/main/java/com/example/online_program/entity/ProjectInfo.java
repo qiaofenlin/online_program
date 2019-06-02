@@ -16,124 +16,131 @@ import java.sql.Timestamp;
 public class ProjectInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer proj_id;
+    private Integer projId;
 
     @Column(nullable = false)
-    private Integer user_id;
+    private Integer userId;
 
     @Column(nullable = false)
-    private String proj_path;
+    private String projPath;
 
     @Column(nullable = false)
-    private String proj_name;
+    private String projName;
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private String proj_create_time;
+    private String projCreateTime;
 
     @Column
-    private String proj_description;
+    private String projDescription;
+
+//    @Column(nullable = false)
+//    private int proj_member; //项目成员列表 id
 
     @Column(nullable = false)
-    private int proj_member; //项目成员列表 id
-
-    @Column(nullable = false)
-    private int proj_type; //star 0 fork 1 own 2
+    private int projType; //star 0 fork 1 own 2
 
     @Column
-    private int proj_from_id; //项目的来源
+    private int projFromId; //项目的来源
 
     @Column
-    private int proj_status; //项目的状态 public 0/ private 1/ friend 2
+    private int projStatus; //项目的状态 public 0/ private 1/ friend 2
 
-    public int getProj_from_id() {
-        return proj_from_id;
+    @Column
+    private Boolean is_active;
+
+
+    public Boolean getIs_active() {
+        return is_active;
     }
 
-    public void setProj_from_id(int proj_from_id) {
-        this.proj_from_id = proj_from_id;
+    public void setIs_active(Boolean is_active) {
+        this.is_active = is_active;
     }
 
-    public int getProj_status() {
-        return proj_status;
+    public Integer getProjId() {
+        return projId;
     }
 
-    public void setProj_status(int proj_status) {
-        this.proj_status = proj_status;
+    public void setProjId(Integer projId) {
+        this.projId = projId;
     }
 
-    public Integer getProj_id() {
-        return proj_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setProj_id(Integer proj_id) {
-        this.proj_id = proj_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getProj_path() {
-        return proj_path;
+    public String getProjPath() {
+        return projPath;
     }
 
-    public void setProj_path(String proj_path) {
-        this.proj_path = proj_path;
+    public void setProjPath(String projPath) {
+        this.projPath = projPath;
     }
 
-    public String getProj_name() {
-        return proj_name;
+    public String getProjName() {
+        return projName;
     }
 
-    public void setProj_name(String proj_name) {
-        this.proj_name = proj_name;
+    public void setProjName(String projName) {
+        this.projName = projName;
     }
 
-    public String getProj_create_time() {
-        return proj_create_time;
+    public String getProjCreateTime() {
+        return projCreateTime;
     }
 
-    public void setProj_create_time(String proj_create_time) {
-        this.proj_create_time = proj_create_time;
+    public void setProjCreateTime(String projCreateTime) {
+        this.projCreateTime = projCreateTime;
     }
 
-    public String getProj_description() {
-        return proj_description;
+    public String getProjDescription() {
+        return projDescription;
     }
 
-    public void setProj_description(String proj_description) {
-        this.proj_description = proj_description;
+    public void setProjDescription(String projDescription) {
+        this.projDescription = projDescription;
     }
 
-    public int getProj_member() {
-        return proj_member;
+    public int getProjType() {
+        return projType;
     }
 
-    public void setProj_member(int proj_member) {
-        this.proj_member = proj_member;
+    public void setProjType(int projType) {
+        this.projType = projType;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public int getProjFromId() {
+        return projFromId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setProjFromId(int projFromId) {
+        this.projFromId = projFromId;
     }
 
-    public int getProj_type() {
-        return proj_type;
+    public int getProjStatus() {
+        return projStatus;
     }
 
-    public void setProj_type(int proj_type) {
-        this.proj_type = proj_type;
+    public void setProjStatus(int projStatus) {
+        this.projStatus = projStatus;
     }
+
     @Override
     public String toString() {
         return "ProjectInfo{" +
-                "proj_id:" + proj_id +
-                ", user_id:" + user_id +
-                ", proj_path:'" + proj_path + '\'' +
-                ", proj_name:'" + proj_name + '\'' +
-                ", proj_create_time:" + proj_create_time +
-                ", proj_description:'" + proj_description + '\'' +
-                ", proj_member:'" + proj_member + '\'' +
+                "projId=" + projId +
+                ", userId=" + userId +
+                ", projPath='" + projPath + '\'' +
+                ", projName='" + projName + '\'' +
+                ", projCreateTime='" + projCreateTime + '\'' +
+                ", projDescription='" + projDescription + '\'' +
+                ", projType=" + projType +
+                ", projFromId=" + projFromId +
+                ", projStatus=" + projStatus +
                 '}';
     }
 }

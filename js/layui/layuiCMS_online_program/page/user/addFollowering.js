@@ -41,7 +41,7 @@ layui.config({
 		$.ajax({
 			type: 'POST',
 			url: 'http://127.0.0.1:8080/api/followers/add/',
-			data: JSON.stringify({data:{ "token": "e1ffe11015e74cda87e7e8e9b36c18a9","tel":$(".user_tel").val()}}),
+			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token"),"tel":$(".user_tel").val()}}),
 			// data: {data:newD},
 			contentType: 'application/json',
 			dataType: "json",

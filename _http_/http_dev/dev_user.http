@@ -11,7 +11,7 @@ Content-Type: application/json
 
 {
   "data": {
-    "tel":"18322693235",
+    "tel":"007",
     "pwd": "123456"
   }
 }
@@ -21,16 +21,31 @@ POST http://127.0.0.1:8080/api/user/create/
 Content-Type: application/json
 
 {
-  "user_name":"小强",
-  "age":18,
-  "desc": "1239",
-//  "birthday": "2019-05-20 13:14:00.00",
+  "user_name":"admin",
+  "age":99,
+  "desc": "管理员",
+  "birthday": "2019-05-20 13:14:00.00",
   "pwd": "123456",
-  "description": "Python程序员",
+  "description": "管理员",
   "email": "790872612@qq.com",
-  "tel" : "18322693299",
-  "sex": true
+  "tel" : "007",
+  "sex": true,
+  "is_super": true
 }
+
+###
+#{
+#  "user_name":"小y",
+#  "age":18,
+#  "desc": "1239",
+#  "birthday": "2019-05-20 13:14:00.00",
+#  "pwd": "123456",
+#  "description": "Python程序员",
+#  "email": "790872612@qq.com",
+#  "tel" : "18322693299",
+#  "sex": true,
+#  "is_super": false
+#}
 
 ###
 
@@ -39,8 +54,8 @@ Content-Type: application/json
 
 {
   "data": {
-    "page": 1,
-    "size": 10
+    "page": 3,
+    "size": 2
   }
 }
 

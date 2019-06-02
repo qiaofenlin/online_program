@@ -7,38 +7,38 @@ layui.config({
 		$ = layui.jquery;
 
 	//加载页面数据
-	var result_code_list = '';
+	var projData = '';
 	// $.ajax({
 	// 	url : "../../json/linksList.json",
 	// 	type : "get",
 	// 	dataType : "json",
 	// 	success : function(data){
-	// 		result_code_list = data;
+	// 		projData = data;
 	// 		if(window.sessionStorage.getItem("addLinks")){
 	// 			var addLinks = window.sessionStorage.getItem("addLinks");
-	// 			result_code_list = JSON.parse(addLinks).concat(result_code_list);
+	// 			projData = JSON.parse(addLinks).concat(projData);
 	// 		}
 	// 		//执行加载数据的方法
 	// 		linksList();
 	// 	}
 	// })
 
-	var post_simple_code_list = function (){
+
+	var post_proj_list = function (){
 		$.ajax({
 			type: 'POST',
-			url: 'http://127.0.0.1:8080/api/simple/code/list/',
-			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token")}}),
+			url: 'http://127.0.0.1:8080/api/projectManage/list/',
+			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token"),"page":1,"size":10}}),
 			// data: {data:newD},
 			contentType: 'application/json',
 			dataType: "json",
 			processData:false,
 			async:false,
 			success: function(codeList){
-				// window.location.href = "../../index.html";
 
-				result_code_list = codeList['data']
-				console.log("success result_code_list :",result_code_list)
-				SimpleCodeList();
+				projData = codeList['data']['proj_info_list']
+				console.log("success result_code_list :",projData)
+				ProjList();
 
 			},
 			error:function (e) {
@@ -46,8 +46,9 @@ layui.config({
 			}
 		});
 	};
-	post_simple_code_list();
-
+	post_proj_list();
+	
+	
 	//查询
 	$(".search_btn").click(function(){
 		var newArray = [];
@@ -59,14 +60,14 @@ layui.config({
 					type : "get",
 					dataType : "json",
 					success : function(data){
-						if(window.sessionStorage.getItem("addLinks")){
-							var addLinks = window.sessionStorage.getItem("addLinks");
-							result_code_list = JSON.parse(addLinks).concat(data);
-						}else{
-							result_code_list = data;
-						}
-						for(var i=0;i<result_code_list.length;i++){
-							var linksStr = result_code_list[i];
+						// if(window.sessionStorage.getItem("addLinks")){
+						// 	var addLinks = window.sessionStorage.getItem("addLinks");
+						// 	projData = JSON.parse(addLinks).concat(data);
+						// }else{
+						// 	projData = data;
+						// }
+						for(var i=0;i<projData.length;i++){
+							var linksStr = projData[i];
 							var selectStr = $(".search_input").val();
 		            		function changeStr(data){
 		            			var dataStr = '';
@@ -98,8 +99,8 @@ layui.config({
 		            			newArray.push(linksStr);
 		            		}
 		            	}
-		            	result_code_list = newArray;
-		            	linksList(result_code_list);
+		            	projData = newArray;
+		            	linksList(projData);
 					}
 				})
             	
@@ -141,10 +142,10 @@ layui.config({
 	            setTimeout(function(){
 	            	//删除数据
 	            	for(var j=0;j<$checked.length;j++){
-	            		for(var i=0;i<result_code_list.length;i++){
-							if(result_code_list[i].linksId == $checked.eq(j).parents("tr").find(".links_del").attr("data-id")){
-								result_code_list.splice(i,1);
-								linksList(result_code_list);
+	            		for(var i=0;i<projData.length;i++){
+							if(projData[i].linksId == $checked.eq(j).parents("tr").find(".links_del").attr("data-id")){
+								projData.splice(i,1);
+								linksList(projData);
 							}
 						}
 	            	}
@@ -190,34 +191,40 @@ layui.config({
 		var _this = $(this);
 		layer.confirm('确定删除此信息？',{icon:3, title:'提示信息'},function(index){
 			//_this.parents("tr").remove();
-			for(var i=0;i<result_code_list.length;i++){
-				if(result_code_list[i].linksId == _this.attr("data-id")){
-					result_code_list.splice(i,1);
-					linksList(result_code_list);
+			for(var i=0;i<projData.length;i++){
+				if(projData[i].projId == _this.attr("data-id")){
+					post_del_proj(projData[i])
 				}
 			}
+			ProjList();
 			layer.close(index);
 		});
 	})
 
-	// function linksList(that){
-	function SimpleCodeList(that){
+	function ProjList(that){
 		//渲染数据
 		function renderDate(data,curr){
 			var dataHtml = '';
-			currData = result_code_list.concat().splice(curr*nums-nums, nums);
+			// if(!that){
+			// 	currData = projData.concat().splice(curr*nums-nums, nums);
+			// }else{
+			// 	currData = that.concat().splice(curr*nums-nums, nums);
+			// }
+			console.log("============================>",projData)
+			currData = projData.concat().splice(curr*nums-nums, nums);
 
-			console.log()
 			if(currData.length != 0){
 				for(var i=0;i<currData.length;i++){
 					dataHtml += '<tr>'
 			    	+'<td><input type="checkbox" name="checked" lay-skin="primary" lay-filter="choose"></td>'
-			    	+'<td >'+currData[i].code_id+'</td>'
-					+'<td>'+currData[i].code_time+'</td>'
-
-					+'<td>'+currData[i].content+'</td>'
+			    	+'<td align="left">'+currData[i].projName+'</td>'
+			    	+'<td>'+ProjStatus(currData[i].projStatus)+'</td>'
+			    	+'<td>'+ProjType(currData[i].projType)+'</td>'
+			    	+'<td>'+currData[i].projCreateTime+'</td>'
+			    	// +'<td>'+currData[i].projFromId+'</td>'
 			    	+'<td>'
-					+  '<a class="layui-btn layui-btn-danger layui-btn-mini links_del" data-id="'+data[i].linksId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
+					+  '<a class="layui-btn layui-btn-mini links_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
+					+  '<a class="layui-btn layui-btn-danger layui-btn-mini links_del" data-id="'+data[i].projId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
 			        +'</td>'
 			    	+'</tr>';
 				}
@@ -230,16 +237,63 @@ layui.config({
 		//分页
 		var nums = 13; //每页出现的数据量
 		if(that){
-			result_code_list = that;
+			projData = that;
 		}
 		laypage({
 			cont : "page",
-			pages : Math.ceil(result_code_list.length/nums),
+			pages : Math.ceil(projData.length/nums),
 			jump : function(obj){
-				$(".links_content").html(renderDate(result_code_list,obj.curr));
+				$(".links_content").html(renderDate(projData,obj.curr));
 				$('.links_list thead input[type="checkbox"]').prop("checked",false);
 		    	form.render();
 			}
 		})
 	}
+
+	function ProjStatus(status) {
+		// public 0/ private 1/ friend 2
+		if (status == 0) {
+			return "Public"
+		}else if (status == 1) {
+			return "Private";
+		}else if (status == 2) {
+			return "Friend";
+		} else {
+			return "未知"
+		}
+	}
+
+	function ProjType(type) {
+		// star 0 fork 1 own 2
+		if (type == 0) {
+			return "收藏"
+		}else if (type == 2) {
+			return "创建";
+		}else {
+			return "未知"
+		}
+	}
+
+	var post_del_proj = function (proj_info){
+		console.log("===============userData "+ proj_info.projId)
+		$.ajax({
+			type: 'POST',
+			url: 'http://127.0.0.1:8080/api/projectManage/delete/',
+			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token"),"proj_id":proj_info.projId,"is_active":false}}),
+			contentType: 'application/json',
+			dataType: "json",
+			processData:false,
+			async:false,
+			success: function(usersData){
+				// window.location.href = "../../index.html";
+				// usersData = userList['data']['user_info_list']
+				console.log("success userinfo :",usersData)
+				// usersList();
+			},
+			error:function (e) {
+				console.log(e)
+			}
+		});
+	};
+
 })

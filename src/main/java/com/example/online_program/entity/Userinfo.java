@@ -47,6 +47,28 @@ public class Userinfo implements Serializable {
     @Column(columnDefinition = "true")
     private Boolean sex;
 
+    @Column
+    private Boolean is_super;
+
+    @Column
+    private Boolean is_active;
+
+    public Boolean getIs_super() {
+        return is_super;
+    }
+
+    public void setIs_super(Boolean is_super) {
+        this.is_super = is_super;
+    }
+
+    public Boolean getIs_active() {
+        return is_active;
+    }
+
+    public void setIs_active(Boolean is_active) {
+        this.is_active = is_active;
+    }
+
     public String getToken() {
         return token;
     }
@@ -156,5 +178,4 @@ public class Userinfo implements Serializable {
                 '}';
     }
 
-//    public
 }

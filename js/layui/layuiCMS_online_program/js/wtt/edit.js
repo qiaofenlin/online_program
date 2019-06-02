@@ -56,7 +56,7 @@ $(function () {
     //TODO import projectList listener
     $('#importProj').mouseenter(function () {
         $('#myProjsList').empty();
-        var userId = "1111";
+        var userId = window.sessionStorage.getItem("user_id")
         var obj = ajaxRequest("http://127.0.0.1:8080/treenode/import/list", "{\"userId\":\"" + userId + "\"}", false);
         for (var i = 0; i < obj.data.length; i++) {
             var nodeStr = obj.data[i].projectId + "," + obj.data[i].projectName;
@@ -105,6 +105,15 @@ $(function () {
             alert("请选择代码保存位置!!")
         }
     })
+
+    $('#runbtn').click(function () {
+        var node = $('#tt').tree('getSelected');
+        // var code = $('#runText').val();
+        console.log("runbtn : " + node.text + "\t" + node.id);
+        //TODO  http run_code
+
+    })
+
 });
 
 var isAlreadyCreateProj = false;
@@ -163,7 +172,12 @@ function createProject() {
     if (isAlreadyCreateProj) {
         return;
     }
-    var obj = ajaxRequest("http://127.0.0.1:8080/treenode/create/proj", "{\"userId\":\"1111\"}", false);
+    var user_id = window.sessionStorage.getItem("user_id")
+    var token = window.sessionStorage.getItem("token")
+    console.log("token  | ",token)
+    var req_data = {"token":token,"user_id":user_id,"proj_name":"","proj_from_id":0,"proj_type":2,"proj_status":0}
+    var obj = ajaxRequest("http://127.0.0.1:8080/treenode/create/proj", "{\"userId\":\""+user_id+"\"}", false);
+    post("http://127.0.0.1:8080/api/projectManage/create/", req_data);
     console.log("obj.data : " + obj.data)
     var nodes = [{
         "id": obj.data.projectId,
@@ -221,3 +235,34 @@ function ajaxRequest(url, data, asyn, contentType) {
     });
     return re;
 }
+
+
+function post (url,newD){
+    console.log(newD)
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: JSON.stringify({data:newD}),
+        // data: {data:newD},
+        contentType: 'application/json',
+        dataType: "json",
+        processData:false,
+        async:false,
+        success: function(r){
+            if (r.code == 200){
+               console.log("======================= success",r.data)
+            }
+            else
+                console.log("====================== fail ",r.message)
+            return r
+
+        },
+        error:function (e) {
+            console.log(e)
+        }
+    });
+};
+
+
+
+

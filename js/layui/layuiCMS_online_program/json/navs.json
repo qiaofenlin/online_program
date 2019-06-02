@@ -56,7 +56,7 @@
 },{
 	"title" : "我的仓库",
 	"icon" : "&#xe64c;",
-	"href" : "page/links/linksList.html",
+	"href" : "page/codeModule/proj_list.html",
 	"spread" : false
 },{
 	"title" : "好友",

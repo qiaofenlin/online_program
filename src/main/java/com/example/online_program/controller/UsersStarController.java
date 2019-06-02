@@ -42,7 +42,7 @@ public class UsersStarController extends BaseController {
             Result result = userService.getUserListByUserId(userStarsList, 1, 10);
             return result;
         } else {
-            String result_data = "用户名或密码错误";
+            String result_data = "验证信息错误";
             logger.info("请求参数：" + String.valueOf(args.getJSONObject("data"))+ " result:" +result_data);
             return ResultGenerator.genSuccessResult();
         }

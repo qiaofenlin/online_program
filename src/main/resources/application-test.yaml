@@ -26,3 +26,7 @@ spring:
     password: guest
 #    virtual-host: /
 
+
+user-project:
+  path: '/home/qiao/'
+

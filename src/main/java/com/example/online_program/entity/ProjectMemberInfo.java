@@ -19,7 +19,7 @@ public class ProjectMemberInfo {
     private Integer user_id;
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp member_create_time;
+    private String member_create_time;
 
     public Integer getMember_id() {
         return member_id;
@@ -45,11 +45,11 @@ public class ProjectMemberInfo {
         this.user_id = user_id;
     }
 
-    public Timestamp getMember_create_time() {
+    public String getMember_create_time() {
         return member_create_time;
     }
 
-    public void setMember_create_time(Timestamp member_create_time) {
+    public void setMember_create_time(String member_create_time) {
         this.member_create_time = member_create_time;
     }
 }

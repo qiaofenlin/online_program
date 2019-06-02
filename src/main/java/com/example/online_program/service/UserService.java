@@ -3,6 +3,7 @@ package com.example.online_program.service;
 import com.example.online_program.entity.Userinfo;
 import com.example.online_program.repository.UserRepository;
 import com.example.online_program.utils.result_utils.Result;
+import com.example.online_program.utils.result_utils.ResultCode;
 import com.example.online_program.utils.result_utils.ResultGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,15 +49,17 @@ public class UserService {
         return user;
     }
 
-    public String checkNameAndPwd(String tel, String password) {
+    public Result checkNameAndPwd(String tel, String password) {
         logger.debug(tel + ": \t" + password);
-//        logger.debug(args.getData()['user_name']);
         Optional<Userinfo> user = userRepository.findByTel(tel);
+
         if (user.get().getPwd().equals(password)) {
-            String token = user.get().getToken();
-            return token;
+//            String token = user.get().getToken();
+            Result result = ResultGenerator.genSuccessResult(user.get());
+            return result;
         } else {
-            return "error";
+            Result result = ResultGenerator.genFailResult(ResultCode.UNAUTHORIZED);
+            return result;
 
         }
     }
@@ -102,7 +105,12 @@ public class UserService {
         Optional<Userinfo> user = userRepository.findAllByToken(token);
         Integer user_id = user.map(Userinfo::getId).orElse(0);
         return user_id;
+    }
 
+    public Boolean getIsSuperByToken(String token) {
+        Optional<Userinfo> user = userRepository.findAllByToken(token);
+        Boolean is_super = user.map(Userinfo::getIs_super).orElse(false);
+        return is_super;
     }
 
     public Boolean checkUserInfoByToken(String token) {

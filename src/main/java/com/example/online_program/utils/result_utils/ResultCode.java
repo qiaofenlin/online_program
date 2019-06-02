@@ -17,4 +17,8 @@ public enum ResultCode {
     ResultCode(int code) {
         this.code = code;
     }
+
+
 }
+
+

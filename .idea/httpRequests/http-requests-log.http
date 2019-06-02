@@ -1,345 +1,14 @@
-POST http://127.0.0.1:8080/api/simple/code/list/
+POST http://127.0.0.1:8080/api/user/login/
 Content-Type: application/json
 
 {
   "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
+    "tel":"007",
+    "pwd": "123456"
   }
 }
 
-<> 2019-05-16T074116.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followering/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-16T073047.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/simple/code/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T092934.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/simple/code/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T092925.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/simple/code/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T092531.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/simple/code/add/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "content": "class Test:\n     def run(self, b):\n         self.a = 10 + b\n         return self.a\n\nprint \"Hello World 123333\"\na = Test()\nprint(a.run(10))"
-  }
-}
-
-<> 2019-05-12T092525.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/simple/code/del/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "code_id": 1
-  }
-}
-
-<> 2019-05-12T092521.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/del/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "code_id": 1
-  }
-}
-
-<> 2019-05-12T092422.500.json
-
-###
-
-POST http://127.0.0.1:8080/api/simple/code/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T092340.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/simple/code/add/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "content": "class Test:\n     def run(self, b):\n         self.a = 10 + b\n         return self.a\n\nprint \"Hello World 123333\"\na = Test()\nprint(a.run(10))"
-  }
-}
-
-<> 2019-05-12T092335.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/simple/code/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T090740.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/simple/code/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T085918.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followering/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T074423.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/del/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "tel": "18322693278"
-  }
-}
-
-<> 2019-05-12T072511.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/del/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "tel": "18322693278"
-  }
-}
-
-<> 2019-05-12T070803.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/add/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "tel": "18322693278"
-  }
-}
-
-<> 2019-05-12T051213.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/add/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "17e798d836004f7f9910e77b3929c1d6",
-    "tel": "18322693235"
-  }
-}
-
-<> 2019-05-12T050922.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/add/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "03d663c0a5c84d3fa59bdaaaac8d982e",
-    "tel": "18322693235"
-  }
-}
-
-<> 2019-05-12T050740.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/add/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "tel": "18322693278"
-  }
-}
-
-<> 2019-05-12T050557.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/add/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "tel": "18322693278"
-  }
-}
-
-<> 2019-05-12T050425.500.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/add/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "tel": "18322693278"
-  }
-}
-
-<> 2019-05-12T050259.500.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/add/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "tel": "18322693278"
-  }
-}
-
-<> 2019-05-12T050122.500.json
-
-###
-
-POST http://127.0.0.1:8080/api/user/create/
-Content-Type: application/json
-
-{
-  "user_name":"小强",
-  "age":18,
-  "desc": "1239",
-  "pwd": "123456",
-  "description": "Python程序员",
-  "email": "790872612@qq.com",
-  "tel" : "18322693299",
-  "sex": true
-}
-
-<> 2019-05-12T044648.500.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/add/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "tel": "18322693278"
-  }
-}
-
-<> 2019-05-12T044410.500.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/add/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
-    "tel": "18322693278"
-  }
-}
-
-<> 2019-05-12T044308.500.json
+<> 2019-06-02T102233.200.json
 
 ###
 
@@ -348,12 +17,459 @@ Content-Type: application/json
 
 {
   "data": {
-    "tel":"18322693235",
+    "tel":"007",
     "pwd": "123456"
   }
 }
 
-<> 2019-05-12T042934.200.json
+<> 2019-06-02T102134.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "186c697e6c844149a39d8866f4f9c8f3",
+    "page": 1,
+    "size": 10
+  }
+}
+
+<> 2019-06-02T101058.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "page": 1,
+    "size": 10
+  }
+}
+
+<> 2019-06-02T101020.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/create/
+Content-Type: application/json
+
+{
+  "user_name":"admin",
+  "age":99,
+  "desc": "管理员",
+  "birthday": "2019-05-20 13:14:00.00",
+  "pwd": "123456",
+  "description": "管理员",
+  "email": "790872612@qq.com",
+  "tel" : "007",
+  "sex": true,
+  "is_super": true
+}
+
+<> 2019-06-02T101007.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "page": 1,
+    "size": 10
+  }
+}
+
+<> 2019-06-02T095133.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/delete/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "proj_id": 1
+  }
+}
+
+<> 2019-06-02T095129.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "page": 1,
+    "size": 10
+  }
+}
+
+<> 2019-06-02T095120.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "page": 1,
+    "size": 10
+  }
+}
+
+<> 2019-06-02T092248.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "7898d3051ae34c009022a1fddfad9f85",
+    "page": 1,
+    "size": 10
+  }
+}
+
+<> 2019-06-02T092228.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/delete/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "proj_id": 1
+  }
+}
+
+<> 2019-06-02T092224.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/delete/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "proj_id": 1
+  }
+}
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/delete/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "proj_id": 8
+  }
+}
+
+<> 2019-06-02T091816.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "7898d3051ae34c009022a1fddfad9f85",
+    "page": 1,
+    "size": 10
+  }
+}
+
+<> 2019-06-02T091146.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "page": 1,
+    "size": 10
+  }
+}
+
+<> 2019-06-02T091103.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "page": 1,
+    "size": 2
+  }
+}
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/delete/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "proj_id": 9
+  }
+}
+
+<> 2019-06-02T082348.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/delete/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "proj_id": 9
+  }
+}
+
+<> 2019-06-02T082243.405.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/delete/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "proj_id": 9
+  }
+}
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "page": 1,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T075817.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "page": 1,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T074734.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "page": 1,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T074001.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "page": 1,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T073923.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 1,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T072945.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 3,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T072653.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 1,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T065911.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 1,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T065737.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 1,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T065618.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/list/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 1,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T045352.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 3,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T045029.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 3,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T044400.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 2,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T044352.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/user/list/simple/
+Content-Type: application/json
+
+{
+  "data": {
+    "page": 1,
+    "size": 2
+  }
+}
+
+<> 2019-06-02T044333.200.json
 
 ###
 
@@ -362,116 +478,40 @@ Content-Type: application/json
 
 {
   "data": {
-    "token": 1,
-    "tel": "183226932351"
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "tel": "18322693278"
   }
 }
 
-<> 2019-05-12T042323.200.json
+<> 2019-06-02T044323.200.json
 
 ###
 
-POST http://127.0.0.1:8080/api/user/info/by/tel/
+POST http://127.0.0.1:8080/api/user/list/simple/
 Content-Type: application/json
 
 {
   "data": {
-    "token": 1,
-    "tel": "18322693235"
+    "page": 1,
+    "size": 2
   }
 }
 
-<> 2019-05-12T042317.200.json
+<> 2019-06-02T044243.200.json
 
 ###
 
-POST http://127.0.0.1:8080/api/user/info/by/tel/
+POST http://127.0.0.1:8080/api/user/list/simple/
 Content-Type: application/json
 
 {
   "data": {
-    "token": 1,
-    "tel": "18322693235"
+    "page": 1,
+    "size": 2
   }
 }
 
-###
-
-POST http://127.0.0.1:8080/api/followers/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T034514.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T034441.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T034243.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T034102.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followers/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T033934.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/followering/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-12T033928.200.json
+<> 2019-06-02T044125.200.json
 
 ###
 
@@ -485,35 +525,147 @@ Content-Type: application/json
   }
 }
 
-<> 2019-05-12T111842.200.json
+<> 2019-06-02T044053.200.json
 
 ###
 
-POST http://127.0.0.1:8080/api/user/login/
+POST http://127.0.0.1:8080/api/user/list/simple/
 Content-Type: application/json
 
 {
   "data": {
-    "tel":"18322693235",
-    "pwd": "123456"
+    "page": 1,
+    "size": 10
   }
 }
 
-<> 2019-05-12T111641.200.json
+<> 2019-06-02T044013.200.json
 
 ###
 
-POST http://127.0.0.1:8080/api/user/login/
+POST http://127.0.0.1:8080/api/projectManage/create/
 Content-Type: application/json
 
 {
   "data": {
-    "user_name":"乔风鳞",
-    "pwd": "12345694"
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "userId": 6,
+    "projName": "12311111",
+    "projFromId": 0,
+    "projType": 2,
+    "projStatus": 0
   }
 }
 
-<> 2019-05-12T111534.500.json
+<> 2019-06-02T043451.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/create/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "userId": 6,
+    "projName": "123",
+    "projFromId": 0,
+    "projType": 2,
+    "projStatus": 0
+  }
+}
+
+<> 2019-06-02T040402.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/create/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "userId": 6,
+    "projName": "123",
+    "projFromId": 0,
+    "projType": 2,
+    "projStatus": 0
+  }
+}
+
+<> 2019-06-02T040226.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/create/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "userId": 6,
+    "projName": "123",
+    "projFromId": 0,
+    "projType": 2,
+    "projStatus": 0
+  }
+}
+
+<> 2019-06-02T040025.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/create/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "userId": 6,
+    "projName": "123",
+    "projFromId": 0,
+    "projType": 2,
+    "projStatus": 0
+  }
+}
+
+<> 2019-06-02T034549.200.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/create/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "userId": 6,
+    "projName": "123",
+    "projFromId": 0,
+    "projType": 2,
+    "projStatus": 0
+  }
+}
+
+<> 2019-06-02T034443.500.json
+
+###
+
+POST http://127.0.0.1:8080/api/projectManage/create/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "user_id": 6,
+    "proj_name": "123",
+    "proj_from_id": 0,
+    "proj_type": 2,
+    "proj_status": 0
+  }
+}
+
+<> 2019-06-02T034330.500.json
 
 ###
 
@@ -521,18 +673,18 @@ POST http://127.0.0.1:8080/api/user/create/
 Content-Type: application/json
 
 {
-  "user_name":"test",
+  "user_name":"小y",
   "age":18,
   "desc": "1239",
-  "birthday": "2018-12-09 16:00:00.0",
-  "pwd": "1234569",
-  "description": "1235655559",
-  "email": "790872672@qq.com",
-  "tel" : "18322693278",
+  "birthday": "2019-05-20 13:14:00.00",
+  "pwd": "123456",
+  "description": "Python程序员",
+  "email": "790872612@qq.com",
+  "tel" : "18322693299",
   "sex": true
 }
 
-<> 2019-05-12T105032.200.json
+<> 2019-06-02T033941.200.json
 
 ###
 
@@ -540,152 +692,71 @@ POST http://127.0.0.1:8080/api/user/create/
 Content-Type: application/json
 
 {
-  "user_name":"test",
+  "user_name":"小y",
   "age":18,
   "desc": "1239",
-  "birthday": "2018-12-09 16:00:00.0",
-  "pwd": "1234569",
-  "description": "1235655559",
-  "email": "790872672@qq.com",
-  "tel" : "18322693278"
+  "pwd": "123456",
+  "description": "Python程序员",
+  "email": "790872612@qq.com",
+  "tel" : "18322693299",
+  "sex": true
 }
 
-<> 2019-05-12T104948.500.json
+<> 2019-06-02T033922.500.json
 
 ###
 
-POST http://127.0.0.1:8080/api/user/create/
-Content-Type: application/json
-
-{
-  "user_name":"test",
-  "age":18,
-  "desc": "1239",
-  "birthday": "2018-12-09 16:00:00.0",
-  "pwd": "1234569",
-  "description": "1235655559",
-  "email": "790872672@qq.com",
-  "tel" : "18322693278"
-}
-
-<> 2019-05-12T104737.500.json
-
-###
-
-POST http://127.0.0.1:8080/api/stars/list/
+POST http://127.0.0.1:8080/api/projectManage/create/
 Content-Type: application/json
 
 {
   "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "user_id": 6,
+    "proj_name": "123",
+    "proj_from_id": 0,
+    "proj_type": 2,
+    "proj_status": 0
   }
 }
 
-<> 2019-05-07T084535.200.json
+<> 2019-06-02T033644.500.json
 
 ###
 
-POST http://127.0.0.1:8080/api/stars/list/
+POST http://127.0.0.1:8080/api/projectManage/create/
 Content-Type: application/json
 
 {
   "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "user_id": 6,
+    "proj_name": "123",
+    "proj_from_id": 0,
+    "proj_type": 2,
+    "proj_status": 0
   }
 }
 
-<> 2019-05-07T022909.200.json
+<> 2019-06-02T033426.500.json
 
 ###
 
-POST http://127.0.0.1:8080/api/stars/list/
+POST http://127.0.0.1:8080/api/projectManage/create/
 Content-Type: application/json
 
 {
   "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "user_id": 6,
+    "proj_name": "123",
+    "proj_from_id": 0,
+    "proj_type": 2,
+    "proj_status": 0
   }
 }
 
-<> 2019-05-07T021826.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/stars/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-07T021721.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/stars/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-07T021651.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/stars/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-07T020424.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/stars/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-07T020351.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/stars/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-07T020043.200.json
-
-###
-
-POST http://127.0.0.1:8080/api/stars/list/
-Content-Type: application/json
-
-{
-  "data": {
-    "token": "e1ffe11015e74cda87e7e8e9b36c18a9"
-  }
-}
-
-<> 2019-05-07T020016.200.json
+<> 2019-06-02T033124.500.json
 
 ###
 

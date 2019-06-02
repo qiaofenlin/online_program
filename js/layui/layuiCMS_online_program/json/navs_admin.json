@@ -1,0 +1,36 @@
+[{
+	"title" : "后台首页",
+	"icon" : "icon-computer",
+	"href" : "page/main.html",
+	"spread" : false
+},
+{
+	"title" : "测试记录",
+	"icon" : "&#xe64c;",
+	"href" : "page/codeModule/CodingSimpleList.html",
+	"spread" : false
+},{
+	"title" : "用户项目",
+	"icon" : "&#xe64c;",
+	"href" : "page/codeModule/proj_list.html",
+	"spread" : false
+},{
+	"title" : "用户管理",
+	"icon" : "&#xe631;",
+	"href" : "",
+	"spread" : false,
+	"children" : [
+		{
+			"title" : "Followers",
+			"icon" : "&#xe61c;",
+			"href" : "page/user/followers.html",
+			"spread" : false
+		},
+		{
+			"title" : "Followering",
+			"icon" : "&#xe609;",
+			"href" : "page/user/followering.html",
+			"spread" : false
+		}
+	]
+}]

@@ -6,6 +6,7 @@ import com.example.online_program.entity.Userinfo;
 import com.example.online_program.service.UserService;
 import com.example.online_program.utils.Utils;
 import com.example.online_program.utils.result_utils.Result;
+import com.example.online_program.utils.result_utils.ResultCode;
 import com.example.online_program.utils.result_utils.ResultGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,17 +40,25 @@ public class UserController extends BaseController {
     public Result UserLogin(@RequestBody JSONObject args) {
 
         Userinfo userinfo = JSON.parseObject(String.valueOf(args.getJSONObject("data")), Userinfo.class);
-        String result = userService.checkNameAndPwd(userinfo.getTel(), userinfo.getPwd());
-        if (result.equals("error")) {
-            String result_data = "用户名或密码错误";
-            logger.info("请求参数：" + String.valueOf(args.getJSONObject("data"))+ " result:" +result_data);
-            return ResultGenerator.genSuccessResult(result_data);
-        } else {
-
+        Result result = userService.checkNameAndPwd(userinfo.getTel(), userinfo.getPwd());
+        if (result.getCode() == 200) {
             Map<String, Object> return_data = new HashMap<String, Object>();
-            return_data.put("token",result);
+            Userinfo userinfo1 = (Userinfo) result.getData();
+            return_data.put("token",userinfo1.getToken());
+            return_data.put("id",userinfo1.getId());
+            return_data.put("userName",userinfo1.getUserName());
+            return_data.put("age",userinfo1.getAge());
+            return_data.put("birthday",userinfo1.getBirthday());
+            return_data.put("description",userinfo1.getDescription());
+            return_data.put("tel",userinfo1.getTel());
+            return_data.put("email",userinfo1.getEmail());
+            return_data.put("is_super",userinfo1.getIs_super());
             logger.info("请求参数：" + String.valueOf(args.getJSONObject("data"))+ " result:" +return_data);
             return ResultGenerator.genSuccessResult(return_data);
+        } else {
+            String result_data = "用户名或密码错误";
+            logger.info("请求参数：" + String.valueOf(args.getJSONObject("data"))+ " result:" +result_data);
+            return ResultGenerator.genFailResult(ResultCode.UNAUTHORIZED,result_data);
         }
     }
 
@@ -63,6 +72,7 @@ public class UserController extends BaseController {
     public Result UserCreate(@RequestBody JSONObject jsonParam) {
         Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam), Userinfo.class);
         userinfo.setToken(Utils.getUUIDString());
+        userinfo.setIs_active(true);
         Userinfo user = userService.insertUserInfo(userinfo);
         Result result = ResultGenerator.genSuccessResult();
         return result;
@@ -95,9 +105,11 @@ public class UserController extends BaseController {
      */
     @PostMapping("/api/user/list/simple/")
     public Result QueryByPageUserListSimple(@RequestBody JSONObject jsonParam) {
+        Integer page = (Integer) jsonParam.getJSONObject("data").get("page");
+        Integer size = (Integer) jsonParam.getJSONObject("data").get("size");
         System.out.println(jsonParam.getJSONObject("data"));
 //      UserController page = JSON.parseObject(String.valueOf(jsonParam.getJSONObject("data")), UserController.class);
-        Result result = userService.getUserList(1,10);
+        Result result = userService.getUserList(page,size);
         return result;
     }
 

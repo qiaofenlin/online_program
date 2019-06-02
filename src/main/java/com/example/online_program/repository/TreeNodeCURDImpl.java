@@ -86,6 +86,8 @@ public class TreeNodeCURDImpl implements TreeNodeCURD {
         if (type != null && type.trim().equals("proj")) {
             System.out.println("[-------rename proj---------]");
             session.update("renameProj", params);
+            // TODO 修改项目名称
+
         } else {
             System.out.println("[-------rename node---------]");
             session.update("renameNode", params);
