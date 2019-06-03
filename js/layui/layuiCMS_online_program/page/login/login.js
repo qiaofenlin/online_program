@@ -40,7 +40,7 @@ layui.config({
 
 function jump()
 {
-    console.log("----------------------------------======")
+    console.log("----------------------------------======",URLBASE)
     var tel = $("#tel").val();
     var pwd = $("#pwd").val();
     console.log("tel:",tel,"pwd ",pwd)
@@ -53,9 +53,10 @@ function jump()
 
 var post = function (newD){
     console.log(newD)
+    var req_url = URLBASE + '/api/user/login/'
     $.ajax({
         type: 'POST',
-        url: 'http://127.0.0.1:8080/api/user/login/',
+        url: req_url,
         data: JSON.stringify({data:newD}),
         // data: {data:newD},
         contentType: 'application/json',

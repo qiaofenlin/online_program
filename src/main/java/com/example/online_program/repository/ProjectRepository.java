@@ -28,6 +28,12 @@ public interface ProjectRepository extends JpaRepository<ProjectInfo, Integer>, 
     @Modifying
     public void deleteProjectInfo(int proj_id,Boolean name);
 
+
+    @Query(value = "update project_info set proj_name=?2 where proj_nick_name=?1 ", nativeQuery = true)
+    @Modifying
+    public void updateProjectName(String proj_nick_name,String name);
+
+
 //    @Query("select h.name as name, avg(r.rating) as averageRating  "from Hotel h left outer join h.reviews r  group by h")
 //    public void getUserList
 

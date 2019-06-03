@@ -4,8 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.example.online_program.entity.ProjectInfo;
 import com.example.online_program.entity.ProjectMemberInfo;
-import com.example.online_program.entity.SimpleCodeInfo;
-import com.example.online_program.entity.Userinfo;
 import com.example.online_program.service.ProjectManageService;
 import com.example.online_program.service.ProjectMemberService;
 import com.example.online_program.service.UserService;
@@ -15,11 +13,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @Created by qfl
@@ -70,6 +69,7 @@ public class ProjectManageController extends BaseController{
                 projectInfo.setProjName(projectInfo.getUserId()+"");
                 projectInfo.setProjPath(path+projectInfo.getProjName());
                 projectInfo.setIs_active(true);
+//                projectInfo.setProj_nick_name(proj_nick_name);
                 logger.info("projectInfo "+projectInfo.toString());
                 Integer proj_id = projectManageService.addProject(projectInfo);
                 ProjectMemberInfo memberInfo = new ProjectMemberInfo();

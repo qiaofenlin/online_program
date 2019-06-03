@@ -1,5 +1,6 @@
 //重命名之前的节点名称
 var oldText = undefined;
+
 $(function () {
         $('#tt').tree({
         dnd: false,// ban to drag
@@ -17,7 +18,9 @@ $(function () {
             console.log("onBefore : " + oldText + " onAfterEdit : " + node.text);
             if (oldText != node.text) {
                 reqdata = "{\"id\":\"" + node.id + "\",\"text\":\"" + node.text + "\",\"type\":\"" + type + "\"}";
-                ajaxRequest("http://127.0.0.1:8080/treenode/rename", reqdata, false);
+                var req_url = URLBASE + '/treenode/rename'
+                ajaxRequest(req_url, reqdata, false);
+                // ajaxRequest("http://47.93.221.91:8080/treenode/rename", reqdata, false);
             }
         },
         //TODO 拖拽文件时触发执行
@@ -41,11 +44,12 @@ $(function () {
 
         //TODO 展示代码(当用户双击一个节点时触发)
         onDblClick: function (node) {
-            var o = ajaxRequest("http://127.0.0.1:8080/treenode/adjust/isFile",
+            var req_url = URLBASE + '/treenode/adjust/isFile'
+            var o = ajaxRequest(req_url,
                 "{\"nodeId\":\"" + node.id + "\"}",
                 false)
             if (o.code == 200 && o.data) {
-                var obj = ajaxRequest("http://127.0.0.1:8080/code/show", "{\"codeId\":\"" + node.id + "\"}",false);
+                var obj = ajaxRequest(URLBASE+"/code/show", "{\"codeId\":\"" + node.id + "\"}",false);
                 $('#runText').val(obj.data);
             }else {
                 console.log("double click error !!!")
@@ -57,7 +61,7 @@ $(function () {
     $('#importProj').mouseenter(function () {
         $('#myProjsList').empty();
         var userId = window.sessionStorage.getItem("user_id")
-        var obj = ajaxRequest("http://127.0.0.1:8080/treenode/import/list", "{\"userId\":\"" + userId + "\"}", false);
+        var obj = ajaxRequest(URLBASE+"/treenode/import/list", "{\"userId\":\"" + userId + "\"}", false);
         for (var i = 0; i < obj.data.length; i++) {
             var nodeStr = obj.data[i].projectId + "," + obj.data[i].projectName;
             var innerEle = "<div class='menu-text' style='height: 30px;line-height: 30px;'>" + obj.data[i].projectName + "</div>";
@@ -66,7 +70,7 @@ $(function () {
     })
     //TODO mycode btn listener
     $('#codebtn').click(function () {
-        window.open("http://127.0.0.1:8080/myCode.html?userId=1111");
+        window.open(URLBASE+"/myCode.html?userId=1111");
         // window.location.href = "/myCode.html"
     })
 
@@ -78,12 +82,12 @@ $(function () {
         console.log("[--------save code listener---------node : "+node)
         if (node != undefined) {
             console.log("saveMyCode : " + node.text + "\t" + node.id);
-            var o = ajaxRequest("http://127.0.0.1:8080/treenode/adjust/isFile",
+            var o = ajaxRequest(URLBASE+"/treenode/adjust/isFile",
                 "{\"nodeId\":\"" + node.id + "\"}",
                 false);
             if (o.code == 200 && o.data) {
                 if (confirm("保存代码到文件" + node.text + "?")) {
-                    var uri = "http://127.0.0.1:8080/code/save?codeId="+node.id+"&userId="+userId;
+                    var uri = URLBASE+"/code/save?codeId="+node.id+"&userId="+userId;
                     var obj = ajaxRequest(
                         uri,
                         // "{\"nodeId\":\"" + node.id + "\",\"code\":\"" + code + "\"}",
@@ -128,12 +132,12 @@ function importPorjectInit(nodeStr) {
     }]
     $('#tt').tree({
         // data: nodes
-        url: "http://127.0.0.1:8080/treenode/getNode?id=" + arr[0]
+        url: URLBASE+"/treenode/getNode?id=" + arr[0]
     })
 }
 
 function importProjectNodeData(node) {
-    var obj = ajaxRequest("http://127.0.0.1:8080/treenode/getNode", "{\"nodeId\":\"" + node.id + "\"}", false);
+    var obj = ajaxRequest(URLBASE+"/treenode/getNode", "{\"nodeId\":\"" + node.id + "\"}", false);
     $('#tt').tree('append', {
         parent: node.target,
         data: JSON.parse(obj.data)
@@ -143,7 +147,7 @@ function importProjectNodeData(node) {
 function createDirFile(type) {
     var node = $('#tt').tree('getSelected');
     var reqdata = "{\"type\":\"" + type + "\",\"parentId\":\"" + node.id + "\"}";
-    var obj = ajaxRequest("http://127.0.0.1:8080/treenode/create/dirfile", reqdata, false);
+    var obj = ajaxRequest(URLBASE+"/treenode/create/dirfile", reqdata, false);
     if (node) {
         if (obj.code == 200) {
             var stat = undefined;
@@ -175,9 +179,10 @@ function createProject() {
     var user_id = window.sessionStorage.getItem("user_id")
     var token = window.sessionStorage.getItem("token")
     console.log("token  | ",token)
-    var req_data = {"token":token,"user_id":user_id,"proj_name":"","proj_from_id":0,"proj_type":2,"proj_status":0}
-    var obj = ajaxRequest("http://127.0.0.1:8080/treenode/create/proj", "{\"userId\":\""+user_id+"\"}", false);
-    post("http://127.0.0.1:8080/api/projectManage/create/", req_data);
+    var proj_nick_name = Math.random().toString(36).substr(2);
+    var req_data = {"token":token,"user_id":user_id,"proj_name":"","proj_from_id":0,"proj_type":2,"proj_status":0,"proj_nick_name":proj_nick_name}
+    var obj = ajaxRequest(URLBASE + "/treenode/create/proj", "{\"userId\":\""+user_id+"\",\"proj_nick_name\":\""+proj_nick_name+"\"}", false);
+    post(URLBASE + "/api/projectManage/create/", req_data);
     console.log("obj.data : " + obj.data)
     var nodes = [{
         "id": obj.data.projectId,
@@ -193,7 +198,7 @@ function createProject() {
 //todo deleteTreeNode
 function deleteNode() {
     var node = $('#tt').tree('getSelected');
-    var obj = ajaxRequest("http://127.0.0.1:8080/treenode/delete", "{\"id\":\"" + node.id + "\"}", false)
+    var obj = ajaxRequest(URLBASE + "/treenode/delete", "{\"id\":\"" + node.id + "\"}", false)
     if (obj.code == 200) {
         $('#tt').tree('remove', node.target)
     } else {

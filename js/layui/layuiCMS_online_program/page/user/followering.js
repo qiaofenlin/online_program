@@ -24,7 +24,7 @@ layui.config({
 	var post_user_list = function (){
 		$.ajax({
 			type: 'POST',
-			url: 'http://127.0.0.1:8080/api/followering/list/',
+			url: 'http://47.93.221.91:8080/api/followering/list/',
 			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token")}}),
 			// data: {data:newD},
 			contentType: 'application/json',
@@ -305,9 +305,11 @@ layui.config({
 
 	var post_del_user_star = function (user_info){
 		console.log("===============userData "+ user_info.id)
-		$.ajax({
+        var req_url = URLBASE + '/api/followers/del/'
+
+        $.ajax({
 			type: 'POST',
-			url: 'http://127.0.0.1:8080/api/followers/del/',
+			url: req_url,
 			data: JSON.stringify({data:{ "token": "e1ffe11015e74cda87e7e8e9b36c18a9","star_user_id":user_info.id}}),
 			// data: {data:newD},
 			contentType: 'application/json',

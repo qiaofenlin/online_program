@@ -47,6 +47,16 @@ public class ProjectInfo implements Serializable {
     @Column
     private Boolean is_active;
 
+    @Column
+    private String  proj_nick_name;
+
+    public String getProj_nick_name() {
+        return proj_nick_name;
+    }
+
+    public void setProj_nick_name(String proj_nick_name) {
+        this.proj_nick_name = proj_nick_name;
+    }
 
     public Boolean getIs_active() {
         return is_active;

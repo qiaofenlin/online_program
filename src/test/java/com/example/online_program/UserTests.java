@@ -80,7 +80,9 @@ public class UserTests {
 //        Date date = new Date();
 //        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
 //        System.out.println(dateFormat.format(date));
-        projectManageService.updateProjIsActive(7,false);
+//        projectManageService.updateProjIsActive(7,false);
+        projectManageService.renameProj("2xmr109dmfv","test0111");
+
 //        projectRepository.deleteProjectInfo(9,false);
 
 

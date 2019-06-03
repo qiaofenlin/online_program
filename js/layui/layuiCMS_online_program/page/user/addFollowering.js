@@ -38,9 +38,10 @@ layui.config({
 
 
 	var post_add_user_star = function (){
+		var req_url = URLBASE + '/api/followers/add/'
 		$.ajax({
 			type: 'POST',
-			url: 'http://127.0.0.1:8080/api/followers/add/',
+			url: req_url,
 			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token"),"tel":$(".user_tel").val()}}),
 			// data: {data:newD},
 			contentType: 'application/json',

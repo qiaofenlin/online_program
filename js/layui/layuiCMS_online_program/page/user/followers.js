@@ -22,10 +22,12 @@ layui.config({
 	console.log("********* url "+url)
 	var usersData = '';
 	var post_user_list = function (){
+		var req_url = URLBASE + '/api/followers/list/'
 		$.ajax({
 			type: 'POST',
-			url: 'http://127.0.0.1:8080/api/followers/list/',
-			data: JSON.stringify({data:{ "token": "e1ffe11015e74cda87e7e8e9b36c18a9"}}),
+			url: req_url,
+			// data: JSON.stringify({data:{ "token": "e1ffe11015e74cda87e7e8e9b36c18a9"}}),
+			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token")}}),
 			// data: {data:newD},
 			contentType: 'application/json',
 			dataType: "json",

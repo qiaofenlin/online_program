@@ -16,7 +16,7 @@ function searchBtn() {
 function getHistoryCode(userId) {
     if (userId!=undefined&&userId.trim()!=""){
         var data = "{\"userId\":\""+userId+"\"}";
-        var obj = ajaxRequest("http://127.0.0.1:8080/code/history",data,false);
+        var obj = ajaxRequest("http://47.93.221.91:8080/code/history",data,false);
         if (obj&&obj.code == 200){
             if (obj.data.length>0){
                 // $('.search').after("<p id=\"startAppend\">以下是您已经保存的代码</p>\n");
@@ -63,7 +63,7 @@ function countTxtRows(codeId) {
 
 function delcode(codeId) {
     var data = "{\"codeId\":\""+codeId+"\"}";
-    var obj = ajaxRequest("http://127.0.0.1:8080/code/delete",data,false);
+    var obj = ajaxRequest("http://47.93.221.91:8080/code/delete",data,false);
     if (obj){
         if (obj.code==200){
             $("#"+codeId).remove();

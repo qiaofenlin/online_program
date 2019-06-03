@@ -24,9 +24,10 @@ layui.config({
 	// })
 
 	var post_simple_code_list = function (){
+		var req_url = URLBASE + '/api/simple/code/list/'
 		$.ajax({
 			type: 'POST',
-			url: 'http://127.0.0.1:8080/api/simple/code/list/',
+			url: req_url,
 			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token")}}),
 			// data: {data:newD},
 			contentType: 'application/json',

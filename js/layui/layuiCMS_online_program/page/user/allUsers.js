@@ -1,30 +1,33 @@
 layui.config({
 	base : "js/"
 }).use(['form','layer','jquery','laypage'],function(){
+	console.log("------------------  ",URLBASE)
 	var form = layui.form(),
 	layer = parent.layer === undefined ? layui.layer : parent.layer,
 	laypage = layui.laypage,
 	$ = layui.jquery;
 	var url;
-	$.get("../../json/config.json",
-		function(data){
-			url = data[0].url;
-			console.log("********* url config "+url)
-		}
-	)
-	$.get("../../json/urls.json",
-		function(data){
-			url = url + data['get_user_list']['uri'];
-			console.log("********* url urls "+url)
-
-		}
-	)
+	// $.get("../../json/config.json",
+	// 	function(data){
+	// 		url = data['dev'].url;
+	// 		console.log("********* url config "+url)
+	// 	}
+	// )
+	// $.get("../../json/urls.json",
+	// 	function(data){
+	// 		url = url + data['get_user_list']['uri'];
+	// 		console.log("********* url urls "+url)
+	//
+	// 	}
+	// )
 	console.log("********* url "+url)
 	var usersData = '';
-	var post_user_list = function (){
+	var post_user_list = function (url){
+		var get_user_url = URLBASE + '/api/user/list/simple/';
+		console.log("========================>>>> get_user_url "+get_user_url)
 		$.ajax({
 			type: 'POST',
-			url: 'http://127.0.0.1:8080/api/user/list/simple/',
+			url: get_user_url,
 			data: JSON.stringify({data:{"page": 1,"size": 10}}),
 			// data: {data:newD},
 			contentType: 'application/json',
@@ -43,7 +46,7 @@ layui.config({
 			}
 		});
 	};
-	post_user_list();
+	post_user_list(url);
 
 
 	// $.get("../json/message.json",

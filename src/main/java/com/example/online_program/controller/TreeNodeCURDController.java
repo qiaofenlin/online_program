@@ -7,6 +7,8 @@ import com.example.online_program.repository.TreeNodeCURDImpl;
 import com.example.online_program.utils.Utils;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -20,6 +22,9 @@ import java.util.*;
 @RequestMapping("/treenode")
 public class TreeNodeCURDController {
 
+    private Logger logger = LoggerFactory.getLogger(SimpleCodeController.class);
+
+
     /**
      * TODO createProject
      *
@@ -31,7 +36,9 @@ public class TreeNodeCURDController {
     public Result createProject(@RequestBody JSONObject object) {
         ProjInfo projInfo = new ProjInfo();
         if (object != null && object.containsKey("userId")) {
-            projInfo.setProjectId(Utils.getUUIDString("p"));
+            logger.info("\n\n proj_nick_name =====>"+object.getString("proj_nick_name"));
+            projInfo.setProjectId(object.getString("proj_nick_name"));
+//            projInfo.setProjectId(Utils.getUUIDString("p"));
             //default project name is "Project"
             projInfo.setProjectName("Project");
             projInfo.setUserId(Integer.parseInt(object.getString("userId")));

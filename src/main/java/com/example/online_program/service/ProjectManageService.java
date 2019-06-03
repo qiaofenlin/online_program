@@ -91,12 +91,11 @@ public class ProjectManageService {
 
     }
 
-//    public List<ProjectInfo> get(int projId) {
-//
-////        projectRepository.deleteProjectInfo(projId,is_delete);
-//        List<ProjectInfo> projectInfos = projectRepository.get(projId);
-//        System.out.println(projectInfos.toString());
-//        return projectInfos;
-//    }
+    @Transactional
+    public void renameProj(String proj_nick_name,String proj_name) {
+        projectRepository.updateProjectName(proj_nick_name,proj_name);
+
+    }
+
 
 }

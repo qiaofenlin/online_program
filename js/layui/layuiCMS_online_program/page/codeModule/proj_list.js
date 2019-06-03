@@ -27,7 +27,7 @@ layui.config({
 	var post_proj_list = function (){
 		$.ajax({
 			type: 'POST',
-			url: 'http://127.0.0.1:8080/api/projectManage/list/',
+			url: 'http://47.93.221.91:8080/api/projectManage/list/',
 			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token"),"page":1,"size":10}}),
 			// data: {data:newD},
 			contentType: 'application/json',
@@ -276,9 +276,11 @@ layui.config({
 
 	var post_del_proj = function (proj_info){
 		console.log("===============userData "+ proj_info.projId)
-		$.ajax({
+        var req_url = URLBASE + '/api/projectManage/delete/'
+
+        $.ajax({
 			type: 'POST',
-			url: 'http://127.0.0.1:8080/api/projectManage/delete/',
+			url: req_url,
 			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token"),"proj_id":proj_info.projId,"is_active":false}}),
 			contentType: 'application/json',
 			dataType: "json",

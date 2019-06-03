@@ -1,14 +1,19 @@
 package com.example.online_program.repository;
 
+import com.example.online_program.controller.ProjectManageController;
 import com.example.online_program.entity.ProjInfo;
 import com.example.online_program.entity.TreeNodeInfo;
 import com.example.online_program.impl.TreeNodeCURD;
+import com.example.online_program.service.ProjectManageService;
 import com.example.online_program.utils.MybatisUtils;
 import com.example.online_program.utils.Utils;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: wtt
@@ -18,6 +23,10 @@ import java.util.*;
 public class TreeNodeCURDImpl implements TreeNodeCURD {
 
     private List<List> lists;
+
+    private ProjectManageService projectManageService;
+
+    private Logger logger = LoggerFactory.getLogger(ProjectManageController.class);
 
     public TreeNodeCURDImpl(List<List> lists) {
         this.lists = lists;
@@ -78,6 +87,7 @@ public class TreeNodeCURDImpl implements TreeNodeCURD {
 
     public boolean renameNode(Map<String, Object> params) {
         SqlSession session = MybatisUtils.getSqlSession();
+        logger.info("\n\n\n=============== params "+params.toString());
         Object object = params.get("type");
         String type = null;
         if (object instanceof String) {
@@ -91,6 +101,11 @@ public class TreeNodeCURDImpl implements TreeNodeCURD {
             /**
              * {nodeName=test_qiao111, updateTime=2019-06-03 08:01:26.788, type=proj, nodeId=pd37f613fc514a9bab2dc8d52e60ee1c}
              */
+
+            logger.info("\n\n rename args | nodeName: " + String.valueOf(params.get("nodeName")) + "\t nodeId: "+ String.valueOf(params.get("nodeId")) + "!!! \n\n");
+//            rename args | nodeName: test0111	 nodeId: p1f676ac577e47a997b3e8565060fe73!!!
+            projectManageService.renameProj(String.valueOf(params.get("nodeId")),String.valueOf(params.get("nodeName")));
+
 
         } else {
             System.out.println("[-------rename node---------]");
