@@ -25,7 +25,7 @@ layui.config({
 		$.ajax({
 			type: 'POST',
 			url: 'http://127.0.0.1:8080/api/user/list/simple/',
-			data: JSON.stringify({data:{"page": 1,"size": 2}}),
+			data: JSON.stringify({data:{"page": 1,"size": 10}}),
 			// data: {data:newD},
 			contentType: 'application/json',
 			dataType: "json",

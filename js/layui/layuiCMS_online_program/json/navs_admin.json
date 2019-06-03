@@ -17,20 +17,7 @@
 },{
 	"title" : "用户管理",
 	"icon" : "&#xe631;",
-	"href" : "",
-	"spread" : false,
-	"children" : [
-		{
-			"title" : "Followers",
-			"icon" : "&#xe61c;",
-			"href" : "page/user/followers.html",
-			"spread" : false
-		},
-		{
-			"title" : "Followering",
-			"icon" : "&#xe609;",
-			"href" : "page/user/followering.html",
-			"spread" : false
-		}
-	]
+	"href" : "page/user/allUsers.html",
+	"spread" : false
+
 }]

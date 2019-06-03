@@ -2,7 +2,6 @@ package com.example.online_program.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 /**
  * @Created by qfl
