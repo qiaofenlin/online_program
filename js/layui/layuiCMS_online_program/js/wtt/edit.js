@@ -17,8 +17,9 @@ $(function () {
             }
             console.log("onBefore : " + oldText + " onAfterEdit : " + node.text);
             if (oldText != node.text) {
-                reqdata = "{\"id\":\"" + node.id + "\",\"text\":\"" + node.text + "\",\"type\":\"" + type + "\"}";
+                var reqdata = "{\"id\":\"" + node.id + "\",\"text\":\"" + node.text + "\",\"type\":\"" + type + "\"}";
                 var req_url = URLBASE + '/treenode/rename'
+                console.log("*********************** "+reqdata+"\t"+req_url)
                 ajaxRequest(req_url, reqdata, false);
                 // ajaxRequest("http://47.93.221.91:8080/treenode/rename", reqdata, false);
             }
@@ -78,7 +79,7 @@ $(function () {
     $('#savebtn').click(function () {
         var node = $('#tt').tree('getSelected');
         var code = $('#runText').val();
-        var userId = "1111";
+        var userId = window.sessionStorage.getItem("user_id")
         console.log("[--------save code listener---------node : "+node)
         if (node != undefined) {
             console.log("saveMyCode : " + node.text + "\t" + node.id);
@@ -112,8 +113,9 @@ $(function () {
 
     $('#runbtn').click(function () {
         var node = $('#tt').tree('getSelected');
+        var code = $('#runText').val();
         // var code = $('#runText').val();
-        console.log("runbtn : " + node.text + "\t" + node.id);
+        console.log("runbtn : " + node.text + "\t" + node.id,"\t"+code);
         //TODO  http run_code
 
     })
@@ -179,7 +181,7 @@ function createProject() {
     var user_id = window.sessionStorage.getItem("user_id")
     var token = window.sessionStorage.getItem("token")
     console.log("token  | ",token)
-    var proj_nick_name = Math.random().toString(36).substr(2);
+    var proj_nick_name = "p"+Math.random().toString(36).substr(2);
     var req_data = {"token":token,"user_id":user_id,"proj_name":"","proj_from_id":0,"proj_type":2,"proj_status":0,"proj_nick_name":proj_nick_name}
     var obj = ajaxRequest(URLBASE + "/treenode/create/proj", "{\"userId\":\""+user_id+"\",\"proj_nick_name\":\""+proj_nick_name+"\"}", false);
     post(URLBASE + "/api/projectManage/create/", req_data);

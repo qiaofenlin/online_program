@@ -93,6 +93,7 @@ public class ProjectManageService {
 
     @Transactional
     public void renameProj(String proj_nick_name,String proj_name) {
+        logger.info("proj_nick_name : "+proj_nick_name+"\t proj_name: "+proj_name);
         projectRepository.updateProjectName(proj_nick_name,proj_name);
 
     }

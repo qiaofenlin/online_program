@@ -10,7 +10,9 @@ import com.example.online_program.utils.Utils;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +26,7 @@ public class TreeNodeCURDImpl implements TreeNodeCURD {
 
     private List<List> lists;
 
+    @Autowired
     private ProjectManageService projectManageService;
 
     private Logger logger = LoggerFactory.getLogger(ProjectManageController.class);
@@ -102,9 +105,9 @@ public class TreeNodeCURDImpl implements TreeNodeCURD {
              * {nodeName=test_qiao111, updateTime=2019-06-03 08:01:26.788, type=proj, nodeId=pd37f613fc514a9bab2dc8d52e60ee1c}
              */
 
-            logger.info("\n\n rename args | nodeName: " + String.valueOf(params.get("nodeName")) + "\t nodeId: "+ String.valueOf(params.get("nodeId")) + "!!! \n\n");
+//            logger.info("\n\n rename args | nodeName: " + params.get("nodeName").toString() + "\t nodeId: "+ params.get("nodeId").toString() + "   !!! \n\n");
 //            rename args | nodeName: test0111	 nodeId: p1f676ac577e47a997b3e8565060fe73!!!
-            projectManageService.renameProj(String.valueOf(params.get("nodeId")),String.valueOf(params.get("nodeName")));
+//            projectManageService.renameProj(params.get("nodeId")+"",params.get("nodeName")+"");
 
 
         } else {

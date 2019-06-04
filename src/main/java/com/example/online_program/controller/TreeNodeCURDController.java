@@ -4,11 +4,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.online_program.entity.ProjInfo;
 import com.example.online_program.entity.TreeNodeInfo;
 import com.example.online_program.repository.TreeNodeCURDImpl;
+import com.example.online_program.service.ProjectManageService;
 import com.example.online_program.utils.Utils;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -24,6 +26,8 @@ public class TreeNodeCURDController {
 
     private Logger logger = LoggerFactory.getLogger(SimpleCodeController.class);
 
+    @Autowired
+    ProjectManageService projectManageService;
 
     /**
      * TODO createProject
@@ -108,6 +112,9 @@ public class TreeNodeCURDController {
         map.put("updateTime", Utils.getTimeStamp());
         TreeNodeCURDImpl tnci = new TreeNodeCURDImpl();
         if (tnci.renameNode(map)) {
+            logger.info("\n\n rename args | nodeName: " + nodeName + "\t nodeId: "+ nodeId + "   !!! \n\n");
+            projectManageService.renameProj(nodeId,nodeName);
+
             return ResultGenerator.genSuccessResult();
         }
         return ResultGenerator.genFailResult("rename node is failed !");
