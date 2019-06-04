@@ -77,7 +77,7 @@ public class UserTests {
      */
     @Test
     public void date_test() {
-//        Date date = new Date();
+        Date date = new Date();
 //        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
 //        System.out.println(dateFormat.format(date));
 //        projectManageService.updateProjIsActive(7,false);
