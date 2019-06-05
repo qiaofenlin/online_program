@@ -15,7 +15,7 @@ $(function () {
 function appendSearchResultHtml() {
     $('.kwi').attr("value",kw);
     var data = "{\"keyword\":\"" + kw + "\",\"num\":\"" + num + "\"}";
-    var obj = ajaxRequest("http://47.93.221.91:8080/search/fulltext", data, false);
+    var obj = ajaxRequest(URLBASE+"/search/fulltext", data, false);
     if (obj && obj.code == 200) {
         // {"count":200,"pages":8,"list":[{"codeId":"0213","codeText":"xxx"},{},{}]}
         if (obj.data) {
@@ -55,7 +55,7 @@ function appendSplitPageDiv(obj) {
 
 function listenerOnPage(page) {
     var data = "{\"keyword\":\"" + kw + "\",\"page\":\"" + page + "\",\"num\":\"5\"}";
-    var obj = ajaxRequest("http://47.93.221.91:8080/search/fulltext", data, false);
+    var obj = ajaxRequest(URLBASE+"/search/fulltext", data, false);
     if (obj && obj.code==200){
         console.log("---- listenerOnPage -----")
         $('div').filter('#full').remove();
@@ -75,7 +75,7 @@ function listenerOnPage(page) {
     $('#page')
 }*/
 function showCodeDetail(codeId) {
-    var obj = ajaxRequest("http://47.93.221.91:8080/code/show", "{\"codeId\":\"" + codeId + "\"}", false);
+    var obj = ajaxRequest(URLBASE+"/code/show", "{\"codeId\":\"" + codeId + "\"}", false);
     if (obj.data){
         if (!($('#second').length>0)) {
             $('#first').after("<div id=\"second\">\n" +

@@ -6,19 +6,6 @@ layui.config({
 	laypage = layui.laypage,
 	$ = layui.jquery;
 	var url;
-	$.get("../../json/config.json",
-		function(data){
-			url = data[0].url;
-			console.log("********* url config "+url)
-		}
-	)
-	$.get("../../json/urls.json",
-		function(data){
-			url = url + data['get_user_list']['uri'];
-			console.log("********* url urls "+url)
-
-		}
-	)
 	console.log("********* url "+url)
 	var usersData = '';
 	var post_user_list = function (){

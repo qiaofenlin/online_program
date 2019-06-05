@@ -15,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.*;
 import java.util.*;
@@ -175,6 +176,7 @@ public class UserService {
     }
 
     public int getUserInfoBytelInt(String tel) {
+        System.out.println("************  tel\t"+tel);
         Optional<Userinfo> user = userRepository.findByTel(tel);
         System.out.println("****************************user.get() "+user);
         Integer user_id = user.map(Userinfo::getId).orElse(0);
@@ -193,5 +195,19 @@ public class UserService {
         userRepository.updateOne("123","123456");
         return result;
     }
+
+    /**
+     * TODO
+     * @param
+     * @return
+     */
+    @Transactional
+    public Result editUserinfo(String user_name,String tel,String email,Boolean sex,String birthday,String description,int user_id) {
+        Result result = ResultGenerator.genSuccessResult();
+        userRepository.updateuser_info( user_name, tel, email, sex, birthday, description, user_id);
+        return result;
+    }
+
+
 
 }

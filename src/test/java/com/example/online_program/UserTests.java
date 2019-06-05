@@ -7,6 +7,7 @@ import com.example.online_program.repository.UserRepository;
 import com.example.online_program.repository.UsersStarRepository;
 import com.example.online_program.service.ProjectManageService;
 import com.example.online_program.service.UserService;
+import com.example.online_program.service.UsersStarService;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultGenerator;
 import org.junit.Test;
@@ -52,6 +53,12 @@ public class UserTests {
     ProjectManageService projectManageService;
 
     @Resource
+    UsersStarService usersStarService;
+
+    @Resource
+    UserService userService;
+
+    @Resource
     ProjectRepository projectRepository;
 
     @Test
@@ -81,9 +88,7 @@ public class UserTests {
 //        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
 //        System.out.println(dateFormat.format(date));
 //        projectManageService.updateProjIsActive(7,false);
-        projectManageService.renameProj("2xmr109dmfv","test0111");
-
-//        projectRepository.deleteProjectInfo(9,false);
+        projectManageService.getProjMember("p1gr4m4ebja");//        projectRepository.deleteProjectInfo(9,false);
 
     }
 

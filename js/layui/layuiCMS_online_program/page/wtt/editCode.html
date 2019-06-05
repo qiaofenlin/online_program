@@ -40,7 +40,7 @@
                 $.ajax({
                     type: "POST",//方法类型
                     contentType: "application/json; charset=UTF-8",
-                    url: "/search/ipac",
+                    url: URLBASE+"/search/ipac",
                     data: "{\"pName\":\"" + pName + "\",\"pipV\":\"" + pipV + "\"}",
                     async: true,
                     success: function (result) {

@@ -38,7 +38,7 @@ layui.config({
 
 
 	var post_add_user_star = function (){
-		var req_url = URLBASE + '/api/followers/add/'
+		var req_url = URLBASE + '/api/followering/add/'
 		$.ajax({
 			type: 'POST',
 			url: req_url,

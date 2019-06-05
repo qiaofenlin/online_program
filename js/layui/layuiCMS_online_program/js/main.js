@@ -21,7 +21,9 @@ layui.config({
 					waitNews.push(newsStr);
 				}
 			}
-			$(".waitNews span").text(waitNews.length);  //待审核文章
+			var code_count = window.sessionStorage.getItem("code_count")
+
+			$(".waitNews span").text(code_count);  //待审核文章
 			//加载最新文章
 			var hotNewsHtml = '';
 			for(var i=0;i<5;i++){
@@ -38,21 +40,24 @@ layui.config({
 	//图片总数
 	$.get("../json/images.json",
 		function(data){
-			$(".imgAll span").text(data.length);
+			var following_count = window.sessionStorage.getItem("following_count")
+			$(".imgAll span").text(following_count);
 		}
 	)
 
 	//用户数
 	$.get("../json/usersList.json",
 		function(data){
-			$(".userAll span").text(data.length);
+			var follower_count = window.sessionStorage.getItem("follower_count")
+			$(".userAll span").text(follower_count);
 		}
 	)
 
 	//新消息
 	$.get("../json/message.json",
 		function(data){
-			$(".newMessage span").text(data.length);
+			var repositories_count = window.sessionStorage.getItem("repositories_count")
+			$(".newMessage span").text(repositories_count);
 		}
 	)
 

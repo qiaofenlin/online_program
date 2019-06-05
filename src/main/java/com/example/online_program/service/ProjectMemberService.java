@@ -8,6 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Created by qfl
  * @Date 19-1-31
@@ -28,4 +31,10 @@ public class ProjectMemberService {
         ProjectMemberInfo result = projectMemberRepository.save(memberInfo);
         logger.info(result.toString());
     }
+
+//    public List<String> getMember() {
+//        List<String> user_name = new ArrayList<>();
+//        ProjectMemberInfo result = projectMemberRepository(memberInfo);
+//
+//    }
 }

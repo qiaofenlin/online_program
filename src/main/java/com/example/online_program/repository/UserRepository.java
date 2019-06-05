@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -44,6 +45,10 @@ public interface UserRepository extends JpaRepository<Userinfo, Integer>, JpaSpe
     @Query("update  Userinfo u set u.userName = :username where u.userName=:username and u.pwd=:pwd")
     void updateOne(@Param("username") String username, @Param("pwd") String password);
 
+
+    @Query(value = "update userinfo set user_name=?1,tel=?2,email=?3,sex=?4,birthday=?5,description=?6 where id=?7 ", nativeQuery = true)
+    @Modifying
+    public void updateuser_info(String user_name,String tel,String email,Boolean sex,String birthday,String description,int user_id);
 
 
 

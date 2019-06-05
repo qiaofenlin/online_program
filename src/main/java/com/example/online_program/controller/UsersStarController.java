@@ -80,7 +80,9 @@ public class UsersStarController extends BaseController {
     public Result addUsersFollowering(@RequestBody JSONObject args) {
         Boolean check_token = userService.checkUserInfoByToken(String.valueOf(args.getJSONObject("data").get("token")));
         if (check_token) {
-            int star_user_id = userService.getUserInfoBytelInt(String.valueOf(args.getJSONObject("data").get("tel")));
+            logger.info("************  request data " + args);
+            String tel = String.valueOf(args.getJSONObject("data").get("tel"));
+            int star_user_id = userService.getUserInfoBytelInt(tel);
             int user_id = userService.getUserInfoByToken(String.valueOf(args.getJSONObject("data").get("token")));
             if (star_user_id == 0) {
                 return ResultGenerator.genFailResult("用户不存在。");

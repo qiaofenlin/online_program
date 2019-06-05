@@ -6,25 +6,12 @@ layui.config({
 	laypage = layui.laypage,
 	$ = layui.jquery;
 	var url;
-	$.get("../../json/config.json",
-		function(data){
-			url = data[0].url;
-			console.log("********* url config "+url)
-		}
-	)
-	$.get("../../json/urls.json",
-		function(data){
-			url = url + data['get_user_list']['uri'];
-			console.log("********* url urls "+url)
 
-		}
-	)
-	console.log("********* url "+url)
 	var usersData = '';
 	var post_user_list = function (){
 		$.ajax({
 			type: 'POST',
-			url: 'http://47.93.221.91:8080/api/followering/list/',
+			url: URLBASE+'/api/followering/list/',
 			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token")}}),
 			// data: {data:newD},
 			contentType: 'application/json',
@@ -230,7 +217,28 @@ layui.config({
 
 	//操作
 	$("body").on("click",".users_edit",function(){  //编辑
-		layer.alert('您点击了会员编辑按钮，由于是纯静态页面，所以暂时不存在编辑内容，后期会添加，敬请谅解。。。',{icon:6, title:'文章编辑'});
+		var _this = $(this);
+		console.log("=========== data_id "+_this.attr("data-id"))
+		sessionStorage.setItem('friend_user_id', _this.attr("data-id"));
+		var index = layui.layer.open({
+			title : "Following",
+			type : 2,
+			content : "../codeModule/friend_proj_list.html",
+			success : function(layero, index){
+				setTimeout(function(){
+					layui.layer.tips('点击此处返回会员列表', '.layui-layer-setwin .layui-layer-close', {
+						tips: 3
+					});
+				},500)
+			}
+		})
+		//改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+		$(window).resize(function(){
+			layui.layer.full(index);
+		})
+		layui.layer.full(index);
+
+		// layer.alert('您点击了会员编辑按钮，由于是纯静态页面，所以暂时不存在编辑内容，后期会添加，敬请谅解。。。',{icon:6, title:'文章编辑'});
 	})
 
 	$("body").on("click",".users_del",function(){  //删除
@@ -271,7 +279,7 @@ layui.config({
 			    	+  '<td>'+currData[i].description+'</td>'
 			    	+  '<td>'+currData[i].regTime+'</td>'
 			    	+  '<td>'
-					+    '<a class="layui-btn layui-btn-mini users_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
+					+    '<a class="layui-btn layui-btn-mini users_edit" data-id="'+data[i].id+'"><i class="iconfont icon-edit"></i> 项目列表</a>'
 					+    '<a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="'+data[i].id+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
 			        +  '</td>'
 			    	+'</tr>';

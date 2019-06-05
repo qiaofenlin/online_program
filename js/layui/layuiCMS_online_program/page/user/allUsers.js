@@ -262,11 +262,11 @@ layui.config({
 			    	+  '<td>'+currData[i].tel+'</td>'
 			    	+  '<td>'+currData[i].description+'</td>'
 			    	+  '<td>'+currData[i].regTime+'</td>'
-			    	+  '<td>'
-					+    '<a class="layui-btn layui-btn-mini users_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
-					+    '<a class="layui-btn layui-btn-mini test_clock"><i class="iconfont icon-edit"></i> test</a>'
-					+    '<a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="'+data[i].usersId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
-			        +  '</td>'
+			    	// +  '<td>'
+					// +    '<a class="layui-btn layui-btn-mini users_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
+					// +    '<a class="layui-btn layui-btn-mini test_clock"><i class="iconfont icon-edit"></i> test</a>'
+					// +    '<a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="'+data[i].usersId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
+			        // +  '</td>'
 			    	+'</tr>';
 				}
 			}else{

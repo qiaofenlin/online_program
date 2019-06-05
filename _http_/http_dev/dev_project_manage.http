@@ -34,6 +34,22 @@ Content-Type: application/json
 }
 
 ###
+POST http://127.0.0.1:8080/api/projectManage/friend/list/
+Content-Type: application/json
+
+{"data":{"token":"e1ffe11015e74cda87e7e8e9b36c18a9","page":1,"size":10,"user_id":7}}
+
+###
+#{
+#  "data": {
+#    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+#//    "token": "186c697e6c844149a39d8866f4f9c8f3",
+#    "user_id": 7,
+#    "page": 1,
+#    "size": 10
+#  }
+#}
+###
 POST http://127.0.0.1:8080/api/projectManage/delete/
 Content-Type: application/json
 
@@ -45,4 +61,40 @@ Content-Type: application/json
 }
 
 ###
+POST http://127.0.0.1:8080/api/projectManage/collect/
+Content-Type: application/json
 
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "proj_id": 23,
+    "proj_type": 1
+  }
+}
+
+###
+POST http://127.0.0.1:8080/api/projectManage/member/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "proj_id": 23
+  }
+}
+
+###
+
+
+POST http://127.0.0.1:8080/api/projectManage/edit/
+Content-Type: application/json
+
+{
+  "data": {
+    "token": "e1ffe11015e74cda87e7e8e9b36c18a9",
+    "proj_id": 23,
+    "status": 1
+  }
+}
+
+###

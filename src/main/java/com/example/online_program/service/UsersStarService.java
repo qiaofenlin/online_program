@@ -47,6 +47,29 @@ public class UsersStarService {
         return user_id_list;
     }
 
+    /**
+     * Following count
+     * @param user_id
+     * @param page
+     * @param size
+     * @return
+     */
+    public Integer getUserStarsCount(int user_id,int page,int size) {
+        Specification<UsersStarInfo> spec = new Specification<UsersStarInfo>() {
+            @Override
+            public Predicate toPredicate(Root<UsersStarInfo> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+                return criteriaBuilder.equal(root.get("user_id"), user_id);
+
+            }
+        };
+        List<UsersStarInfo> list = usersStarRepository.findAll(spec);
+        List<Integer> user_id_list = new ArrayList<>();
+        for (UsersStarInfo user_star_info : list) {
+            user_id_list.add(user_star_info.getStar_user_id());
+        }
+
+        return user_id_list.size();
+    }
 
     /**
      * Followers list
@@ -70,7 +93,28 @@ public class UsersStarService {
         }
         return user_id_list;
     }
+    /**
+     * Followers count
+     * @param user_id
+     * @param page
+     * @param size
+     * @return
+     */
+    public int getUserFollowersCount(int user_id, int page, int size) {
+        Specification<UsersStarInfo> spec = new Specification<UsersStarInfo>() {
+            @Override
+            public Predicate toPredicate(Root<UsersStarInfo> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+                return criteriaBuilder.equal(root.get("star_user_id"), user_id);
 
+            }
+        };
+        List<UsersStarInfo> list = usersStarRepository.findAll(spec);
+        List<Integer> user_id_list = new ArrayList<>();
+        for (UsersStarInfo user_star_info : list) {
+            user_id_list.add(user_star_info.getUser_id());
+        }
+        return user_id_list.size();
+    }
 
     public void addUserStar(UsersStarInfo usersStarInfo) {
         UsersStarInfo result = usersStarRepository.save(usersStarInfo);

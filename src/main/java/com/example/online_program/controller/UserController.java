@@ -3,7 +3,10 @@ package com.example.online_program.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.example.online_program.entity.Userinfo;
+import com.example.online_program.service.ProjectManageService;
+import com.example.online_program.service.SimpleCodeService;
 import com.example.online_program.service.UserService;
+import com.example.online_program.service.UsersStarService;
 import com.example.online_program.utils.Utils;
 import com.example.online_program.utils.result_utils.Result;
 import com.example.online_program.utils.result_utils.ResultCode;
@@ -18,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.sun.tools.doclets.formats.html.markup.HtmlStyle.description;
+
 /**
  * @Created by  qiao
  * @date 18-12-9 下午2:25
@@ -28,6 +33,16 @@ import java.util.Map;
 public class UserController extends BaseController {
     @Autowired
     UserService userService;
+
+    @Autowired
+    ProjectManageService projectManageService;
+
+    @Autowired
+    UsersStarService usersStarService;
+
+    @Autowired
+    SimpleCodeService simpleCodeService;
+
     private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     /**
@@ -41,6 +56,7 @@ public class UserController extends BaseController {
 
         Userinfo userinfo = JSON.parseObject(String.valueOf(args.getJSONObject("data")), Userinfo.class);
         Result result = userService.checkNameAndPwd(userinfo.getTel(), userinfo.getPwd());
+
         if (result.getCode() == 200) {
             Map<String, Object> return_data = new HashMap<String, Object>();
             Userinfo userinfo1 = (Userinfo) result.getData();
@@ -53,6 +69,18 @@ public class UserController extends BaseController {
             return_data.put("tel",userinfo1.getTel());
             return_data.put("email",userinfo1.getEmail());
             return_data.put("is_super",userinfo1.getIs_super());
+            logger.info("请求参数：" + String.valueOf(args.getJSONObject("data"))+ " result:" +return_data);
+            long repositories_count = projectManageService.getProjectCount(1,1000,userinfo1.getId(),userinfo1.getIs_super());
+            Integer  following_count=   usersStarService.getUserStarsCount(userinfo1.getId(),1,10000);
+            Integer  follower_count=   usersStarService.getUserFollowersCount(userinfo1.getId(),1,10000);
+            Integer  code_count=   simpleCodeService.getSimpleCodeCount(userinfo1.getId());
+
+            return_data.put("repositories_count",repositories_count);
+            return_data.put("following_count",following_count);
+            return_data.put("follower_count",follower_count);
+            return_data.put("code_count",code_count);
+
+
             logger.info("请求参数：" + String.valueOf(args.getJSONObject("data"))+ " result:" +return_data);
             return ResultGenerator.genSuccessResult(return_data);
         } else {
@@ -81,22 +109,26 @@ public class UserController extends BaseController {
     @PostMapping("/api/user/edit/")
     public Result UserEdit(@RequestBody JSONObject jsonParam) {
         //TODO edit
-        Userinfo userinfo = new Userinfo();
-        Result result = userService.updateUserinfo(userinfo);
-        return result;
+        Boolean check_token = userService.checkUserInfoByToken(String.valueOf(jsonParam.getJSONObject("data").get("token")));
+
+        if (check_token) {
+            int user_id = userService.getUserInfoByToken(String.valueOf(jsonParam.getJSONObject("data").get("token")));
+            String user_name = (String) jsonParam.getJSONObject("data").get("user_name");
+            String tel = (String) jsonParam.getJSONObject("data").get("tel");
+            String email = (String) jsonParam.getJSONObject("data").get("email");
+            String birthday = (String) jsonParam.getJSONObject("data").get("birthday");
+            String description = (String) jsonParam.getJSONObject("data").get("description");
+            Boolean sex = (Boolean) jsonParam.getJSONObject("data").get("sex");
+            Result result = userService.editUserinfo( user_name, tel, email, sex, birthday, description, user_id);
+            return result;
+        }
+        else {
+            String result_data = "验证信息错误。";
+            logger.info("请求参数：" + String.valueOf(jsonParam.getJSONObject("data"))+ " result:" +result_data);
+            return ResultGenerator.genFailResult(result_data);
+        }
     }
 
-//    @PostMapping("/api/user/list/")
-//    public ResultPage<Userinfo> queryByPageUserList(@RequestBody ResultPage<Userinfo> result, Userinfo example) {
-//        result.setExample(example);//设置前台条件，没有则为null
-//        userService.queryByPage(result);//调用service中的查询方法
-//        result.setCode("0");//设置状态码
-//        return result;
-//        Userinfo userinfo = JSON.parseObject(String.valueOf(jsonParam), Userinfo.class);
-//        userService.getUserList(1,10);
-//        Result result = ResultGenerator.genSuccessResult();
-//        return result;
-//    }
 
     /**
      * 用户列表模块

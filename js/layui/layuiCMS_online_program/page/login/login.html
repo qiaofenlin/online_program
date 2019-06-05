@@ -1,46 +1,353 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>登录--layui后台管理模板</title>
-	<meta name="renderer" content="webkit">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="format-detection" content="telephone=no">
+    <meta charset="utf-8">
+    <meta name="apple-itunes-app" content="app-id=432274380">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="description" content="江湖农场，你的专属农场，你值得拥有！！"/>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title>登录</title>
 
-	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="../../css/login.css" media="all" />
-	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-</head>
-<body>
-<video class="video-player" preload="auto" autoplay="autoplay" loop="loop" data-height="1080" data-width="1920" height="1080" width="1920">
-	<source src="login.mp4" type="video/mp4">
-	<!-- 此视频文件为支付宝所有，在此仅供样式参考，如用到商业用途，请自行更换为其他视频或图片，否则造成的任何问题使用者本人承担，谢谢 -->
-</video>face
-<div class="video_mask"></div>
-<div class="login">
-	<h1>在线编程</h1>
-	<form class="layui-form">
-		<div class="layui-form-item">
-			<input id="tel" class="layui-input" name="user_name" placeholder="用户名" lay-verify="required" type="text" autocomplete="off">
-		</div>
-		<div class="layui-form-item">
-			<input id="pwd" class="layui-input" name="pwd" placeholder="密码" lay-verify="required" type="password" autocomplete="off">
-		</div>
-		<!--<div class="layui-form-item form_code">-->
-		<!--<input class="layui-input" name="code" placeholder="验证码" lay-verify="required" type="text" autocomplete="off">-->
-		<!--<div class="code"><img src="../../images/code.jpg" width="116" height="36"></div>-->
-		<!--</div>-->
-		<!--<button class="layui-btn login_btn" onclick="jump()">登录</button>-->
-		<input class="layui-btn login_btn" type='button' id="login_id" onclick='jump();' value='登录'>
-		<!--<button class="layui-btn login_btn" lay-submit="" lay-filter="login">登录</button>-->
-	</form>
+    <link rel="stylesheet" href="../../css/main.e87dad73.css">
+    <link rel="stylesheet" href="../../css/select2.css">
+    <script type="text/javascript" src="../../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../../js/login.js"></script>
+    <script src="../../js/location.js"></script>
+    <script src="../../js/area.js"></script>
+    <script src="../../js/select2.js"></script>
+    <script src="../../js/select2_locale_zh-CN.js"></script>
+
+    <script src="../../js/date.js"></script>
+    <script type="text/javascript" src="../../layui/layui.js"></script>
+    <script type="text/javascript" src="../../js/config.js"></script>
+    <script type="text/javascript" src="login.js"></script>
+    <head>
+<body class="zhi ">
+<div class="index-main">
+    <div class="index-main-body">
+        <div class="index-header">
+            <h1 class="">在线编程</h1>
+            <!--<h2 class="subtitle">在线编程</h2>-->
+        </div>
+
+        <div class="desk-front sign-flow clearfix sign-flow-simple">
+
+            <div class="index-tab-navs">
+                <div class="navs-slider">
+                    <a href="#signup" class="active">注册</a>
+                    <a href="#signin">登录</a>
+                    <span class="navs-slider-bar"></span>
+                </div>
+            </div>
+
+
+            <div class="view view-signin" data-za-module="SignInForm">
+                <form method="POST">
+                    <input type="hidden" name="_xsrf" value="fb15324eccd63e4c72aa9eaf0395133e"/>
+                    <div class="group-inputs">
+
+                        <div class="account input-wrapper">
+                            <input type="text" name="account" aria-label="用户名" placeholder="用户名" id="tel" required>
+                        </div>
+                        <div class="verification input-wrapper">
+                            <input type="password" name="password" aria-label="密码" placeholder="密码" id="pwd" required />
+                            <!--<button type="button" class="send-code-button">获取验证码</button>-->
+                        </div>
+
+                        <div class="Captcha input-wrapper" data-type="cn" data-za-module="Captcha">
+                            <div class="Captcha-operate">
+                                <input type="hidden" name="captcha" required data-rule-required="true"
+                                       data-msg-required="请点击图中所有倒立的文字">
+                                <input type="hidden" name="captcha_type" value="cn" required>
+                                <label class="Captcha-prompt">请点击图中所有倒立的文字</label>
+                                <span class="Captcha-refresh js-refreshCaptcha sprite-index-icon-refresh"></span>
+                            </div>
+                            <div class="Captcha-imageConatiner">
+                                <img class="Captcha-image" alt="验证码">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="button-wrapper command">
+                        <input class="sign-button submit" type="button" onclick="login();" value="登录"/>
+                    </div>
+                    <!--<div class="signin-misc-wrapper clearfix">-->
+
+                        <!--<button type="button" class="signin-switch-button">手机验证码登录</button>-->
+
+                        <!--<a class="unable-login" href="#">无法登录？</a>-->
+                    <!--</div>-->
+
+                    <!--<div class="social-signup-wrapper" data-za-module="SNSSignIn">-->
+                        <!--<span class="name js-toggle-sns-buttons">社交帐号登录</span>-->
+
+                        <!--<div class="sns-buttons">-->
+                            <!--<a title="微信登录" class="js-bindwechat" href="#"><i class="sprite-index-icon-wechat"></i></a>-->
+                            <!--<a title="微博登录" class="js-bindweibo" href="#"><i class="sprite-index-icon-weibo"></i></a>-->
+                            <!--<a title="QQ 登录" class="js-bindqq" href="#"><i class="sprite-index-icon-qq"></i></a>-->
+                        <!--</div>-->
+
+
+                    <!--</div>-->
+
+                </form>
+
+                <!--<div class="QRCode">-->
+                    <!--<button class="QRCode-toggleButton">-->
+                        <!--<span class="sprite-global-icon-qrcode"></span>-->
+                        <!--<span class="QRCode-toggleButtonText ">下载LakeFarm</span>-->
+                    <!--</button>-->
+                    <!--<div class="QRCode-card">-->
+                        <!--<div class="QRCode-image"></div>-->
+                        <!--<div class="sprite-index-icon-arrow"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+
+            </div>
+            <div class="view view-signup " style="display:block;" data-za-module="SignUpForm">
+                <form name="form1" class="zu-side-login-box" id="sign-form-1" autocomplete="off"
+                      method="POST">
+                    <input type="password" hidden>
+                    <input type="hidden" name="_xsrf" value="fb15324eccd63e4c72aa9eaf0395133e"/>
+                    <div class="group-inputs">
+                        <div class="name input-wrapper">
+                            <input id="sign_user_name" required type="text" name="fullname" aria-label="用户名" placeholder="用户名" id="uname" />
+                            <div id="showResult"></div>
+
+                        </div>
+                        <div class=" input-wrapper">
+                            <input id="sign_tel" required type="text" class="account" name="phone_num" aria-label="手机号（仅支持中国大陆）"
+                                   placeholder="手机号（仅支持中国大陆）" id="uphone">
+
+                        </div>
+                        <div class="input-wrapper" style="margin-bottom:-23px;">
+                            <input id="sign_pwd" required type="password" name="password" aria-label="密码" placeholder="密码（不少于 6 位）"
+                                   autocomplete="off" id="upwd">
+                        </div>
+                        　　　　　　　　　　　　　　
+                        <div class="input-wrapper">
+                            <input id="email" required type="text" name="identity" aria-label="邮箱" placeholder="邮箱" id="uidcard">
+
+                        </div>
+
+                        <!--<div class="input-wrapper paddingtb">-->
+                            <!--<label style="display:block;">所属区域</label>-->
+                            <!--<select id="loc_province" style="width:90px;">-->
+                            <!--</select>-->
+                            <!--<select id="loc_city" style="width:90px;">-->
+                            <!--</select>-->
+                            <!--<select id="loc_town" style="width:90px;">-->
+                            <!--</select>-->
+                        <!--</div>-->
+                        <div id="birthday" class="input-wrapper paddingtb" >
+                            <label>出生日期</label>
+                            <select  name=year onchange="yearMonth(this.value)" class="select-commem-style" id="year">
+                                <option value="">年</option>
+                            </select>
+                            <select name=month onchange="monthDay(this.value)"  class="select-commem-style" id="month">
+                                <option value="">月</option>
+                            </select>
+                            <select name=day class="select-commem-style" id="day">
+                                <option value="">日</option>
+                            </select>
+                        </div>
+                        <div  class="input-wrapper paddingtb ">
+                            <label>所属类型</label>
+                            <select id="is_super" class="select-commem-style" style="width:90px;">
+                                <option>普通用户</option>
+                                <option>管理员</option>
+                            </select>
+                        </div>
+                        <div  class="input-wrapper paddingtb ">
+                            <label>性别</label>
+                            <select id="sex" class="select-commem-style" style="width:90px;">
+                                <option>男</option>
+                                <option>女</option>
+                            </select>
+                        </div>
+                        <div class="input-wrapper paddingtb" >
+                             <textarea class="descriptionSelf" id="description">
+　　　　　　　　　　　　　　　　　　　　自我描述信息
+                            </textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="button-wrapper command">
+                        <input class="sign-button submit" type="button" value="注 册" onclick="register()"/>
+                    </div>
+                </form>
+
+                <!--<p class="agreement-tip">点击「注册」按钮，即代表你同意<a href="/terms" target="_blank">《使用协议》</a></p>-->
+
+                <!--<div class="QRCode">-->
+                    <!--<button class="QRCode-toggleButton">-->
+                        <!--<span class="sprite-global-icon-qrcode"></span>-->
+                        <!--<span class="QRCode-toggleButtonText ">下载LakeFarm</span>-->
+                    <!--</button>-->
+                    <!--<div class="QRCode-card">-->
+                        <!--<div class="QRCode-image"></div>-->
+                        <!--<div class="sprite-index-icon-arrow"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+
+            </div>
+        </div>
+    </div>
+
 </div>
-<script type="text/javascript" src="../../js/config.js"></script>
-<script type="text/javascript" src="../../layui/layui.js"></script>
-<script type="text/javascript" src="login.js"></script>
+<div class="footer">
 
+    <span>&copy; 2017 LakeFarm</span>
+    <span class="dot">·</span>
+    <a target="_blank" href="/roundtable">知识圆桌</a>
+    <span class="dot">·</span>
+    <a target="_blank" href="/explore" data-za-c="explore" data-za-a="visit_explore"
+       data-za-l="home_bottom_explore">发现</a>
+    <span class="dot">·</span>
+    <a target="_blank" href="/app">移动应用</a>
+    <span class="dot">·</span>
+
+
+    <a href="/org/signin" class="footer-mobile-show">使用机构帐号登录</a>
+
+    <span class="dot footer-mobile-show">·</span>
+
+    <a href="/contact" class="footer-mobile-show">联系我们</a>
+    <span class="dot">·</span>
+    <a target="_blank" href="/careers">了解LakeFarm</a>
+    <br/>
+    <a href="http://www.miibeian.gov.cn/" target="_blank">京 ICP 证 110745 号</a>
+    <span class="dot">·</span>
+    <span>京公网安备 11010802010035 号</span>
+    <span class="dot">·</span>
+    <a href="http://zhstatic.zhihu.com/assets/zhihu/publish-license.jpg" target="_blank">出版物经营许可证</a>
+
+</div>
+<script type="text/javascript">
+    function register() {
+        var username = $("#sign_user_name").val().trim();
+        var password = $("#sign_pwd").val().trim();
+        var numasc = 0;
+        var charasc = 0;
+        var otherasc = 0;
+        if(0==password.length){
+            alert("密码不能为空") ;
+        }else if(password.length<8||password.length>12) {
+            alert("密码至少8个字符,最多12个字符");
+        }
+        // }else{
+        //     for (var i = 0; i < password.length; i++) {
+        //         var asciiNumber = password.substr(i, 1).charCodeAt();
+        //         if (asciiNumber >= 48 && asciiNumber <= 57) {
+        //             numasc += 1;
+        //         }
+        //         if ((asciiNumber >= 65 && asciiNumber <= 90)||(asciiNumber >= 97 && asciiNumber <= 122)) {
+        //             charasc += 1;
+        //         }
+        //         if ((asciiNumber >= 33 && asciiNumber <= 47)||(asciiNumber >= 58 && asciiNumber <= 64)||(asciiNumber >= 91 && asciiNumber <= 96)||(asciiNumber >= 123 && asciiNumber <= 126)) {
+        //             otherasc += 1;
+        //         }
+        //     }
+        //     if(0==numasc)  {
+        //         alert("密码必须含有数字") ;
+        //     }else if(0==charasc){
+        //         alert( "密码必须含有字母");
+        //     }else if(0==otherasc){
+        //         alert( "密码必须含有特殊字符");
+        //     }
+        // }
+        var phone = $("#sign_tel").val().trim();
+        if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(phone))){
+            alert("不是完整的11位手机号或者正确的手机号前七位");
+        }
+        var email = $("#email").val().trim();
+        var is_super = $("#is_super option:selected").val().trim();
+        var sex = $("#sex option:selected").val().trim();
+        var description = $("#description").html().trim();
+        // var area = $("#select2-chosen-1").html().trim() + "-" + $("#select2-chosen-2").html().trim() + "-" + $("#select2-chosen-3").html().trim()
+        var birthday = $("#year option:selected").val().trim() + "-" + $("#month option:selected").val().trim() + "-" + $("#day option:selected").val().trim();
+//        alert(username+" "+password+" "+phone+" "+idCard+" "+u_type+" "+description.trim()+" "+area+" "+birthday)
+        if (username == "" || password == "" || phone == "" || email == "" || is_super == "" || description == "" || sex == "" || birthday == "") {
+            alert("请正确填写信息！");
+        }
+        else {
+            if (sex == '男') {
+                sex=true
+            }
+            if (sex == '女') {
+                sex=false
+            }
+
+            if (is_super == '管理员') {
+                is_super=true
+            }
+            if (is_super == '普通用户') {
+                is_super=false
+            }
+
+            var req_data = {
+                "user_name":username,
+                "age":99,
+                "birthday": birthday,
+                "pwd": password,
+                "description": description,
+                "email": email,
+                "tel" : phone,
+                "sex": sex,
+                "is_super": is_super
+            };
+            // var user="{"+username+"@"+password+"@"+phone+"@"+idCard+"@"+u_type+"@"+description+"@"+area+"@"+birthday+"}";
+           // alert(req_data);
+            regist_post(req_data)
+        }
+    }
+    var regist_post = function (req_data){
+        var req_url = URLBASE + '/api/user/create/'
+        $.ajax({
+            type: 'POST',
+            url: req_url,
+            data: JSON.stringify(req_data),
+            // data: {data:newD},
+            contentType: 'application/json',
+            dataType: "json",
+            processData:false,
+            async:false,
+            success: function(r){
+                if (r.code == 200){
+                    // sessionStorage.setItem('token',r.data.token);
+                    // sessionStorage.setItem('user_id',r.data.id);
+                    // sessionStorage.setItem('userName',r.data.userName);
+                    // sessionStorage.setItem('age',r.data.age);
+                    // sessionStorage.setItem('birthday',r.data.birthday);
+                    // sessionStorage.setItem('description',r.data.description);
+                    // sessionStorage.setItem('email',r.data.email);
+                    // sessionStorage.setItem('tel',r.data.tel);
+                    // sessionStorage.setItem('is_super',r.data.is_super);
+                    // // console.log("=========== newD.tel ",newD.tel)
+                    // console.log("=========== r.data.token ",r.data.token)
+                    // console.log(" result data ",r.data)
+                    // if (r.status == 200) {
+                    alert("创建成功")
+
+                    // }else
+                    //     alert("创建失败")
+                }
+                else
+                    alert("创建失败111")
+                return r
+            },
+            error:function (e) {
+                console.log(e)
+            }
+        });
+    };
+</script>
+
+
+<input type="hidden" name="_xsrf" value="fb15324eccd63e4c72aa9eaf0395133e"/>
 </body>
-</html>
+</html></html>

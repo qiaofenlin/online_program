@@ -25,10 +25,12 @@ layui.config({
 
 
 	var post_proj_list = function (){
+		var user_id = Number(sessionStorage.getItem('friend_user_id'));
+		console.log("user_id ---->"+user_id)
 		$.ajax({
 			type: 'POST',
-			url: URLBASE+'/api/projectManage/list/',
-			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token"),"page":1,"size":10}}),
+			url: URLBASE+'/api/projectManage/friend/list/',
+			data: JSON.stringify({data:{"token": window.sessionStorage.getItem("token"),"page":1,"size":10,"user_id":user_id}}),
 			// data: {data:newD},
 			contentType: 'application/json',
 			dataType: "json",
@@ -183,10 +185,16 @@ layui.config({
 	})
  
 	//操作
-	$("body").on("click",".proj_member",function(){  //编辑
+	$("body").on("click",".fork_edit",function(){  //编辑
 		var _this = $(this);
-		console.log("-------------------------------")
-		post_get_member( Number(_this.attr("data-id")))
+		post_collect_proj( Number(_this.attr("data-id")),1)
+		// layer.alert('您点击了友情链接编辑按钮，由于是纯静态页面，所以暂时不存在编辑内容，后期会添加，敬请谅解。。。',{icon:6, title:'友链编辑'});
+	})
+
+	$("body").on("click",".star_edit",function(){  //编辑
+		var _this = $(this);
+		post_collect_proj( Number(_this.attr("data-id")),1)
+		// layer.alert('您点击了友情链接编辑按钮，由于是纯静态页面，所以暂时不存在编辑内容，后期会添加，敬请谅解。。。',{icon:6, title:'友链编辑'});
 	})
 
 	$("body").on("click",".links_del",function(){  //删除
@@ -202,33 +210,6 @@ layui.config({
 			layer.close(index);
 		});
 	})
-
-
-	var post_get_member = function (proj_id){
-		var req_url = URLBASE + '/api/projectManage/member/'
-		$.ajax({
-			type: 'POST',
-			url: req_url,
-			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token"),"proj_id":proj_id}}),
-			// data: {data:newD},
-			contentType: 'application/json',
-			dataType: "json",
-			processData:false,
-			async:false,
-			success: function(usersData){
-				// window.location.href = "../../index.html";
-				// usersData = userList['data']['user_info_list']
-				console.log("success userinfo :",usersData.data.toString())
-
-				layer.alert('项目成员有：'+usersData.data.toString(),{icon:6, title:'项目成员'});
-
-				// usersList();
-			},
-			error:function (e) {
-				console.log(e)
-			}
-		});
-	};
 
 	function ProjList(that){
 		//渲染数据
@@ -252,9 +233,9 @@ layui.config({
 			    	+'<td>'+currData[i].projCreateTime+'</td>'
 			    	// +'<td>'+currData[i].projFromId+'</td>'
 			    	+'<td>'
-					+  '<a class="layui-btn layui-btn-mini proj_member" data-id="'+data[i].projId+'" ><i class="iconfont icon-member"></i> 项目成员</a>'
-					// +  '<a class="layui-btn layui-btn-mini links_edit" data-id="'+data[i].projId+'"><i class="iconfont icon-edit"></i> 编辑</a>'
-					+  '<a class="layui-btn layui-btn-danger layui-btn-mini links_del" data-id="'+data[i].projId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
+					+  '<a class="layui-btn layui-btn-mini fork_edit" data-id="'+data[i].projId+'"><i class="iconfont icon-edit"></i> 参与项目</a>'
+					+  '<a class="layui-btn layui-btn-mini star_edit" data-id="'+data[i].projId+'"><i class="iconfont icon-edit"></i> 关注项目</a>'
+					// +  '<a class="layui-btn layui-btn-danger layui-btn-mini links_del" data-id="'+data[i].projId+'"><i class="layui-icon">&#xe640;</i> 删除</a>'
 			        +'</td>'
 			    	+'</tr>';
 				}
@@ -298,11 +279,8 @@ layui.config({
 		if (type == 0) {
 			return "收藏"
 		}else if (type == 2) {
-			return "参加";
-		}else if (type == 1) {
-			return "关注";
-		}
-		else {
+			return "创建";
+		}else {
 			return "未知"
 		}
 	}
@@ -323,6 +301,35 @@ layui.config({
 				// window.location.href = "../../index.html";
 				// usersData = userList['data']['user_info_list']
 				console.log("success userinfo :",usersData)
+				// usersList();
+			},
+			error:function (e) {
+				console.log(e)
+			}
+		});
+	};
+
+	var post_collect_proj = function (projId,type){
+		console.log("===============userData "+ projId)
+		var req_url = URLBASE + '/api/projectManage/collect/'
+
+		$.ajax({
+			type: 'POST',
+			url: req_url,
+			data: JSON.stringify({data:{ "token": window.sessionStorage.getItem("token"),"proj_id":projId,"proj_type":type}}),
+			contentType: 'application/json',
+			dataType: "json",
+			processData:false,
+			async:false,
+			success: function(usersData){
+				// window.location.href = "../../index.html";
+				// usersData = userList['data']['user_info_list']
+				console.log("success userinfo :",usersData)
+				if (usersData.code == 200) {
+					layer.alert('操作成功',{icon:6, title:'友链编辑'});
+				}else {
+					layer.alert('操作失败',{icon:6, title:'友链编辑'});
+				}
 				// usersList();
 			},
 			error:function (e) {
