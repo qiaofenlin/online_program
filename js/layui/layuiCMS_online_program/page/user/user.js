@@ -89,7 +89,7 @@ layui.config({
     if(window.sessionStorage.getItem('userFace')){
     	$("#userFace").attr("src",window.sessionStorage.getItem('userFace'));
     }else{
-    	$("#userFace").attr("src","../../images/face.jpg");
+    	$("#userFace").attr("src","../../images/tt.jpeg");
     }
 
     //提交个人资料

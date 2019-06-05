@@ -1,42 +1,47 @@
 [{
     "newsId" : "1",
-    "newsName" : "css3用transition实现边框动画效果",
+    "newsName" : "一个用于浏览器的JavaScript实现的多功能文本编辑器",
     "newsAuthor" : "请叫我马哥",
     "newsStatus" : "审核通过",
     "newsLook" : "开放浏览",
     "isShow" : "",
-    "newsTime" : "2017-04-14"
+    "newUrl": "https://github.com/codemirror/CodeMirror",
+    "newsTime" : "2018-11-14"
 },{
     "newsId" : "2",
-    "newsName" : "自定义的模块名称可以包含/吗",
+    "newsName" : "项目使用的前端UI框架",
     "newsAuthor" : "请叫我马哥",
     "newsStatus" : "待审核",
     "newsLook" : "开放浏览",
     "isShow" : "checked",
-    "newsTime" : "2017-04-14"
+    "newUrl": "https://www.layui.com/demo/",
+    "newsTime" : "2018-11-20"
 },{
     "newsId" : "3",
-    "newsName" : "layui.tree如何ajax加载二级菜单",
+    "newsName" : "基于springboot的个人博客系统",
     "newsAuthor" : "admin",
     "newsStatus" : "审核通过",
     "newsLook" : "开放浏览",
     "isShow" : "checked",
+    "newUrl": "https://github.com/halo-dev/halo",
     "newsTime" : "2017-04-14"
 },{
     "newsId" : "4",
-    "newsName" : "layui.upload如何带参数？像jq的data:{}那样",
+    "newsName" : "Hutool是一个Java的工具包",
     "newsAuthor" : "admin",
     "newsStatus" : "审核通过",
     "newsLook" : "开放浏览",
     "isShow" : "checked",
+    "newUrl": "https://github.com/looly/hutool",
     "newsTime" : "2017-04-14"
 },{
     "newsId" : "5",
-    "newsName" : "表单元素长度应该怎么调整才美观",
+    "newsName" : " 一份涵盖大部分Java程序员所需要掌握的核心知识",
     "newsAuthor" : "请叫我马哥",
     "newsStatus" : "待审核",
     "newsLook" : "开放浏览",
     "isShow" : "checked",
+    "newUrl": "https://github.com/Snailclimb/JavaGuide",
     "newsTime" : "2017-04-14"
 },{
     "newsId" : "6",
@@ -45,6 +50,7 @@
     "newsStatus" : "审核通过",
     "newsLook" : "开放浏览",
     "isShow" : "checked",
+    "newUrl": "https://github.com/codemirror/CodeMirror",
     "newsTime" : "2017-04-14"
 },{
     "newsId" : "7",
@@ -53,6 +59,7 @@
     "newsStatus" : "待审核",
     "newsLook" : "开放浏览",
     "isShow" : "",
+    "newUrl": "https://github.com/codemirror/CodeMirror",
     "newsTime" : "2017-04-14"
 },{
     "newsId" : "8",
@@ -61,6 +68,7 @@
     "newsStatus" : "审核通过",
     "newsLook" : "开放浏览",
     "isShow" : "checked",
+    "newUrl": "https://github.com/codemirror/CodeMirror",
     "newsTime" : "2017-04-14"
 },{
     "newsId" : "9",
@@ -69,6 +77,7 @@
     "newsStatus" : "审核通过",
     "newsLook" : "开放浏览",
     "isShow" : "checked",
+    "newUrl": "https://github.com/codemirror/CodeMirror",
     "newsTime" : "2017-04-14"
 },{
     "newsId" : "10",
@@ -76,6 +85,7 @@
     "newsAuthor" : "admin",
     "newsStatus" : "待审核",
     "newsLook" : "开放浏览",
+    "newUrl": "https://github.com/codemirror/CodeMirror",
     "isShow" : "checked",
     "newsTime" : "2017-04-14"
 },{

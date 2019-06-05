@@ -6,7 +6,8 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
 # 登录
-POST http://127.0.0.1:8080/api/user/login/
+#POST http://127.0.0.1:8080/api/user/login/
+POST http://47.93.221.91:8080/api/user/login/
 Content-Type: application/json
 
 {

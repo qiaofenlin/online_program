@@ -1,14 +1,14 @@
 {
-    "cmsName": "layui后台管理模版",
+    "cmsName": "在线编程管理平台",
     "version": "v1.0.1",
-    "author": "请叫我马哥",
-    "homePage": "page/index.html",
-    "server": "windows",
-    "dataBase": "8.00.2039",
+    "author": "乔风鳞 吴同同",
+    "homePage": "http://47.93.221.91/login.html",
+    "server": "ubuntu",
+    "dataBase": "MySQL5.7",
     "maxUpload": "2M",
-    "userRights": "总管理员",
+    "userRights": "管理员",
     "description": "这是马哥闲来无事做的一套基于layui的cms模版，纯静态页面，不包含数据库",
-    "powerby": "copyright @2017 请叫我马哥",
+    "powerby": "copyright @2019 qfl",
     "record": "京ICP备14040xxx号-1",
-    "keywords": "layui，马哥，cms，模版"
+    "keywords": "layui，qfl，cms，模版"
 }

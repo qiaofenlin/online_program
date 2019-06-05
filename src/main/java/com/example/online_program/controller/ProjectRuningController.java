@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
+
 
 /**
  * @Created by  qfl
@@ -35,7 +39,25 @@ public class ProjectRuningController extends BaseController{
     @PostMapping("/api/projectRunning/start/")
     public Result ProjectStart(@RequestBody JSONObject jsonParam) throws Exception {
         RunPython runPython = new RunPython();
-        List<String> list = runPython.run("/home/qiao/online_program/src/test/java/testtt.py");
+        String filename = (String) jsonParam.getJSONObject("data").get("filename");
+        String file_id = (String) jsonParam.getJSONObject("data").get("file_id");
+        String code = (String) jsonParam.getJSONObject("data").get("code");
+//        File file = new File("/home/qiao/online_program/src/main/java/com/example/online_program/controller/files"+filename);
+        File file = new File(filename);
+
+        // if file doesnt exists, then create it
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+
+        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(code);
+        bw.close();
+
+        System.out.println("Done");
+
+        List<String> list = runPython.run(filename);
 //        System.out.println(StringUtils.join(list.toArray()));
         logger.info("result" + list);
         Result result = ResultGenerator.genSuccessResult(list);

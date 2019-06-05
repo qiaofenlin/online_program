@@ -56,6 +56,6 @@ spring data jpa 直接访问数据库
 
 
 
-
+# [springboot 打包方式](https://www.cnblogs.com/zscc/articles/9428466.html)
 
 

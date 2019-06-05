@@ -117,6 +117,9 @@ $(function () {
         // var code = $('#runText').val();
         console.log("runbtn : " + node.text + "\t" + node.id,"\t"+code);
         //TODO  http run_code
+        var req_data= {"filename":FILEPATH + node.text+".py","file_id": node.id,"code":code}
+        var url= URLBASE+"/api/projectRunning/start/"
+        var result = post_run_code(url,req_data)
 
     })
 
@@ -270,6 +273,44 @@ function post (url,newD){
     });
 };
 
+function post_run_code (url,newD){
+    console.log(newD)
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: JSON.stringify({data:newD}),
+        // data: {data:newD},
+        contentType: 'application/json',
+        dataType: "json",
+        processData:false,
+        async:false,
+        success: function(r){
+            console.log("===============  r"+r)
+            if (r.code == 200){
+                console.log("======================= success",r.data)
+
+                var dataHtml = '';
+                console.log("result ===> "+r.data)
+                if(r.data.length != 0){
+                    for(var i=0;i<r.data.length;i++){
+                        dataHtml +=r.data[i] + '\n';
+                    }
+                }else{
+                    dataHtml = '暂无数据';
+                }
+                console.log("========================>>> ",dataHtml)
+                $("#consoleText").html(dataHtml)
+            }
+            else{
+                console.log("====================== fail ",r.message)
+                $("#consoleText").html(r.message)
+            }
+        },
+        error:function (e) {
+            console.log(e)
+        }
+    });
+};
 
 
 

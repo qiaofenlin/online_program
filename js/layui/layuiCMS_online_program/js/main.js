@@ -26,8 +26,9 @@ layui.config({
 			var hotNewsHtml = '';
 			for(var i=0;i<5;i++){
 				hotNewsHtml += '<tr>'
-		    	+'<td align="left">'+data[i].newsName+'</td>'
-		    	+'<td>'+data[i].newsTime+'</td>'
+		    	// +'<td align="left">'+data[i].newsName+'</td>'
+				+'<td  align="left"><a style="color:#1E9FFF;" target="_blank" href="'+data[i].newUrl+'">'+data[i].newsName+'</a></td>'
+				+'<td>'+data[i].newsTime+'</td>'
 		    	+'</tr>';
 			}
 			$(".hot_news").html(hotNewsHtml);
