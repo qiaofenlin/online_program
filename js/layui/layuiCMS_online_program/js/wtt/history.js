@@ -64,7 +64,7 @@ function countTxtRows(codeId) {
 
 function delcode(codeId) {
     var data = "{\"codeId\":\""+codeId+"\"}";
-    var obj = ajaxRequest("http://47.93.221.91:8080/code/delete",data,false);
+    var obj = ajaxRequest(URLBASE+"/code/delete",data,false);
     if (obj){
         if (obj.code==200){
             $("#"+codeId).remove();
